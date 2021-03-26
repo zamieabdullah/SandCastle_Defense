@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Kid
+    uniqueID: 568362871
+    locked: 0
+  - name: Crabs
+    uniqueID: 3288357073
+    locked: 0
