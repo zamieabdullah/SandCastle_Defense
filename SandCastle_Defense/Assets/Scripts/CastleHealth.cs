@@ -19,7 +19,9 @@ public class CastleHealth : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("castle"))
+        Debug.Log("hit");
+
+        if (other.gameObject.CompareTag("crab"))
         {
             TakeDamage(5);
         }
@@ -27,6 +29,8 @@ public class CastleHealth : MonoBehaviour
 
     void TakeDamage(int damage)
     {
+        Debug.Log("damage");
+
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }

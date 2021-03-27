@@ -195,6 +195,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 60229685}
   m_CullTransparentMesh: 0
+--- !u!1 &151437365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5514849297623593233, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1201477945}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &151437366
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 151437365}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0043236613}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.86, y: 1.76}
+    newSize: {x: 2.86, y: 1.76}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.86, y: 1.0768021}
+  m_EdgeRadius: 0
 --- !u!1001 &152768459
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -210,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 5514849297623593233, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: crab
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
@@ -989,6 +1021,38 @@ PolygonCollider2D:
       - {x: -0.01, y: -0.65999997}
       - {x: 0.049999997, y: -0.85999995}
       - {x: 0.11, y: -0.90999997}
+--- !u!1 &907816162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5514849297623593233, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5514849298618545160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &907816165
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907816162}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.047564536}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.86, y: 1.76}
+    newSize: {x: 2.86, y: 1.76}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.86, y: 1.1632826}
+  m_EdgeRadius: 0
 --- !u!1 &975810280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,9 +1131,10 @@ GameObject:
   - component: {fileID: 1004086022}
   - component: {fileID: 1004086024}
   - component: {fileID: 1004086025}
+  - component: {fileID: 1004086026}
   m_Layer: 0
   m_Name: sandcastle
-  m_TagString: castle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1148,7 +1213,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1227,6 +1292,59 @@ MonoBehaviour:
   maxHealth: 20
   currentHealth: 0
   healthBar: {fileID: 288236496}
+--- !u!50 &1004086026
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004086021}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!1 &1128490547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5514849297623593233, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+    type: 3}
+  m_PrefabInstance: {fileID: 152768459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &1128490548
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128490547}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.03459221}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.86, y: 1.76}
+    newSize: {x: 2.86, y: 1.76}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.86, y: 1.1027459}
+  m_EdgeRadius: 0
 --- !u!4 &1167275462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1245232483497702132, guid: a3a72eada1dc3440d9bfdaf78bf712bd,
@@ -1254,7 +1372,7 @@ PrefabInstance:
     - target: {fileID: 5514849297623593233, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: crab
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
@@ -1873,7 +1991,7 @@ PrefabInstance:
     - target: {fileID: 5514849297623593233, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: crab
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
