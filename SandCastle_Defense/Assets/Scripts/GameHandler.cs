@@ -19,4 +19,12 @@ public class GameHandler : MonoBehaviour
         Application.Quit();
         #endif
     }
+
+    void Update()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+    }
 }
