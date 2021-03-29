@@ -57,6 +57,12 @@ public class PlayerController : MonoBehaviour
             SetSanddollarCountText();
         }
 
+        //functionality is just collecting shovel for now
+        if (other.gameObject.CompareTag("beachshovel"))
+        {
+            Destroy(other.gameObject);
+        }
+
     }
 		
 		private void Flip()
