@@ -935,6 +935,7 @@ GameObject:
   - component: {fileID: 812899626}
   - component: {fileID: 812899629}
   - component: {fileID: 812899630}
+  - component: {fileID: 812899631}
   m_Layer: 0
   m_Name: kid
   m_TagString: Untagged
@@ -957,6 +958,7 @@ MonoBehaviour:
   kidSpeed: 5
   rb: {fileID: 812899629}
   sanddollarCountText: {fileID: 2052821884}
+  animator: {fileID: 812899631}
 --- !u!212 &812899627
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1077,6 +1079,25 @@ PolygonCollider2D:
       - {x: 0.089999996, y: -0.26999998}
       - {x: 0.13, y: -0.17}
       - {x: 0.14, y: 0.06}
+--- !u!95 &812899631
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812899625}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 75fa761ea7cfe4d958564254bc6ab37a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &950872397
 PrefabInstance:
   m_ObjectHideFlags: 0
