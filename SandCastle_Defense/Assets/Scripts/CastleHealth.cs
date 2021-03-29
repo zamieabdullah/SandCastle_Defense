@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CastleHealth : MonoBehaviour
 {
@@ -27,11 +29,25 @@ public class CastleHealth : MonoBehaviour
         }
     }
 
+    void LevelOver()
+    {
+        if (currentHealth == 5)
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
+    }
+
+
     void TakeDamage(int damage)
     {
         Debug.Log("damage");
 
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+
+        if (currentHealth <= 0)
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
     }
 }
