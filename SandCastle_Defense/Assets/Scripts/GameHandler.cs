@@ -27,4 +27,10 @@ public class GameHandler : MonoBehaviour
             Application.Quit();
         }
     }
+
+    //for how to play button
+    public void goToInstructions()
+    {
+        SceneManager.LoadScene("InstructionScene");
+    }
 }
