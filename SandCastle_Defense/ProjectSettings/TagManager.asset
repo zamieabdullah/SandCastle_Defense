@@ -8,6 +8,7 @@ TagManager:
   - crab
   - castle
   - beachshovel
+  - wave
   layers:
   - Default
   - TransparentFX
@@ -59,4 +60,7 @@ TagManager:
     locked: 0
   - name: Destroyed Sandcastle
     uniqueID: 603820957
+    locked: 0
+  - name: Waves
+    uniqueID: 2030155209
     locked: 0
