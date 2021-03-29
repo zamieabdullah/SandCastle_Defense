@@ -60,7 +60,8 @@ public class PlayerController : MonoBehaviour
         //functionality is just collecting shovel for now
         if (other.gameObject.CompareTag("beachshovel"))
         {
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            other.transform.parent = transform;
         }
 
     }

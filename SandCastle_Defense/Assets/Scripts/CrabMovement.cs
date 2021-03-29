@@ -18,5 +18,14 @@ public class CrabMovement : MonoBehaviour
 	    // transform.localPosition = new Vector3(xPosition, 0, 0);
 	}
 
+	void OnTriggerEnter2D(Collider2D other)
+	{
+
+		if (other.gameObject.CompareTag("beachshovel"))
+		{
+			target*= -1;
+		}
+	}
+
 
 }
