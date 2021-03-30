@@ -58,6 +58,9 @@ TagManager:
   - name: Kid
     uniqueID: 568362871
     locked: 0
+  - name: BeachShovel
+    uniqueID: 718684099
+    locked: 0
   - name: Destroyed Sandcastle
     uniqueID: 603820957
     locked: 0
