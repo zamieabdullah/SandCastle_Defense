@@ -6,10 +6,15 @@ public class CrabMovement : MonoBehaviour
 {
  	private Vector3 target = new Vector3(0, 2, 0);
  	private float speed = 1;
-	// float wiggleDistance = 1;
-	// float wiggleSpeed = 5;
-	 
-	void Update()
+    // float wiggleDistance = 1;
+    // float wiggleSpeed = 5;
+
+    private void Start()
+    {
+		SpawnCrab();
+    }
+
+    void Update()
 	{
 		transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
 
@@ -27,5 +32,11 @@ public class CrabMovement : MonoBehaviour
 		}
 	}
 
+	void SpawnCrab()
+    {
+		Vector2 crabPos = new Vector2(Random.Range(-7f, 7f), -5f);
+
+		transform.position = crabPos;
+    }
 
 }
