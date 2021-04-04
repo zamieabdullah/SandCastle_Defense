@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
   private int sanddollarCount;
 	private bool looking_right = true;
 
+    private AudioSource audioSource;
 
 	Vector2 movement;
 
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
     {
         sanddollarCount = 0;
         SetSanddollarCountText();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,7 +52,7 @@ public class PlayerController : MonoBehaviour
       
         if(other.gameObject.CompareTag("sanddollar"))
         {
-            
+            audioSource.Play();
             sanddollarCount++;
             Destroy(other.gameObject);
 
