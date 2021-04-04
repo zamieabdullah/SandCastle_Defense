@@ -7208,7 +7208,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9410088d129b2497e879ea5c4eabe15c, type: 2}
+  - {fileID: 2100000, guid: 28d8feb45a7e04264b58096f50c012ad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10168,6 +10168,7 @@ GameObject:
   - component: {fileID: 2060685451}
   - component: {fileID: 2060685450}
   - component: {fileID: 2060685449}
+  - component: {fileID: 2060685454}
   m_Layer: 0
   m_Name: Sandcastle
   m_TagString: Untagged
@@ -10192,7 +10193,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 4.125, y: 4.125}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -10246,9 +10247,9 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 288236496}
   spriteRenderer: {fileID: 0}
-  sprite1: {fileID: 21300000, guid: aff885436f74e44d493e3c447d3bff89, type: 3}
-  sprite2: {fileID: 21300000, guid: 7d6e5c370deba41fdb6393208e153c01, type: 3}
-  sprite3: {fileID: 21300000, guid: 8539a87a8fa9849dfaae5354ae42ced1, type: 3}
+  sprite1: {fileID: 21300000, guid: 1f7b8a3c2eef24189afb118d1c56458d, type: 3}
+  sprite2: {fileID: 0}
+  sprite3: {fileID: 0}
 --- !u!212 &2060685452
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10288,7 +10289,7 @@ SpriteRenderer:
   m_SortingLayerID: 1014968431
   m_SortingLayer: 1
   m_SortingOrder: 6
-  m_Sprite: {fileID: 21300000, guid: 8539a87a8fa9849dfaae5354ae42ced1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d2e8dbd177aa948afa46dccd7c371c54, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10307,12 +10308,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060685448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.14, z: 0}
+  m_LocalPosition: {x: 0, y: 2.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2060685454
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060685448}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 32207d4d138ed4df89326fe93cb8ccdf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &2131092322 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1245232483497702132, guid: a3a72eada1dc3440d9bfdaf78bf712bd,

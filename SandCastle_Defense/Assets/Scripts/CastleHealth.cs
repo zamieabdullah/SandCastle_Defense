@@ -66,10 +66,6 @@ public class CastleHealth : MonoBehaviour
 
     void ChangeSprite()
     {
-        if (currentHealth == 15)
-        {
-            spriteRenderer.sprite = sprite2;
-        }
         if (currentHealth == 10)
         {
             spriteRenderer.sprite = sprite1;
