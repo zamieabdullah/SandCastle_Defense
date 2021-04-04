@@ -22,9 +22,11 @@ public class CastleHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //spriteRenderer.sprite = sprite3;
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -34,6 +36,7 @@ public class CastleHealth : MonoBehaviour
         if (other.gameObject.CompareTag("crab"))
         {
             TakeDamage(5);
+            ChangeSprite();
         }
     }
 
@@ -57,13 +60,20 @@ public class CastleHealth : MonoBehaviour
         {
             SceneManager.LoadScene("LoseScene");
         }
+
+        
     }
 
     void ChangeSprite()
     {
+        if (currentHealth == 15)
+        {
+            spriteRenderer.sprite = sprite2;
+        }
         if (currentHealth == 10)
         {
             spriteRenderer.sprite = sprite1;
+
         }
         
     }
