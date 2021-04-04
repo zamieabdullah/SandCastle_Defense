@@ -4,12 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
+
 public class CastleHealth : MonoBehaviour
 {
     public int maxHealth = 20;
     public int currentHealth;
 
     public HealthBar healthBar;
+
+    public SpriteRenderer spriteRenderer;
+    public Sprite sprite1;
+    public Sprite sprite2;
+    public Sprite sprite3;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +39,7 @@ public class CastleHealth : MonoBehaviour
 
     void LevelOver()
     {
-        if (currentHealth == 5)
+        if (currentHealth == 0)
         {
             SceneManager.LoadScene("LoseScene");
         }
@@ -49,5 +57,14 @@ public class CastleHealth : MonoBehaviour
         {
             SceneManager.LoadScene("LoseScene");
         }
+    }
+
+    void ChangeSprite()
+    {
+        if (currentHealth == 10)
+        {
+            spriteRenderer.sprite = sprite1;
+        }
+        
     }
 }

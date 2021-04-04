@@ -28,13 +28,14 @@ public class CrabMovement : MonoBehaviour
 
 		if (other.gameObject.CompareTag("beachshovel"))
 		{
-			target*= -1;
+			target *= -2;
 		}
+		
 	}
 
 	void SpawnCrab()
     {
-		Vector2 crabPos = new Vector2(Random.Range(-7f, 7f), -5f);
+		Vector2 crabPos = new Vector2(Random.Range(-20f, 20f), -5f);
 
 		transform.position = crabPos;
     }
