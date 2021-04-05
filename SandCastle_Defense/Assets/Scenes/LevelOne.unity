@@ -4351,6 +4351,7 @@ GameObject:
   - component: {fileID: 799135089}
   - component: {fileID: 799135088}
   - component: {fileID: 799135090}
+  - component: {fileID: 799135091}
   m_Layer: 5
   m_Name: TimeText
   m_TagString: Untagged
@@ -4431,6 +4432,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDisplay: {fileID: 799135088}
+--- !u!114 &799135091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799135086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1001 &805524793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4492,6 +4508,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7855790222266154230, guid: a3a72eada1dc3440d9bfdaf78bf712bd,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8637036271087881499, guid: a3a72eada1dc3440d9bfdaf78bf712bd,
         type: 3}
@@ -4606,6 +4627,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kidSpeed: 5
   rb: {fileID: 812899629}
+  tilemap: {fileID: 1717802788}
+  player: {fileID: 812899625}
   sanddollarCountText: {fileID: 2052821884}
   animator: {fileID: 812899631}
 --- !u!212 &812899627
@@ -4754,7 +4777,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812899625}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 715d53659cbea496f9dc0c88a7264a23, type: 3}
   m_Name: 

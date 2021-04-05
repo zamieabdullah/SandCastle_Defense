@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using TMPro;
 
 public class PlayerController : MonoBehaviour
@@ -9,12 +10,14 @@ public class PlayerController : MonoBehaviour
 	public float kidSpeed = 5f;
 
 	public Rigidbody2D rb;
+    public Tilemap tilemap;
+    public GameObject player;
 
-  public TextMeshProUGUI sanddollarCountText;
+    public TextMeshProUGUI sanddollarCountText;
 	public Animator animator;
   private int sanddollarCount;
 	private bool looking_right = true;
-
+    private bool has_shovel = false;
     private AudioSource audioSource;
 
 	Vector2 movement;
@@ -40,6 +43,20 @@ public class PlayerController : MonoBehaviour
 				} else if (movement.x > 0 && !looking_right) {
 					  Flip();
 				}
+
+        if (Input.GetKeyDown("space"))
+        {
+            if (has_shovel == true)
+            {
+                //print("space key was pressed");
+                DigTrench();
+            }
+            else
+            {
+                Debug.Log("Get your darn shovel before you can dig!");
+            }
+            
+        }
     }
 
     void FixedUpdate()
@@ -64,6 +81,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("beachshovel"))
         {
             //Destroy(other.gameObject);
+            has_shovel = true;
             other.transform.parent = transform;
         }
 
@@ -85,6 +103,16 @@ public class PlayerController : MonoBehaviour
         sanddollarCountText.text = "Sanddollar Count: " + sanddollarCount.ToString();
         
     }
-        
+
+
+    void DigTrench()
+    {
+        // get current grid location
+        Vector3Int currCell = tilemap.WorldToCell(player.transform.position);
+
+        // delete the tile there
+        tilemap.SetTile(currCell, null);
+
+    }
 
 }
