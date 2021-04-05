@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 public class Timer : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class Timer : MonoBehaviour
 
     //private float timeLeft;           //holds Time.deltaTime value
     public float timeLeft;
+
+    public GameObject crab;
+    Vector2 whereToSpawn;
 
     private void Awake()
     {
@@ -65,6 +69,14 @@ public class Timer : MonoBehaviour
             if (timeLeft >= 0.00)
             {
                 countDisplay.text = "Wave Duration: " + timePlaying.ToString("mm':'ss");
+            }
+
+            if ((timeLeft >= 19.90 & timeLeft <= 20.00) | (timeLeft >= 9.90 & timeLeft <= 10.00))
+            {
+                Debug.Log("isnide");
+                    whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
+                    Instantiate(crab, whereToSpawn, Quaternion.identity);
+                
             }
 
             if (timeLeft <= 15.00)
