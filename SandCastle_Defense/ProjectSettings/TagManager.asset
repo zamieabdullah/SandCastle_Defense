@@ -52,11 +52,11 @@ TagManager:
   - name: Sanddollars
     uniqueID: 2367535129
     locked: 0
-  - name: Crabs
-    uniqueID: 3288357073
-    locked: 0
   - name: Kid
     uniqueID: 568362871
+    locked: 0
+  - name: Crabs
+    uniqueID: 3288357073
     locked: 0
   - name: BeachShovel
     uniqueID: 718684099

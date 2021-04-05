@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 	public Rigidbody2D rb;
     public Tilemap tilemap;
     public GameObject player;
+    public GameObject trench;
 
     public TextMeshProUGUI sanddollarCountText;
 	public Animator animator;
@@ -112,6 +113,7 @@ public class PlayerController : MonoBehaviour
 
         // delete the tile there
         tilemap.SetTile(currCell, null);
+        Instantiate(trench);
 
     }
 
