@@ -27,7 +27,7 @@ public class SpawnCrabs : MonoBehaviour
     {
         Timer newtimer = timer.GetComponent<Timer>();
 
-        if (timer.timeLeft < 10f)
+        if (newtimer.timeLeft < 10f)
         {
             //nextSpawn = Time.time + spawnRate;
             whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
