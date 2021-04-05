@@ -5,9 +5,10 @@ using UnityEngine;
 public class CrabMovement : MonoBehaviour
 {
  	private Vector3 target = new Vector3(0, 2, 0);
- 	public float speed = 1;
+ 	private float speed = 1;
     // float wiggleDistance = 1;
     // float wiggleSpeed = 5;
+
 
     private void Start()
     {
