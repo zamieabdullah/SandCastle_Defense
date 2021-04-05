@@ -29,6 +29,7 @@ public class CrabMovement : MonoBehaviour
 
 		if (other.gameObject.CompareTag("beachshovel"))
 		{
+			speed *= 2;
 			target.y = -5;
 			target.x = Random.Range(-20f, 20f);
 		}

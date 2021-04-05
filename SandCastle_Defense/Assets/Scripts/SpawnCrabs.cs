@@ -2,30 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class SpawnCrabs : MonoBehaviour
 {
-    public GameObject crabPrefab;
-    public float respawnTime = 10.0f;
-    private Vector2 screenBounds;
+    public GameObject[] crab;
+    //public GameObject timer;
 
-    // Use this for initialization
+    Vector2 whereToSpawn;
+    public float spawnRate = .5f;
+    float nextSpawn;
+
+    public GameObject timer = GameObject.Find("TimeText");
+    //Timer newtimer = GetComponent<Timer>;
+   
+
     void Start()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        StartCoroutine(crabWave());
-    }
-    private void spawnEnemy()
-    {
-        GameObject a = Instantiate(crabPrefab) as GameObject;
-        a.transform.position = new Vector2(Random.Range(-screenBounds.x, screenBounds.x), screenBounds.y * -5);
+        Vector2 crabPos = new Vector2(Random.Range(-20f, 20f), -5f);
+
+        transform.position = crabPos;
     }
 
-    IEnumerator crabWave()
+    void Update()
     {
-        while (true)
+        Timer newtimer = timer.GetComponent<Timer>();
+
+        if (timer.timeLeft < 10f)
         {
-            yield return new WaitForSeconds(respawnTime);
-            spawnEnemy();
+            //nextSpawn = Time.time + spawnRate;
+            whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
+
+            for (int i = 0; i < crab.Length; i++)
+            {
+                Instantiate(crab[i], whereToSpawn, Quaternion.identity);
+            }
+            
         }
+
     }
 }

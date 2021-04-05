@@ -19,8 +19,8 @@ public class Timer : MonoBehaviour
 
     private bool timerIsRunning;         //true when game starts, false when ends
 
-    private float timeLeft;           //holds Time.deltaTime value
-
+    //private float timeLeft;           //holds Time.deltaTime value
+    public float timeLeft;
 
     private void Awake()
     {
