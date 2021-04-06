@@ -27,12 +27,14 @@ public class CrabMovement : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 
-		if (other.gameObject.CompareTag("beachshovel"))
+		if ((other.gameObject.CompareTag("beachshovel")) | (other.gameObject.CompareTag("castle")))
 		{
-			speed *= 2;
+			speed *= 5;
 			target.y = -5;
 			target.x = Random.Range(-20f, 20f);
 		}
+
+
 		
 	}
 

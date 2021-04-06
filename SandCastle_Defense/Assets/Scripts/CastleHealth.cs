@@ -17,6 +17,7 @@ public class CastleHealth : MonoBehaviour
     public Sprite sprite1;
     public Sprite sprite2;
     public Sprite sprite3;
+    public Sprite sprite4;
 
 
     // Start is called before the first frame update
@@ -58,19 +59,41 @@ public class CastleHealth : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            SceneManager.LoadScene("LoseScene");
+            //SceneManager.LoadScene("LoseScene");
+            StartCoroutine(WaitForSceneLoad());
         }
+
 
         
     }
 
     void ChangeSprite()
     {
-        if (currentHealth == 10)
+        if (currentHealth == 15)
         {
             spriteRenderer.sprite = sprite1;
 
         }
+        else if (currentHealth == 10)
+        {
+            spriteRenderer.sprite = sprite2;
+        }
+        else if (currentHealth == 5)
+        {
+            spriteRenderer.sprite = sprite3;
+        }
+        else 
+        {
+            spriteRenderer.sprite = sprite4;
+        }
         
+        
+    }
+
+    private IEnumerator WaitForSceneLoad()
+    {
+        yield return new WaitForSeconds(.5f);
+        SceneManager.LoadScene("LoseScene");
+
     }
 }

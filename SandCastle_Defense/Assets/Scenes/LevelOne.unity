@@ -13838,7 +13838,7 @@ GameObject:
   - component: {fileID: 2060685454}
   m_Layer: 0
   m_Name: Sandcastle
-  m_TagString: Untagged
+  m_TagString: castle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13915,8 +13915,9 @@ MonoBehaviour:
   healthBar: {fileID: 288236496}
   spriteRenderer: {fileID: 0}
   sprite1: {fileID: 21300000, guid: 1f7b8a3c2eef24189afb118d1c56458d, type: 3}
-  sprite2: {fileID: 0}
-  sprite3: {fileID: 0}
+  sprite2: {fileID: 21300000, guid: 82981f88b7ffe49109e17af651a34e2b, type: 3}
+  sprite3: {fileID: 21300000, guid: aacc1698fd1a44f40baf5f1dc9c26f85, type: 3}
+  sprite4: {fileID: 0}
 --- !u!212 &2060685452
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13989,7 +13990,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060685448}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 32207d4d138ed4df89326fe93cb8ccdf, type: 2}
   m_CullingMode: 0
