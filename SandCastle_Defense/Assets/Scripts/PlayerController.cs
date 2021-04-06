@@ -37,7 +37,13 @@ public class PlayerController : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal") * kidSpeed;
         movement.y = Input.GetAxisRaw("Vertical") * kidSpeed;
 				
-				animator.SetFloat("Speed", Mathf.Abs(movement.x));
+				if (Mathf.Abs(movement.x) > 0.01) {
+					  animator.SetFloat("Speed", Mathf.Abs(movement.x));
+				} else if (Mathf.Abs(movement.y) > 0.01) {
+					  animator.SetFloat("Speed", Mathf.Abs(movement.y));
+				} else {
+					  animator.SetFloat("Speed", (float)0.00);
+				}
 				
 				if (movement.x < 0 && looking_right) {
 				    Flip();
