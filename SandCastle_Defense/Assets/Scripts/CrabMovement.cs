@@ -9,6 +9,8 @@ public class CrabMovement : MonoBehaviour
     // float wiggleDistance = 1;
     // float wiggleSpeed = 5;
 
+    public AudioSource deflectCrabAudio;
+
 
     private void Start()
     {
@@ -32,6 +34,9 @@ public class CrabMovement : MonoBehaviour
 			speed *= 5;
 			target.y = -5;
 			target.x = Random.Range(-20f, 20f);
+
+			deflectCrabAudio.Play();
+
 		}
 
 

@@ -19,6 +19,7 @@ public class CastleHealth : MonoBehaviour
     public Sprite sprite3;
     public Sprite sprite4;
 
+    private AudioSource crabAttackAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -28,16 +29,20 @@ public class CastleHealth : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+
+        SetUpAudio();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("hit");
 
+
         if (other.gameObject.CompareTag("crab"))
         {
             TakeDamage(5);
             ChangeSprite();
+            crabAttackAudio.Play();
         }
     }
 
@@ -95,5 +100,12 @@ public class CastleHealth : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         SceneManager.LoadScene("LoseScene");
 
+    }
+
+    void SetUpAudio()
+    {        
+        AudioSource[] allMyAudioSources = GetComponents<AudioSource>();
+        crabAttackAudio = allMyAudioSources[0];
+        
     }
 }

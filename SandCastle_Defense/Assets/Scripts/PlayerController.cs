@@ -19,7 +19,10 @@ public class PlayerController : MonoBehaviour
     public int sanddollarCount;
 	private bool looking_right = true;
     private bool has_shovel = false;
-    private AudioSource audioSource;
+
+    private AudioSource sanddollarAudio;
+    private AudioSource digAudio;
+    private AudioSource pickUpShovelAudio;
 
 	Vector2 movement;
 
@@ -28,7 +31,9 @@ public class PlayerController : MonoBehaviour
         sanddollarCount = 0;
         SetSanddollarCountText();
 
-        audioSource = GetComponent<AudioSource>();
+
+        SetUpAudio();
+        
     }
 
     // Update is called once per frame
@@ -76,7 +81,7 @@ public class PlayerController : MonoBehaviour
       
         if(other.gameObject.CompareTag("sanddollar"))
         {
-            audioSource.Play();
+            sanddollarAudio.Play();
             sanddollarCount++;
             Destroy(other.gameObject);
 
@@ -87,6 +92,8 @@ public class PlayerController : MonoBehaviour
         //functionality is just collecting shovel for now
         if (other.gameObject.CompareTag("beachshovel"))
         {
+            pickUpShovelAudio.Play();
+
             //Destroy(other.gameObject);
             has_shovel = true;
             other.transform.parent = transform;
@@ -114,6 +121,8 @@ public class PlayerController : MonoBehaviour
 
     void DigTrench()
     {
+    	digAudio.Play();
+
         // get current grid location
         Vector3Int currCell = tilemap.WorldToCell(player.transform.position);
 
@@ -123,4 +132,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    void SetUpAudio()
+    {        
+        AudioSource[] allMyAudioSources = GetComponents<AudioSource>();
+        sanddollarAudio = allMyAudioSources[0];
+        digAudio = allMyAudioSources[1];
+        pickUpShovelAudio = allMyAudioSources[2];
+    }
+
 }
+
