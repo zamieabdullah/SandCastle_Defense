@@ -10,7 +10,10 @@ public class PlayerController : MonoBehaviour
 	public float kidSpeed = 5f;
 
 	public Rigidbody2D rb;
-    public Tilemap tilemap;
+
+    public Tilemap tilemapBG;
+    //public Tilemap tilemapColliders;
+
     public GameObject player;
     public GameObject trench;
 
@@ -124,11 +127,13 @@ public class PlayerController : MonoBehaviour
     	digAudio.Play();
 
         // get current grid location
-        Vector3Int currCell = tilemap.WorldToCell(player.transform.position);
+        Vector3Int currCell = tilemapBG.WorldToCell(player.transform.position);
 
         // delete the tile there
-        tilemap.SetTile(currCell, null);
-        Instantiate(trench);
+        tilemapBG.SetTile(currCell, null);
+
+        //creates trench GameObject at the position of the player
+        Instantiate(trench,rb.transform.position,rb.transform.rotation);
 
     }
 

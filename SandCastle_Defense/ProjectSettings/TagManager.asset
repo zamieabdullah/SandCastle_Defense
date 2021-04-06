@@ -10,6 +10,7 @@ TagManager:
   - beachshovel
   - wave
   - shop
+  - trench
   layers:
   - Default
   - TransparentFX
