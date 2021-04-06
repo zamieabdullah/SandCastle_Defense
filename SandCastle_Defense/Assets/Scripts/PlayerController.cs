@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
 						transform.localScale = theScale;
 				}
 
-    void SetSanddollarCountText()
+    public void SetSanddollarCountText()
     {
         sanddollarCountText.text = "Sanddollar Count: " + sanddollarCount.ToString();
         

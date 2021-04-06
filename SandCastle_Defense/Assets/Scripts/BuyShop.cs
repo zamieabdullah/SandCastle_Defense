@@ -11,7 +11,11 @@ public class BuyShop : MonoBehaviour
     public void purchaseItem()
     {
         Debug.Log("BUYING ITEM ONE " + playercontroller.sanddollarCount);
-        playercontroller.sanddollarCount--;
+        if (playercontroller.sanddollarCount > 0)
+        {
+            playercontroller.sanddollarCount--;
+            playercontroller.SetSanddollarCountText();
+        }
         Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
     }
 }
