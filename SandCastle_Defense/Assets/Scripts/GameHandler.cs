@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
+
     public void startGame()
     {
         SceneManager.LoadScene("LevelOne");
@@ -33,4 +34,5 @@ public class GameHandler : MonoBehaviour
     {
         SceneManager.LoadScene("InstructionScene");
     }
+
 }

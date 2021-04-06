@@ -9,6 +9,7 @@ TagManager:
   - castle
   - beachshovel
   - wave
+  - shop
   layers:
   - Default
   - TransparentFX

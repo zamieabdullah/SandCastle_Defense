@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     public TextMeshProUGUI sanddollarCountText;
 	public Animator animator;
-  private int sanddollarCount;
+    public int sanddollarCount;
 	private bool looking_right = true;
     private bool has_shovel = false;
     private AudioSource audioSource;
