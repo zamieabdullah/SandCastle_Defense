@@ -9,12 +9,18 @@ public class CrabMovement : MonoBehaviour
     // float wiggleDistance = 1;
     // float wiggleSpeed = 5;
 
+	public Transform attackPoint;
+	public float attackRange = 2f;
+	public LayerMask castleLayer;
+
     public AudioSource deflectCrabAudio;
 
 
     private void Start()
     {
 		SpawnCrab();
+		attackPoint = gameObject.transform;
+		
     }
 
     void Update()
@@ -54,5 +60,25 @@ public class CrabMovement : MonoBehaviour
 
 		transform.position = crabPos;
     }
+
+
+
+	   void Attack(){
+        //animator.SetTrigger ("Attack");
+        Collider2D[] hitCastles = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, castleLayer);     //2D
+        
+
+        foreach(Collider2D castle in hitCastles){        //2D, change Collider2D to Collider for 3D
+            Debug.Log("We hit " + castle.name);
+            //target and attack the nearest castle
+        }
+    }
+
+
+	   //to help see the attack sphere in editor:
+   void OnDrawGizmosSelected(){
+        if (attackPoint == null) return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+   }
 
 }

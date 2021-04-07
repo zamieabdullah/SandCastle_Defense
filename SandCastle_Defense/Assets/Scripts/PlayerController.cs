@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public Tilemap tilemapBG;
     //public Tilemap tilemapColliders;
 
-    public GameObject player;
+    public Transform attachPoint;
     public GameObject trench;
 
     public TextMeshProUGUI sanddollarCountText;
@@ -34,9 +34,7 @@ public class PlayerController : MonoBehaviour
         sanddollarCount = 0;
         SetSanddollarCountText();
 
-
         SetUpAudio();
-        
     }
 
     // Update is called once per frame
@@ -59,7 +57,7 @@ public class PlayerController : MonoBehaviour
 					  Flip();
 				}
 
-        if (Input.GetKeyDown("space"))
+        if (Input.GetButtonDown("Dig"))
         {
             if (has_shovel == true)
             {
@@ -72,6 +70,15 @@ public class PlayerController : MonoBehaviour
             }
             
         }
+		
+		
+		if (Input.GetButtonDown("Equip"))
+        {
+            Debug.Log("you are equiping! " + Time.deltaTime);
+            
+        }
+		
+		
     }
 
     void FixedUpdate()
@@ -79,16 +86,16 @@ public class PlayerController : MonoBehaviour
     	rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }
 
+
+
     void OnTriggerEnter2D(Collider2D other)
-    {
-      
+    {      
         if(other.gameObject.CompareTag("sanddollar"))
         {
             sanddollarAudio.Play();
             sanddollarCount++;
             Destroy(other.gameObject);
-
-
+			
             SetSanddollarCountText();
         }
 
@@ -99,7 +106,8 @@ public class PlayerController : MonoBehaviour
 
             //Destroy(other.gameObject);
             has_shovel = true;
-            other.transform.parent = transform;
+            other.transform.parent = attachPoint;
+			other.transform.localRotation = Quaternion.Euler(0, 0, 135f);
         }
 
     }
@@ -127,13 +135,14 @@ public class PlayerController : MonoBehaviour
     	digAudio.Play();
 
         // get current grid location
-        Vector3Int currCell = tilemapBG.WorldToCell(player.transform.position);
+        Vector3Int currCell = tilemapBG.WorldToCell(transform.position);
 
         // delete the tile there
         tilemapBG.SetTile(currCell, null);
 
         //creates trench GameObject at the position of the player
-        Instantiate(trench,rb.transform.position,rb.transform.rotation);
+        GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
+		thisTrench.SetActive(true);
 
     }
 
