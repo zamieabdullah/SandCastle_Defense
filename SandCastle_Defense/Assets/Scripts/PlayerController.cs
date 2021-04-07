@@ -18,16 +18,16 @@ public class PlayerController : MonoBehaviour
     public GameObject trench;
 
     public TextMeshProUGUI sanddollarCountText;
-	public Animator animator;
+	  public Animator animator;
     public int sanddollarCount;
-	private bool looking_right = true;
+	  private bool looking_right = true;
     private bool has_shovel = false;
 
     private AudioSource sanddollarAudio;
     private AudioSource digAudio;
     private AudioSource pickUpShovelAudio;
 
-	Vector2 movement;
+	  Vector2 movement;
 
     void Start()
     {
@@ -106,8 +106,9 @@ public class PlayerController : MonoBehaviour
 
             //Destroy(other.gameObject);
             has_shovel = true;
+						animator.SetBool("Shovel", has_shovel);
             other.transform.parent = attachPoint;
-			other.transform.localRotation = Quaternion.Euler(0, 0, 135f);
+			      other.transform.localRotation = Quaternion.Euler(0, 0, 135f);
         }
 
     }
@@ -142,7 +143,7 @@ public class PlayerController : MonoBehaviour
 
         //creates trench GameObject at the position of the player
         GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
-		thisTrench.SetActive(true);
+		    thisTrench.SetActive(true);
 
     }
 
