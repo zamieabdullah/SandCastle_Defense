@@ -13997,6 +13997,7 @@ GameObject:
   - component: {fileID: 1947623265}
   - component: {fileID: 1947623264}
   - component: {fileID: 1947623263}
+  - component: {fileID: 1947623266}
   m_Layer: 0
   m_Name: beachshovel
   m_TagString: beachshovel
@@ -14094,6 +14095,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1947623266
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947623262}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c4b27926144d69a40ad87fab7ffeb585, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1960140996 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5514849297623593233, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
@@ -15407,12 +15427,12 @@ PrefabInstance:
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.28
+      value: -4.1356
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.57
+      value: 0.6535
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
@@ -15462,7 +15482,12 @@ PrefabInstance:
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593236, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
