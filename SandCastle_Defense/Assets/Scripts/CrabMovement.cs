@@ -14,6 +14,7 @@ public class CrabMovement : MonoBehaviour
 	public LayerMask castleLayer;
 
     public AudioSource deflectCrabAudio;
+    public PlayerController pc;
 
 
     private void Start()
@@ -35,9 +36,10 @@ public class CrabMovement : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 
-		if ((other.gameObject.CompareTag("beachshovel")) | (other.gameObject.CompareTag("castle")))
+		if ( (other.gameObject.CompareTag("castle")) )
 		{
-			speed *= 5;
+            // removed the if statement for without destroying shovel: (other.gameObject.CompareTag("beachshovel")
+            speed *= 5;
 			target.y = -5;
 			target.x = Random.Range(-20f, 20f);
 
@@ -45,7 +47,21 @@ public class CrabMovement : MonoBehaviour
 
 		}
 
-		if (other.gameObject.CompareTag("trench"))
+        if ( (other.gameObject.CompareTag("Player")) )
+        {
+            if (pc.has_shovel)
+            {
+                speed *= 5;
+                target.y = -5;
+                target.x = Random.Range(-20f, 20f);
+
+                deflectCrabAudio.Play();
+            }
+            
+
+        }
+
+        if (other.gameObject.CompareTag("trench"))
 		{
 			Debug.Log("crab hit trench!");
 		}

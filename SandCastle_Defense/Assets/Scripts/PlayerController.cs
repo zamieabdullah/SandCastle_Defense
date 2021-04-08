@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 	  public Animator animator;
     public int sanddollarCount;
 	  private bool looking_right = true;
-    private bool has_shovel = false;
+    public bool has_shovel = false;
 
     private AudioSource sanddollarAudio;
     private AudioSource digAudio;
@@ -104,11 +104,13 @@ public class PlayerController : MonoBehaviour
         {
             pickUpShovelAudio.Play();
 
-            //Destroy(other.gameObject);
+            Destroy(other.gameObject);
             has_shovel = true;
 						animator.SetBool("Shovel", has_shovel);
+
+                /* no need to attach shovel to head now: 
             other.transform.parent = attachPoint;
-			      other.transform.localRotation = Quaternion.Euler(0, 0, 135f);
+			      other.transform.localRotation = Quaternion.Euler(0, 0, 135f); */
         }
 
     }
@@ -126,7 +128,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetSanddollarCountText()
     {
-        sanddollarCountText.text = "Sanddollar Count: " + sanddollarCount.ToString();
+        sanddollarCountText.text = sanddollarCount.ToString();
         
     }
 
