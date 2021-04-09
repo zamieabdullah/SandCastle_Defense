@@ -12,12 +12,16 @@ public class SpawnCrabs : MonoBehaviour
     public float spawnRate = .5f;
     float nextSpawn;
 
-    public GameObject timer = GameObject.Find("TimeText");
+
+    public GameObject timer;
+   // public GameObject timer = GameObject.Find("TimeText");
     //Timer newtimer = GetComponent<Timer>;
    
 
     void Start()
     {
+        timer = GameObject.Find("TimeText");
+        
         Vector2 crabPos = new Vector2(Random.Range(-20f, 20f), -5f);
 
         transform.position = crabPos;

@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 	  private bool looking_right = true;
     public bool has_shovel = false;
 
+    public GameObject trenchParent;
+
     private AudioSource sanddollarAudio;
     private AudioSource digAudio;
     private AudioSource pickUpShovelAudio;
@@ -145,7 +147,8 @@ public class PlayerController : MonoBehaviour
 
         //creates trench GameObject at the position of the player
         GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
-		    thisTrench.SetActive(true);
+		thisTrench.SetActive(true);
+        thisTrench.transform.SetParent(trenchParent.transform);
 
     }
 
