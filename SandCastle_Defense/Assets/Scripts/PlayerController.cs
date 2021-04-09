@@ -21,7 +21,10 @@ public class PlayerController : MonoBehaviour
 	  public Animator animator;
     public int sanddollarCount;
 	  private bool looking_right = true;
+    
     public bool has_shovel = false;
+    public bool has_bucket = false;
+    public bool bucketIsEmpty = true;
 
     public GameObject trenchParent;
 
@@ -115,18 +118,55 @@ public class PlayerController : MonoBehaviour
 			      other.transform.localRotation = Quaternion.Euler(0, 0, 135f); */
         }
 
+        if (other.gameObject.CompareTag("bucket"))
+        {
+            Debug.Log("Yay you got the bucket");
+            has_bucket = true;
+            other.transform.parent = attachPoint;
+        }
+
+        if(other.gameObject.CompareTag("sandpile"))
+        {
+            if (has_bucket == true)
+            {
+                //fill bucket with sand
+                bucketIsEmpty = false;
+                Destroy(other.gameObject);
+                
+                kidSpeed = 3f;
+            }
+            else
+            {
+                Debug.Log("you need a bucket to get this sand");
+            }
+        }
+
+        if (other.gameObject.CompareTag("castle"))
+        {
+            Debug.Log("player collided with sandcastle");
+
+            if(bucketIsEmpty == false)
+            {
+                //C ASTLE GROWS AND GAINS AN "APPENDAGE" @CHRIS
+
+                // maybe here we should also give the castle more health somehow?
+
+                bucketIsEmpty = true;
+                kidSpeed = 5f;
+            }
+        }
     }
 		
-		private void Flip()
-				{
-						// Switch the way the player is labelled as facing.
-						looking_right = !looking_right;
+	private void Flip()
+			{
+					// Switch the way the player is labelled as facing.
+					looking_right = !looking_right;
 
-						// Multiply the player's x local scale by -1.
-						Vector3 theScale = transform.localScale;
-						theScale.x *= -1;
-						transform.localScale = theScale;
-				}
+					// Multiply the player's x local scale by -1.
+					Vector3 theScale = transform.localScale;
+					theScale.x *= -1;
+					transform.localScale = theScale;
+			}
 
     public void SetSanddollarCountText()
     {
@@ -152,6 +192,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
+
     void SetUpAudio()
     {        
         AudioSource[] allMyAudioSources = GetComponents<AudioSource>();
@@ -159,6 +201,7 @@ public class PlayerController : MonoBehaviour
         digAudio = allMyAudioSources[1];
         pickUpShovelAudio = allMyAudioSources[2];
     }
+
 
 }
 

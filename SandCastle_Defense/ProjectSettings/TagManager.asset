@@ -11,6 +11,8 @@ TagManager:
   - wave
   - shop
   - trench
+  - sandpile
+  - bucket
   layers:
   - Default
   - TransparentFX
