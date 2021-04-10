@@ -434,7 +434,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: cb8d8c9653e41fd43bd3771ccfcf76a4, type: 2}
+      objectReference: {fileID: 9100000, guid: 48e96a5f037ee4562be300cd42defa58, type: 2}
     - target: {fileID: 5394968002252069387, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_Offset.y
@@ -15443,7 +15443,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: cb8d8c9653e41fd43bd3771ccfcf76a4, type: 2}
+      objectReference: {fileID: 9100000, guid: 48e96a5f037ee4562be300cd42defa58, type: 2}
     - target: {fileID: 5394968002252069387, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_Offset.y
