@@ -24,7 +24,10 @@ public class PlayerController : MonoBehaviour
     
     public bool has_shovel = false;
     public bool has_bucket = false;
+    public bool has_crabcatcher = false;
+    
     public bool bucketIsEmpty = true;
+    public int digs_left;
 
     public GameObject trenchParent;
 
@@ -66,8 +69,31 @@ public class PlayerController : MonoBehaviour
         {
             if (has_shovel == true)
             {
-                //print("space key was pressed");
                 DigTrench();
+                // if (digs_left > 0)
+                // {
+
+                //     DigTrench();
+                //     digs_left--;
+
+                //     Debug.Log("digs left = " + digs_left);
+
+                //     if (digs_left==0)
+                //     {
+                //         Debug.Log("0000000 digs left");
+                       
+                //         // shovel disappears off the kid
+
+                //         has_shovel = false;
+                //         animator.SetBool("Shovel", has_shovel);
+
+                //     }
+                // }
+                // else
+                // {
+                //     Debug.Log("sorry you used up all your digs for this shovel");
+                // }
+            
             }
             else
             {
@@ -108,6 +134,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("beachshovel"))
         {
             pickUpShovelAudio.Play();
+            digs_left = 5;
 
             Destroy(other.gameObject);
             has_shovel = true;
@@ -122,6 +149,14 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Yay you got the bucket");
             has_bucket = true;
+            other.transform.parent = attachPoint;
+        }
+
+
+        if (other.gameObject.CompareTag("crabcatcher"))
+        {
+            Debug.Log("crabcatcher obtained!");
+            has_crabcatcher = true;
             other.transform.parent = attachPoint;
         }
 

@@ -49,7 +49,7 @@ public class CrabMovement : MonoBehaviour
 
         if ( (other.gameObject.CompareTag("Player")) )
         {
-            if (pc.has_shovel)
+            if (pc.has_crabcatcher)
             {
                 speed *= 5;
                 target.y = -5;
@@ -64,6 +64,7 @@ public class CrabMovement : MonoBehaviour
         if (other.gameObject.CompareTag("trench"))
 		{
 			Debug.Log("crab hit trench!");
+            //speed = 0.2f;
 		}
 
 

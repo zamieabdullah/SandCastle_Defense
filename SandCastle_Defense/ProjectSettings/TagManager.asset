@@ -13,6 +13,7 @@ TagManager:
   - trench
   - sandpile
   - bucket
+  - crabcatcher
   layers:
   - Default
   - TransparentFX
