@@ -71,9 +71,9 @@ public class Timer : MonoBehaviour
                 countDisplay.text = "Wave Duration: " + timePlaying.ToString("mm':'ss");
             }
 
-            if ((timeLeft >= 19.90 & timeLeft <= 20.00) | (timeLeft >= 9.90 & timeLeft <= 10.00))
+           if ((timeLeft >= 19.90 & timeLeft <= 20.00) | (timeLeft >= 9.90 & timeLeft <= 10.00))
             {
-                Debug.Log("isnide");
+                Debug.Log("spawn crabs");
                     whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
                     Instantiate(crab, whereToSpawn, Quaternion.identity);
                 

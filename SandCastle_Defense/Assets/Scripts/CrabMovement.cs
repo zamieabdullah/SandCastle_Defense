@@ -10,7 +10,7 @@ public class CrabMovement : MonoBehaviour
     // float wiggleSpeed = 5;
 
 	public Transform attackPoint;
-	public float attackRange = 2f;
+	public float attackRange = .000005f;
 	public LayerMask castleLayer;
 
     public AudioSource deflectCrabAudio;
@@ -21,13 +21,14 @@ public class CrabMovement : MonoBehaviour
     {
 		SpawnCrab();
 		attackPoint = gameObject.transform;
-		
+        
+
     }
 
     void Update()
-	{
-		transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
-
+    { 
+        transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+        //Attack();
 	    // float xPosition = Mathf.Sin(Time.time * wiggleSpeed) * wiggleDistance;
 
 	    // transform.localPosition = new Vector3(xPosition, 0, 0);
@@ -42,6 +43,7 @@ public class CrabMovement : MonoBehaviour
             speed *= 5;
 			target.y = -5;
 			target.x = Random.Range(-20f, 20f);
+            Destroy(other.gameObject);
 
 			deflectCrabAudio.Play();
 
@@ -54,7 +56,6 @@ public class CrabMovement : MonoBehaviour
                 speed *= 5;
                 target.y = -5;
                 target.x = Random.Range(-20f, 20f);
-
                 deflectCrabAudio.Play();
             }
             
@@ -82,6 +83,7 @@ public class CrabMovement : MonoBehaviour
 
 	   void Attack(){
         //animator.SetTrigger ("Attack");
+        
         Collider2D[] hitCastles = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, castleLayer);     //2D
         
 
@@ -89,6 +91,7 @@ public class CrabMovement : MonoBehaviour
             Debug.Log("We hit " + castle.name);
             //target and attack the nearest castle
         }
+        
     }
 
 

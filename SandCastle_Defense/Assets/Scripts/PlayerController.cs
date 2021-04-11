@@ -37,6 +37,10 @@ public class PlayerController : MonoBehaviour
 
 	  Vector2 movement;
 
+    public int bucketAmount = 0;
+
+    public GameObject castleTower;
+
     void Start()
     {
         sanddollarCount = 0;
@@ -106,6 +110,19 @@ public class PlayerController : MonoBehaviour
             Debug.Log("you are equiping! " + Time.deltaTime);
             
         }
+
+        if (Input.GetButtonDown("Build"))
+        {
+            if (bucketAmount <= 0)
+            {
+                Debug.Log("Your bucket is empty!");
+            }
+            else
+            { 
+                Instantiate(castleTower, transform.position, Quaternion.identity);
+                bucketAmount -= 2; 
+            }
+        }
 		
 		
     }
@@ -164,6 +181,7 @@ public class PlayerController : MonoBehaviour
             {
                 //fill bucket with sand
                 bucketIsEmpty = false;
+                bucketAmount += 2;
                 Destroy(other.gameObject);
                 
                 kidSpeed = 3f;
@@ -180,6 +198,7 @@ public class PlayerController : MonoBehaviour
 
             if(bucketIsEmpty == false)
             {
+
                 //C ASTLE GROWS AND GAINS AN "APPENDAGE" @CHRIS
 
                 // maybe here we should also give the castle more health somehow?

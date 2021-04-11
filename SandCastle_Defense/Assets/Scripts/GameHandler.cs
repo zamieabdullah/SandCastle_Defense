@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
+    public GameObject centerTower;
 
     public void startGame()
     {
@@ -30,6 +31,15 @@ public class GameHandler : MonoBehaviour
             #else
             Application.Quit();
             #endif
+        }
+    }
+
+    public void gameOver()
+    {
+        if (centerTower == null)
+        {
+            Debug.Log("center is null");
+            SceneManager.LoadScene("LoseScene");
         }
     }
 
