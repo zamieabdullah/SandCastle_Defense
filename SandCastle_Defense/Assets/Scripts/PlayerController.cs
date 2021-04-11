@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     public bool has_crabcatcher = false;
     
     public bool bucketIsEmpty = true;
-    public int digs_left;
+    private int digs_left;
 
     public GameObject trenchParent;
 
@@ -68,36 +68,34 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Dig"))
         {
             if (has_shovel == true)
-            {
-                DigTrench();
-                // if (digs_left > 0)
-                // {
+            {   
+                 //this should always run
+                 if (digs_left > 0)
+                 {
 
-                //     DigTrench();
-                //     digs_left--;
+                    DigTrench();
+                    Debug.Log("digs left after digging = " + digs_left);
 
-                //     Debug.Log("digs left = " + digs_left);
 
-                //     if (digs_left==0)
-                //     {
-                //         Debug.Log("0000000 digs left");
-                       
-                //         // shovel disappears off the kid
+                    if (digs_left == 0)
+                    {
+                        Debug.Log("0000000 digs left");
+                        
+                        has_shovel = false;
 
-                //         has_shovel = false;
-                //         animator.SetBool("Shovel", has_shovel);
+                        //how to destroy the shovel game object??? ********************pls help
 
-                //     }
-                // }
-                // else
-                // {
-                //     Debug.Log("sorry you used up all your digs for this shovel");
-                // }
+                        //shovel disappears off the kid
+                        animator.SetBool("Shovel", has_shovel);
+
+                    }
+
+                 }
             
             }
             else
             {
-                Debug.Log("Get your darn shovel before you can dig!");
+                Debug.Log("Get your shovel before you can dig!");
             }
             
         }
@@ -225,6 +223,8 @@ public class PlayerController : MonoBehaviour
 		thisTrench.SetActive(true);
         thisTrench.transform.SetParent(trenchParent.transform);
 
+        //subtracts digs left
+        digs_left--;
     }
 
 
