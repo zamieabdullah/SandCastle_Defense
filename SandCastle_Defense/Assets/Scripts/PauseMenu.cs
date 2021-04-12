@@ -10,20 +10,20 @@ public class PauseMenu : MonoBehaviour
 
     public static bool GameisPaused = false;
     public GameObject pauseMenuUI;
-    //public AudioMixer mixer;
-    //public static float volumeLevel = 1.0f;
+    public AudioMixer mixer;
+    public static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
 
-    //void Awake()
-    //{
-    //    SetLevel(volumeLevel);
-    //    GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
-    //    if (sliderTemp != null)
-    //    {
-    //        sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
-    //        sliderVolumeCtrl.value = volumeLevel;
-    //    }
-    //}
+    void Awake()
+    {
+        SetLevel(volumeLevel);
+        GameObject sliderTemp = GameObject.FindWithTag("PauseMenuSlider");
+        if (sliderTemp != null)
+        {
+            sliderVolumeCtrl = sliderTemp.GetComponent<Slider>();
+            sliderVolumeCtrl.value = volumeLevel;
+        }
+    }
 
     void Start()
     {
@@ -34,7 +34,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("ESCAPE KEY");
             if (GameisPaused)
             {
                 Resume();
@@ -65,7 +64,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         //restart the game:
         //SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("LevelOne");
     }
 
     public void QuitGame()
@@ -74,9 +73,9 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
 
-    //public void SetLevel(float sliderValue)
-    //{
-    //    mixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 20);
-    //    volumeLevel = sliderValue;
-    //}
+    public void SetLevel(float sliderValue)
+    {
+        mixer.SetFloat("MusicVolume", Mathf.Log10(sliderValue) * 20);
+        volumeLevel = sliderValue;
+    }
 }
