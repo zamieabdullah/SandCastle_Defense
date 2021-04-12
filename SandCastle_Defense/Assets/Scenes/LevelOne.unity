@@ -582,7 +582,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -879,6 +879,11 @@ PrefabInstance:
       propertyPath: castleTowers.Array.data[9]
       value: 
       objectReference: {fileID: 913804957}
+    - target: {fileID: 5514849297623593236, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: centerTower
+      value: 
+      objectReference: {fileID: 1806484359}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcbf3f8346f5648cd8f5e3b829b1632c, type: 3}
 --- !u!1 &95874034
@@ -1679,6 +1684,11 @@ PrefabInstance:
       propertyPath: castleTowers.Array.data[9]
       value: 
       objectReference: {fileID: 913804957}
+    - target: {fileID: 5514849297623593236, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: centerTower
+      value: 
+      objectReference: {fileID: 1806484359}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcbf3f8346f5648cd8f5e3b829b1632c, type: 3}
 --- !u!1 &176958332
@@ -2092,7 +2102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &288236494
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8387,6 +8397,11 @@ PrefabInstance:
       propertyPath: centerTower
       value: 
       objectReference: {fileID: 1806484359}
+    - target: {fileID: 6029998707585235184, guid: 8529c51ac16ff4eeb8580fbe29782b86,
+        type: 3}
+      propertyPath: castleLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 6029998707585235185, guid: 8529c51ac16ff4eeb8580fbe29782b86,
         type: 3}
       propertyPath: m_Name
@@ -8964,6 +8979,11 @@ PrefabInstance:
       propertyPath: castleTowers.Array.data[9]
       value: 
       objectReference: {fileID: 913804957}
+    - target: {fileID: 5514849297623593236, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: centerTower
+      value: 
+      objectReference: {fileID: 1806484359}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcbf3f8346f5648cd8f5e3b829b1632c, type: 3}
 --- !u!4 &1230374044 stripped
@@ -8988,7 +9008,7 @@ GameObject:
   - component: {fileID: 1296304582}
   m_Layer: 0
   m_Name: Colliders
-  m_TagString: Untagged
+  m_TagString: wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18596,6 +18616,11 @@ PrefabInstance:
       propertyPath: castleTowers.Array.data[9]
       value: 
       objectReference: {fileID: 913804957}
+    - target: {fileID: 5514849297623593236, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: centerTower
+      value: 
+      objectReference: {fileID: 1806484359}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcbf3f8346f5648cd8f5e3b829b1632c, type: 3}
 --- !u!1001 &7548884194846453683

@@ -15,6 +15,7 @@ TagManager:
   - bucket
   - crabcatcher
   - PauseMenuSlider
+  - tower
   layers:
   - Default
   - TransparentFX
