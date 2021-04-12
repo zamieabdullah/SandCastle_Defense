@@ -14,6 +14,7 @@ TagManager:
   - sandpile
   - bucket
   - crabcatcher
+  - PauseMenuSlider
   layers:
   - Default
   - TransparentFX

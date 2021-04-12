@@ -22,17 +22,18 @@ public class GameHandler : MonoBehaviour
         #endif
     }
 
-    void Update()
-    {
-        if (Input.GetKey("escape"))
-        {
-            #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-            #else
-            Application.Quit();
-            #endif
-        }
-    }
+    // I (Eric) commented this out so pause key is escape now
+    //void Update()
+    //{
+    //    if (Input.GetKey("escape"))
+    //    {
+    //        #if UNITY_EDITOR
+    //        UnityEditor.EditorApplication.isPlaying = false;
+    //        #else
+    //        Application.Quit();
+    //        #endif
+    //    }
+    //}
 
     public void gameOver()
     {
