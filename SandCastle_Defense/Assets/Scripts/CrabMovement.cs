@@ -65,7 +65,7 @@ public class CrabMovement : MonoBehaviour
         if (other.gameObject.CompareTag("trench"))
 		{
 			Debug.Log("crab hit trench!");
-            //speed = 0.2f;
+            speed *= 0.5f;
 		}
 
 

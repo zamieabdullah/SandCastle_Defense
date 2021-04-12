@@ -21,13 +21,16 @@ public class PlayerController : MonoBehaviour
 	  public Animator animator;
     public int sanddollarCount;
 	  private bool looking_right = true;
-    
+
+    //So player can only hold one item at a time
+    private GameObject current_item;
+    public bool has_item = false;
     public bool has_shovel = false;
     public bool has_bucket = false;
     public bool has_crabcatcher = false;
     
     public bool bucketIsEmpty = true;
-    private int digs_left;
+    private int digs_left = 5;
 
     public GameObject trenchParent;
 
@@ -86,8 +89,8 @@ public class PlayerController : MonoBehaviour
                         Debug.Log("0000000 digs left");
                         
                         has_shovel = false;
-
-                        //how to destroy the shovel game object??? ********************pls help
+                        has_item = false;
+                        Destroy(current_item);
 
                         //shovel disappears off the kid
                         animator.SetBool("Shovel", has_shovel);
@@ -105,10 +108,31 @@ public class PlayerController : MonoBehaviour
         }
 		
 		
-		if (Input.GetButtonDown("Equip"))
+		if (Input.GetButtonDown("Equip") && (has_item == true))
         {
-            Debug.Log("you are equiping! " + Time.deltaTime);
-            
+            Debug.Log("you are letting go! " + Time.deltaTime);
+            if (has_shovel == true)
+            {
+                has_shovel = false;
+                animator.SetBool("Shovel", has_shovel);
+            }
+            if (has_crabcatcher == true)
+            {
+                has_crabcatcher = false;
+            }
+            if (has_bucket == true)
+            {
+                has_bucket = false;
+            }
+
+            //copying the trench digging functionality
+            Vector3Int currCell = tilemapBG.WorldToCell(transform.position);
+            GameObject clone = Instantiate(current_item, currCell , transform.rotation);
+            clone.SetActive(true);
+            clone.transform.SetParent(trenchParent.transform);
+            has_item = false;
+            Destroy(current_item);
+
         }
 
         if (Input.GetButtonDown("Build"))
@@ -148,31 +172,55 @@ public class PlayerController : MonoBehaviour
         //functionality is just collecting shovel for now
         if (other.gameObject.CompareTag("beachshovel"))
         {
-            pickUpShovelAudio.Play();
-            digs_left = 5;
+            if (has_item == false)
+            {
+                pickUpShovelAudio.Play();
 
-            Destroy(other.gameObject);
-            has_shovel = true;
-						animator.SetBool("Shovel", has_shovel);
+                //removed 'digs_left = 5' because player shouldn't get more digs by putting down the shovel!
+                //Destroy(other.gameObject);
+                other.gameObject.SetActive(false);
+                has_shovel = true;
+                has_item = true;
+                current_item = other.gameObject;
+                animator.SetBool("Shovel", has_shovel);
 
-                /* no need to attach shovel to head now: 
-            other.transform.parent = attachPoint;
-			      other.transform.localRotation = Quaternion.Euler(0, 0, 135f); */
+                     /* no need to attach shovel to head now: 
+                    other.transform.parent = attachPoint;
+			         other.transform.localRotation = Quaternion.Euler(0, 0, 135f); */
+            }
+            else
+            {
+                Debug.Log("You can only pick up one item at a time!");
+            }
         }
 
         if (other.gameObject.CompareTag("bucket"))
         {
-            Debug.Log("Yay you got the bucket");
-            has_bucket = true;
-            other.transform.parent = attachPoint;
+            if (has_item == false)
+            {
+                Debug.Log("Yay you got the bucket");
+                has_bucket = true;
+                has_item = true;
+                current_item = other.gameObject;
+                other.transform.parent = attachPoint;
+            }
+            else
+            {
+                Debug.Log("You can only pick up one item at a time!");
+            }
         }
 
 
         if (other.gameObject.CompareTag("crabcatcher"))
         {
-            Debug.Log("crabcatcher obtained!");
-            has_crabcatcher = true;
-            other.transform.parent = attachPoint;
+            if (has_item == false)
+            {
+                Debug.Log("crabcatcher obtained!");
+                has_item = true;
+                has_crabcatcher = true;
+                current_item = other.gameObject;
+                other.transform.parent = attachPoint;
+            }
         }
 
         if(other.gameObject.CompareTag("sandpile"))
@@ -226,7 +274,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-
+    //trenches will only last for 10 seconds of the game
     void DigTrench()
     {
     	digAudio.Play();
@@ -241,6 +289,7 @@ public class PlayerController : MonoBehaviour
         GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
 		thisTrench.SetActive(true);
         thisTrench.transform.SetParent(trenchParent.transform);
+        Destroy(thisTrench, 10f);
 
         //subtracts digs left
         digs_left--;
