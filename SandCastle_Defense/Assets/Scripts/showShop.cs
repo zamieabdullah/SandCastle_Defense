@@ -24,11 +24,14 @@ public class showShop : MonoBehaviour
     public void showStore()
     {
         shop.SetActive(true);
+        //pause game
+        Time.timeScale = 0f;
     }
     //hide store
     public void hideStore()
     {
         shop.SetActive(false);
+        Time.timeScale = 1f;
     }
 
 }
