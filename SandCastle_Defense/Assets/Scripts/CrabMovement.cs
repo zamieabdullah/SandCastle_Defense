@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CrabMovement : MonoBehaviour
 {
@@ -16,6 +18,8 @@ public class CrabMovement : MonoBehaviour
     public AudioSource deflectCrabAudio;
     public PlayerController pc;
 
+    public GameObject centerTower;
+
 
     private void Start()
     {
@@ -28,7 +32,7 @@ public class CrabMovement : MonoBehaviour
     void Update()
     { 
         transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
-        //Attack();
+      
 	    // float xPosition = Mathf.Sin(Time.time * wiggleSpeed) * wiggleDistance;
 
 	    // transform.localPosition = new Vector3(xPosition, 0, 0);
@@ -43,9 +47,18 @@ public class CrabMovement : MonoBehaviour
             speed *= 5;
 			target.y = -5;
 			target.x = Random.Range(-20f, 20f);
-            Destroy(other.gameObject);
 
-			deflectCrabAudio.Play();
+            other.gameObject.tag = "tower";
+            other.transform.parent = transform;
+
+            if (other.gameObject.name == "Center Tower")
+            {
+                StartCoroutine(gameOver());
+            }
+            
+            StartCoroutine(destroyTower(other.gameObject));
+
+            deflectCrabAudio.Play();
 
 		}
 
@@ -81,13 +94,16 @@ public class CrabMovement : MonoBehaviour
 
 
 
-	   void Attack(){
+	void Attack()
+    {
         //animator.SetTrigger ("Attack");
         
         Collider2D[] hitCastles = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, castleLayer);     //2D
         
 
-        foreach(Collider2D castle in hitCastles){        //2D, change Collider2D to Collider for 3D
+        foreach(Collider2D castle in hitCastles)
+        {
+            //2D, change Collider2D to Collider for 3D
             Debug.Log("We hit " + castle.name);
             //target and attack the nearest castle
         }
@@ -96,9 +112,24 @@ public class CrabMovement : MonoBehaviour
 
 
 	   //to help see the attack sphere in editor:
-   void OnDrawGizmosSelected(){
+   void OnDrawGizmosSelected()
+   {
         if (attackPoint == null) return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+   }
+
+   IEnumerator destroyTower(GameObject tower)
+   {
+        yield return new WaitForSeconds(5);
+
+        Destroy(tower);
+   }
+
+   IEnumerator gameOver()
+   {
+        yield return new WaitForSeconds(1.5f);
+
+        SceneManager.LoadScene("LoseScene");
    }
 
 }
