@@ -1824,7 +1824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b681cb54271a465b8d39076b791eb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playercontroller: {fileID: 812899626}
+  playercontroller: {fileID: 96897582}
   purchase: {fileID: 176958334}
 --- !u!1 &226890151
 GameObject:
@@ -6021,8 +6021,8 @@ RectTransform:
   m_Father: {fileID: 661390616}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8032,7 +8032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b681cb54271a465b8d39076b791eb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playercontroller: {fileID: 812899626}
+  playercontroller: {fileID: 96897582}
   purchase: {fileID: 866967273}
 --- !u!1 &870299182
 GameObject:
@@ -8177,7 +8177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b681cb54271a465b8d39076b791eb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playercontroller: {fileID: 812899626}
+  playercontroller: {fileID: 96897582}
   purchase: {fileID: 870299184}
 --- !u!1 &913804957
 GameObject:
@@ -10462,7 +10462,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10713,7 +10713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1396275248
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12085,8 +12085,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3608e36c2feb6423e996b317824dec9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shop: {fileID: 0}
-  playercontroller: {fileID: 812899626}
+  shop: {fileID: 1998149628}
+  playercontroller: {fileID: 96897582}
   showbutton: {fileID: 1561855019}
   hidebutton: {fileID: 54769881}
 --- !u!1 &1618657689
@@ -16138,7 +16138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b681cb54271a465b8d39076b791eb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playercontroller: {fileID: 812899626}
+  playercontroller: {fileID: 96897582}
   purchase: {fileID: 1741647684}
 --- !u!1 &1753281081
 GameObject:
