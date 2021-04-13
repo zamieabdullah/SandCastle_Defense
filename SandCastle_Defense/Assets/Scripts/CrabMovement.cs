@@ -14,10 +14,9 @@ public class CrabMovement : MonoBehaviour
 	public Transform attackPoint;
 	public float attackRange = .000005f;
 	public LayerMask castleLayer;
-
     public AudioSource deflectCrabAudio;
-    public PlayerController pc;
 
+    public PlayerController pc;
     public GameObject centerTower;
 
 
@@ -45,7 +44,7 @@ public class CrabMovement : MonoBehaviour
 		{
             // removed the if statement for without destroying shovel: (other.gameObject.CompareTag("beachshovel")
             speed *= 5;
-			target.y = -5;
+			target.y = -10;
 			target.x = Random.Range(-20f, 20f);
 
             other.gameObject.tag = "tower";
@@ -65,6 +64,7 @@ public class CrabMovement : MonoBehaviour
         {
             if (pc.has_crabcatcher)
             {
+                Debug.Log("CRABCATCHER HIT CRAB");
                 speed *= 5;
                 target.y = -5;
                 target.x = Random.Range(-20f, 20f);
@@ -119,7 +119,7 @@ public class CrabMovement : MonoBehaviour
 
    IEnumerator gameOver()
    {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3.5f);
 
         SceneManager.LoadScene("LoseScene");
    }

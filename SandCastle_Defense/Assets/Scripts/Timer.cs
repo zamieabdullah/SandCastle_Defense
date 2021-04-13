@@ -13,6 +13,10 @@ public class Timer : MonoBehaviour
 
     public Text countDisplay;            //Text variable for GameObject reference
 
+    CrabMovement crabMovement;
+    public PlayerController pc;
+    public GameObject centerTower;
+
 
     // PRIVATE DECLARATIONS
     private TimeSpan timePlaying;        //TimeSpan part of System namespace
@@ -37,6 +41,10 @@ public class Timer : MonoBehaviour
         countDisplay.text = "Wave1: 01:00.00";
         timerIsRunning = false;
         BeginTimer();
+
+        crabMovement = GetComponent<CrabMovement>();
+        crabMovement.centerTower = centerTower;
+        crabMovement.pc = pc;
 
     }
 
@@ -71,11 +79,11 @@ public class Timer : MonoBehaviour
                 countDisplay.text = "Wave Duration: " + timePlaying.ToString("mm':'ss");
             }
 
-           if ((timeLeft >= 19.90 & timeLeft <= 20.00) | (timeLeft >= 9.90 & timeLeft <= 10.00))
+            // THIS IS WHERE WE DETERMINE CRAB WAVES... one crab per 0.01
+           if ((timeLeft >= 42.96 & timeLeft <= 43.00) | (timeLeft >= 19.90 & timeLeft <= 20.00) | (timeLeft >= 9.90 & timeLeft <= 10.00))
             {
                 Debug.Log("spawn crabs");
-                    whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
-                    Instantiate(crab, whereToSpawn, Quaternion.identity);
+                SpawnCrab();
                 
             }
 
@@ -102,5 +110,13 @@ public class Timer : MonoBehaviour
 
 
     }
+
+    void SpawnCrab()
+    {
+        Vector2 whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
+
+        Instantiate(crab, whereToSpawn, Quaternion.identity);
+    }
+
 
 }
