@@ -55,8 +55,7 @@ public class CrabMovement : MonoBehaviour
             {
                 StartCoroutine(gameOver());
             }
-            
-            StartCoroutine(destroyTower(other.gameObject));
+           
 
             deflectCrabAudio.Play();
 
@@ -116,13 +115,6 @@ public class CrabMovement : MonoBehaviour
    {
         if (attackPoint == null) return;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-   }
-
-   IEnumerator destroyTower(GameObject tower)
-   {
-        yield return new WaitForSeconds(5);
-
-        Destroy(tower);
    }
 
    IEnumerator gameOver()
