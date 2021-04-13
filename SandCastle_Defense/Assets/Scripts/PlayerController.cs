@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
             if (has_crabcatcher == true)
             {
                 has_crabcatcher = false;
+								animator.SetBool("CrabCatcher", has_crabcatcher);
             }
             if (has_bucket == true)
             {
@@ -216,10 +217,12 @@ public class PlayerController : MonoBehaviour
             if (has_item == false)
             {
                 Debug.Log("crabcatcher obtained!");
+								other.gameObject.SetActive(false);
                 has_item = true;
                 has_crabcatcher = true;
                 current_item = other.gameObject;
-                other.transform.parent = attachPoint;
+                // other.transform.parent = attachPoint;
+								animator.SetBool("CrabCatcher", has_crabcatcher);
             }
         }
 
