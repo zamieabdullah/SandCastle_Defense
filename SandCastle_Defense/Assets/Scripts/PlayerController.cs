@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
             if (has_crabcatcher == true)
             {
                 has_crabcatcher = false;
-								animator.SetBool("CrabCatcher", has_crabcatcher);
+				animator.SetBool("CrabCatcher", has_crabcatcher);
             }
             if (has_bucket == true)
             {
@@ -127,13 +127,14 @@ public class PlayerController : MonoBehaviour
             }
 
             //copying the trench digging functionality
+            GetComponent<BoxCollider2D>().enabled = false;
             Vector3Int currCell = tilemapBG.WorldToCell(transform.position);
             GameObject clone = Instantiate(current_item, currCell , transform.rotation);
             clone.SetActive(true);
             clone.transform.SetParent(trenchParent.transform);
             has_item = false;
             Destroy(current_item);
-
+            StartCoroutine(EnableBox(0.5f));
         }
 
         if (Input.GetButtonDown("Build"))
@@ -150,6 +151,12 @@ public class PlayerController : MonoBehaviour
         }
 		
 		
+    }
+
+    IEnumerator EnableBox(float wait_time)
+    {
+        yield return new WaitForSeconds(wait_time);
+        GetComponent<BoxCollider2D>().enabled = true;
     }
 
     void FixedUpdate()
