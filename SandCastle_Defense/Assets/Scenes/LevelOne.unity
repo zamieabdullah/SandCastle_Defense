@@ -699,6 +699,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 48e96a5f037ee4562be300cd42defa58, type: 2}
+    - target: {fileID: 1525720470485422465, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5394968002252069387, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_Offset.y
@@ -734,6 +739,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: crab
       objectReference: {fileID: 0}
+    - target: {fileID: 5514849297623593233, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593234, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -762,7 +772,7 @@ PrefabInstance:
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.785796
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
@@ -1342,6 +1352,8 @@ MonoBehaviour:
   kidSpeed: 5
   rb: {fileID: 96897584}
   tilemapBG: {fileID: 1717802788}
+  tilemapColliders: {fileID: 1618657692}
+  trenchTile: {fileID: 11400000, guid: ba7f8aaf3366c4e3aa5b1dafc09cbb8d, type: 2}
   attachPoint: {fileID: 391503914}
   trench: {fileID: 8076314191066260015, guid: 5d7fa37961362c7418149d2d7fb38eab, type: 3}
   sanddollarCountText: {fileID: 2052821884}
@@ -1368,7 +1380,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01783967, y: -0.30407605}
+  m_Offset: {x: -0.01783967, y: 0.006608069}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1379,7 +1391,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.292962, y: 0.38184792}
+  m_Size: {x: 0.292962, y: 1.003216}
   m_EdgeRadius: 0
 --- !u!50 &96897584
 Rigidbody2D:
@@ -1499,6 +1511,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1665440914}
     m_Modifications:
+    - target: {fileID: 1525720470485422465, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5394968002252069387, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_Offset.y
@@ -2244,7 +2261,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 568362871
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 437917b0b5dbb4855a4e332335bbcdd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2396,7 +2413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &402393697
 Transform:
   m_ObjectHideFlags: 0
@@ -6197,7 +6214,7 @@ Transform:
   - {fileID: 913804958}
   - {fileID: 2066839099}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &540265545
 GameObject:
@@ -7168,6 +7185,8 @@ MonoBehaviour:
   kidSpeed: 5
   rb: {fileID: 812899629}
   tilemapBG: {fileID: 1717802788}
+  tilemapColliders: {fileID: 0}
+  trenchTile: {fileID: 0}
   attachPoint: {fileID: 0}
   trench: {fileID: 2092152920}
   sanddollarCountText: {fileID: 2052821884}
@@ -7218,7 +7237,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 568362871
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: d0fd7fdd621cc47fa89d6c4e0186ed19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8001,7 +8020,7 @@ PrefabInstance:
     - target: {fileID: 6029998707585234959, guid: 8529c51ac16ff4eeb8580fbe29782b86,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6029998707585234959, guid: 8529c51ac16ff4eeb8580fbe29782b86,
         type: 3}
@@ -8334,7 +8353,7 @@ Transform:
   - {fileID: 2063259491}
   - {fileID: 1099324331}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1196606747 stripped
 Transform:
@@ -8349,6 +8368,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1665440914}
     m_Modifications:
+    - target: {fileID: 1525720470485422465, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5394968002252069387, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_Offset.y
@@ -8384,6 +8408,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: crab
       objectReference: {fileID: 0}
+    - target: {fileID: 5514849297623593233, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593234, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -8412,7 +8441,7 @@ PrefabInstance:
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.785796
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
@@ -8562,7 +8591,7 @@ GameObject:
   - component: {fileID: 1296304583}
   - component: {fileID: 1296304582}
   m_Layer: 0
-  m_Name: Colliders
+  m_Name: TilemapWave
   m_TagString: wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8620,7 +8649,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 90
+  m_SortingOrder: 110
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -9761,7 +9790,7 @@ CompositeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -9771,21 +9800,7 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 1296304584}
     m_ColliderPaths:
-    - - X: 120000000
-        Y: -70000000
-      - X: 120000000
-        Y: -30625000
-      - X: 115625000
-        Y: -30625000
-      - X: 110625000
-        Y: -31250000
-      - X: 110000000
-        Y: -32500000
-      - X: 110000000
-        Y: -33750000
-      - X: 100000000
-        Y: -31250000
-      - X: 96875000
+    - - X: 96875000
         Y: -31250000
       - X: 90000000
         Y: -32500000
@@ -9899,6 +9914,20 @@ CompositeCollider2D:
         Y: -30625000
       - X: -140000000
         Y: -70000000
+      - X: 120000000
+        Y: -70000000
+      - X: 120000000
+        Y: -30625000
+      - X: 115625000
+        Y: -30625000
+      - X: 110625000
+        Y: -31250000
+      - X: 110000000
+        Y: -32500000
+      - X: 110000000
+        Y: -33750000
+      - X: 100000000
+        Y: -31250000
   m_CompositePaths:
     m_Paths:
     - - {x: 11.99997, y: -7}
@@ -9975,18 +10004,18 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296304578}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!19719996 &1296304584
 TilemapCollider2D:
@@ -11540,9 +11569,10 @@ GameObject:
   - component: {fileID: 1618657690}
   - component: {fileID: 1618657692}
   - component: {fileID: 1618657691}
-  m_Layer: 0
-  m_Name: TilemapFG
-  m_TagString: Untagged
+  - component: {fileID: 1618657693}
+  m_Layer: 9
+  m_Name: TilemapTrenches
+  m_TagString: trench
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11599,7 +11629,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 105
+  m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -11646,6 +11676,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &1618657693
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618657689}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1640761172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11838,7 +11894,7 @@ GameObject:
   - component: {fileID: 1717802786}
   - component: {fileID: 1717802788}
   - component: {fileID: 1717802787}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TilemapBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11897,7 +11953,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -17738,7 +17794,7 @@ PrefabInstance:
     - target: {fileID: 7413021243275682345, guid: a7592c3724ebc493ca7f49cc962e8818,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7413021243275682345, guid: a7592c3724ebc493ca7f49cc962e8818,
         type: 3}
@@ -17769,6 +17825,16 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 48e96a5f037ee4562be300cd42defa58, type: 2}
+    - target: {fileID: 1525720470485422465, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525720470485422465, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5394968002252069387, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_Offset.y
@@ -17837,7 +17903,7 @@ PrefabInstance:
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.785796
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
