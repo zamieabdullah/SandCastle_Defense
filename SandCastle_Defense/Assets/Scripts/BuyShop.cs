@@ -7,15 +7,58 @@ public class BuyShop : MonoBehaviour
 {
     public PlayerController playercontroller;
     public Button purchase;
+    public GameObject item, parent;
 
-    public void purchaseItem()
+    public void purchaseShovel()
     {
-        Debug.Log("BUYING ITEM " + playercontroller.sanddollarCount);
+        Debug.Log("BUYING SHOVEL " + playercontroller.sanddollarCount);
         if (playercontroller.sanddollarCount > 2)
         {
             playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
             playercontroller.SetSanddollarCountText();
+
+            GameObject a = Instantiate(item) as GameObject;
+            a.transform.position = new Vector2(Random.Range(-13f, 13f), Random.Range(-3f, 7f));
+            a.transform.SetParent(parent.transform);
         } else
+        {
+            Debug.Log("CANNOT BUY!!! Collect sand dollars");
+        }
+        Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
+    }
+
+    public void purchaseCrabcatcher()
+    {
+        Debug.Log("BUYING CRAB CATCHER " + playercontroller.sanddollarCount);
+        if (playercontroller.sanddollarCount > 2)
+        {
+            playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
+            playercontroller.SetSanddollarCountText();
+
+            GameObject a = Instantiate(item) as GameObject;
+            a.transform.position = new Vector2(Random.Range(-13f, 13f), Random.Range(-3f, 7f));
+            a.transform.SetParent(parent.transform);
+        }
+        else
+        {
+            Debug.Log("CANNOT BUY!!! Collect sand dollars");
+        }
+        Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
+    }
+
+    public void purchaseBucket()
+    {
+        Debug.Log("BUYING BUCKET " + playercontroller.sanddollarCount);
+        if (playercontroller.sanddollarCount > 2)
+        {
+            playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
+            playercontroller.SetSanddollarCountText();
+
+            GameObject a = Instantiate(item) as GameObject;
+            a.transform.position = new Vector2(Random.Range(-13f, 13f), Random.Range(-3f, 7f));
+            a.transform.SetParent(parent.transform);
+        }
+        else
         {
             Debug.Log("CANNOT BUY!!! Collect sand dollars");
         }
