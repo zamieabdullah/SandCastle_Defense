@@ -50,4 +50,10 @@ public class GameHandler : MonoBehaviour
         SceneManager.LoadScene("InstructionScene");
     }
 
+    //to go to page two of instructions
+    public void goToInstructionsTwo()
+    {
+        SceneManager.LoadScene("InstructionsTwo");
+    }
+
 }
