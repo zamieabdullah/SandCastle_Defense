@@ -18,7 +18,7 @@ public class BuyShop : MonoBehaviour
             playercontroller.SetSanddollarCountText();
 
             GameObject a = Instantiate(item) as GameObject;
-            a.transform.position = new Vector2(Random.Range(-13f, 13f), Random.Range(-3f, 7f));
+            a.transform.position = new Vector2(Random.Range(-10f, 10f), Random.Range(-3f, 5f));
             a.transform.SetParent(parent.transform);
         } else
         {
@@ -36,7 +36,7 @@ public class BuyShop : MonoBehaviour
             playercontroller.SetSanddollarCountText();
 
             GameObject a = Instantiate(item) as GameObject;
-            a.transform.position = new Vector2(Random.Range(-13f, 13f), Random.Range(-3f, 7f));
+            a.transform.position = new Vector2(Random.Range(-10f, 10f), Random.Range(-3f, 5f));
             a.transform.SetParent(parent.transform);
         }
         else
@@ -55,7 +55,7 @@ public class BuyShop : MonoBehaviour
             playercontroller.SetSanddollarCountText();
 
             GameObject a = Instantiate(item) as GameObject;
-            a.transform.position = new Vector2(Random.Range(-13f, 13f), Random.Range(-3f, 7f));
+            a.transform.position = new Vector2(Random.Range(-10f, 10f), Random.Range(-3f, 5f));
             a.transform.SetParent(parent.transform);
         }
         else
