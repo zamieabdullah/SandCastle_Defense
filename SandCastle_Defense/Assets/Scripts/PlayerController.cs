@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     public Tilemap tilemapBG;
     public Tilemap tilemapColliders;
-    public Tile trenchTile;
+    public RuleTile trenchRuleTile;
 
     public Transform attachPoint;
     public GameObject trench;
@@ -293,8 +293,8 @@ public class PlayerController : MonoBehaviour
         // get current grid location
         Vector3Int currCell = tilemapColliders.WorldToCell(transform.position);
 
-        // delete the tile there
-        tilemapColliders.SetTile(currCell, trenchTile);
+        // replace the tile there with trenchRuleTile
+        tilemapColliders.SetTile(currCell, trenchRuleTile);
 
         //creates trench GameObject at the position of the player
         GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
