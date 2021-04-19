@@ -52,7 +52,7 @@ public class Timer : MonoBehaviour
     public void BeginTimer()
     {
         timerIsRunning = true;
-        timeLeft = 45f; //0.5 minute 
+        timeLeft = 90f; //0.5 minute 
 
         StartCoroutine(UpdateTimer());
     }
@@ -80,7 +80,7 @@ public class Timer : MonoBehaviour
             }
 
             // THIS IS WHERE WE DETERMINE CRAB WAVES... one crab per 0.01
-           if ((timeLeft >= 42.96 & timeLeft <= 43.00) | (timeLeft >= 19.90 & timeLeft <= 20.00) | (timeLeft >= 9.90 & timeLeft <= 10.00))
+            if ((timeLeft >= 59.96 & timeLeft <= 60.00) | (timeLeft >= 39.96 & timeLeft <= 40.00) | (timeLeft >= 19.96 & timeLeft <= 20.00))
             {
                 Debug.Log("spawn crabs");
                 SpawnCrab();

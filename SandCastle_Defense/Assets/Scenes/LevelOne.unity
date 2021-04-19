@@ -713,7 +713,6 @@ GameObject:
   - component: {fileID: 95874038}
   - component: {fileID: 95874037}
   - component: {fileID: 95874040}
-  - component: {fileID: 95874039}
   m_Layer: 8
   m_Name: Tower7
   m_TagString: castle
@@ -833,18 +832,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.341661, y: 0.8586781}
   m_EdgeRadius: 0
---- !u!114 &95874039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95874034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c3f08b56ab04c199515086560a4947, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &95874040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16550,7 +16537,6 @@ GameObject:
   - component: {fileID: 2066839102}
   - component: {fileID: 2066839101}
   - component: {fileID: 2066839104}
-  - component: {fileID: 2066839103}
   m_Layer: 8
   m_Name: Tower9
   m_TagString: castle
@@ -16670,18 +16656,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.4294932, y: 1.0449421}
   m_EdgeRadius: 0
---- !u!114 &2066839103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066839098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c3f08b56ab04c199515086560a4947, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2066839104
 MonoBehaviour:
   m_ObjectHideFlags: 0
