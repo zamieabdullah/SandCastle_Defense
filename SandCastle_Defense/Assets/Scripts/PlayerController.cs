@@ -209,6 +209,7 @@ public class PlayerController : MonoBehaviour
             if (has_item == false)
             {
                 Debug.Log("Yay you got the bucket");
+								other.gameObject.SetActive(false);
                 has_bucket = true;
                 has_item = true;
                 current_item = other.gameObject;
