@@ -6862,7 +6862,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 568.2998, y: -62.799805}
+  m_AnchoredPosition: {x: 1026, y: -672.51}
   m_SizeDelta: {x: 593.553, y: 95.41162}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &799135088
@@ -6919,8 +6919,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDisplay: {fileID: 799135088}
-  pc: {fileID: 96897582}
-  centerTower: {fileID: 1806484359}
   timeLeft: 0
   crab: {fileID: 1960140996}
 --- !u!114 &799135091
@@ -15723,6 +15721,12 @@ MonoBehaviour:
   crab: []
   spawnRate: 0.5
   timer: {fileID: 799135086}
+--- !u!82 &1960140999 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5467298393899171249, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+    type: 3}
+  m_PrefabInstance: {fileID: 5514849298618545160}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1992638841
 GameObject:
   m_ObjectHideFlags: 0
@@ -17444,6 +17448,11 @@ PrefabInstance:
       propertyPath: centerTower
       value: 
       objectReference: {fileID: 1806484359}
+    - target: {fileID: 3068128729054085751, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: deflectCrabAudio
+      value: 
+      objectReference: {fileID: 1960140999}
     - target: {fileID: 5394968002252069387, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_Offset.y
