@@ -16,6 +16,7 @@ TagManager:
   - crabcatcher
   - PauseMenuSlider
   - tower
+  - physicalshop
   layers:
   - Default
   - TransparentFX

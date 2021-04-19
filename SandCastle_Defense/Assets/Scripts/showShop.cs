@@ -7,26 +7,38 @@ public class showShop : MonoBehaviour
 {
     public GameObject shop;
     public PlayerController playercontroller;
-    public Button showbutton, hidebutton;
+    public Button hidebutton;
+    SpriteRenderer shopSprite;
 
     void Start()
     {
         shop = GameObject.FindWithTag("shop");
         shop.SetActive(false);
+        shopSprite = GetComponent<SpriteRenderer>();
+        shopSprite.color = Color.grey;
     }
 
     void Update()
     {
-        showbutton.onClick.AddListener(showStore);
         hidebutton.onClick.AddListener(hideStore);
+        if (playercontroller.sanddollarCount > 2)
+        {
+            shopSprite.color = Color.white;
+        }
     }
+
     //show shop
-    public void showStore()
+    void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("physicalshop"))
+        {
+            Debug.Log("Opening Shop");
+        }
         shop.SetActive(true);
         //pause game
         Time.timeScale = 0f;
     }
+
     //hide store
     public void hideStore()
     {
