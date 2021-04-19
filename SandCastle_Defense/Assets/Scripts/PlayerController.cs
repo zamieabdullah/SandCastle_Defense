@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public bool has_bucket = false;
     public bool has_crabcatcher = false;
     
-    public bool bucketIsEmpty = true;
+    public bool bucketFilled = false;
     private int digs_left = 5;
 
     public GameObject trenchParent;
@@ -125,6 +125,7 @@ public class PlayerController : MonoBehaviour
             if (has_bucket == true)
             {
                 has_bucket = false;
+								animator.SetBool("Bucket", has_bucket);
             }
 
             //copying the trench digging functionality
@@ -211,7 +212,7 @@ public class PlayerController : MonoBehaviour
                 has_bucket = true;
                 has_item = true;
                 current_item = other.gameObject;
-                other.transform.parent = attachPoint;
+								animator.SetBool("Bucket", has_bucket);
             }
             else
             {
@@ -239,10 +240,10 @@ public class PlayerController : MonoBehaviour
             if (has_bucket == true)
             {
                 //fill bucket with sand
-                bucketIsEmpty = false;
+                bucketFilled = true;
                 bucketAmount += 2;
                 Destroy(other.gameObject);
-                
+                animator.SetBool("BucketFull", bucketFilled);
                 kidSpeed = 3f;
             }
             else
@@ -255,14 +256,15 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("player collided with sandcastle");
 
-            if(bucketIsEmpty == false)
+            if(bucketFilled == true)
             {
 
                 //C ASTLE GROWS AND GAINS AN "APPENDAGE" @CHRIS
 
                 // maybe here we should also give the castle more health somehow?
 
-                bucketIsEmpty = true;
+                bucketFilled = false;
+								animator.SetBool("BucketFull", bucketFilled);
                 kidSpeed = 5f;
             }
         }
