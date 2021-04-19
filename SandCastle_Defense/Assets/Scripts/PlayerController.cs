@@ -92,6 +92,7 @@ public class PlayerController : MonoBehaviour
                         has_shovel = false;
                         has_item = false;
                         Destroy(current_item);
+												digs_left = 5;
 
                         //shovel disappears off the kid
                         animator.SetBool("Shovel", has_shovel);
