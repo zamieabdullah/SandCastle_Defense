@@ -14,8 +14,8 @@ public class Timer : MonoBehaviour
     public Text countDisplay;            //Text variable for GameObject reference
 
     CrabMovement crabMovement;
-    public PlayerController pc;
-    public GameObject centerTower;
+    //public PlayerController pc;
+    //public GameObject centerTower;
 
 
     // PRIVATE DECLARATIONS
@@ -42,9 +42,9 @@ public class Timer : MonoBehaviour
         timerIsRunning = false;
         BeginTimer();
 
-        crabMovement = GetComponent<CrabMovement>();
-        crabMovement.centerTower = centerTower;
-        crabMovement.pc = pc;
+        //crabMovement = GetComponent<CrabMovement>();
+        //crabMovement.centerTower = centerTower;
+        //crabMovement.pc = pc;
 
     }
 
