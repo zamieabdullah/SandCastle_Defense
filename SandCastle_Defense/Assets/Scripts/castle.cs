@@ -9,7 +9,7 @@ public class castle : MonoBehaviour
     {
         if (other.gameObject.CompareTag("wave"))
         {
-            Debug.Log("hit wave");
+            Debug.Log("tower hit wave and is destroyed");
             Destroy(gameObject);
         }
     }

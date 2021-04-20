@@ -13,7 +13,9 @@ public class PlayerController : MonoBehaviour
 
     public Tilemap tilemapBG;
     public Tilemap tilemapColliders;
-    public RuleTile trenchRuleTile;
+    public RuleTile trenchRuleTileDry;
+    public RuleTile trenchRuleTileWet;
+    
 
     public Transform attachPoint;
     public GameObject trench;
@@ -241,6 +243,8 @@ public class PlayerController : MonoBehaviour
 
         if(other.gameObject.CompareTag("sandpile"))
         {
+        
+
             if (has_bucket == true)
             {
                 //fill bucket with sand
@@ -309,7 +313,7 @@ public class PlayerController : MonoBehaviour
         Vector3Int currCell = tilemapColliders.WorldToCell(transform.position);
 
         // replace the tile there with trenchRuleTile
-        tilemapColliders.SetTile(currCell, trenchRuleTile);
+        tilemapColliders.SetTile(currCell, trenchRuleTileWet);
 
         //creates trench GameObject at the position of the player
         GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);

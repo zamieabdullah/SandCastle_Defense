@@ -1316,7 +1316,8 @@ MonoBehaviour:
   rb: {fileID: 96897584}
   tilemapBG: {fileID: 1717802788}
   tilemapColliders: {fileID: 1618657692}
-  trenchRuleTile: {fileID: 11400000, guid: b7804f832a30348e7bba6c306b9ca319, type: 2}
+  trenchRuleTileDry: {fileID: 11400000, guid: b7804f832a30348e7bba6c306b9ca319, type: 2}
+  trenchRuleTileWet: {fileID: 11400000, guid: e4226af6c0bff4a8cb8441f434be7c8c, type: 2}
   attachPoint: {fileID: 391503914}
   trench: {fileID: 8076314191066260015, guid: 5d7fa37961362c7418149d2d7fb38eab, type: 3}
   sanddollarCountText: {fileID: 2052821884}
@@ -7201,7 +7202,8 @@ MonoBehaviour:
   rb: {fileID: 812899629}
   tilemapBG: {fileID: 1717802788}
   tilemapColliders: {fileID: 0}
-  trenchRuleTile: {fileID: 0}
+  trenchRuleTileDry: {fileID: 0}
+  trenchRuleTileWet: {fileID: 0}
   attachPoint: {fileID: 0}
   trench: {fileID: 2092152920}
   sanddollarCountText: {fileID: 2052821884}
@@ -9867,6 +9869,7 @@ GameObject:
   - component: {fileID: 1618657691}
   - component: {fileID: 1618657694}
   - component: {fileID: 1618657693}
+  - component: {fileID: 1618657695}
   m_Layer: 9
   m_Name: TilemapTrenches
   m_TagString: trench
@@ -10044,6 +10047,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1618657695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618657689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b9a3248973d420dbb92903835923f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tilemapColliders: {fileID: 1618657692}
+  trenchRuleTileDry: {fileID: 11400000, guid: b7804f832a30348e7bba6c306b9ca319, type: 2}
+  trenchRuleTileWet: {fileID: 11400000, guid: e4226af6c0bff4a8cb8441f434be7c8c, type: 2}
 --- !u!1001 &1640761172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10233,9 +10251,10 @@ GameObject:
   - component: {fileID: 1717802786}
   - component: {fileID: 1717802788}
   - component: {fileID: 1717802787}
-  m_Layer: 9
+  - component: {fileID: 1717802789}
+  m_Layer: 4
   m_Name: TilemapBG
-  m_TagString: Untagged
+  m_TagString: wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13756,6 +13775,32 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!61 &1717802789
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717802785}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.5, y: -5.984807}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 25, y: 2.0304852}
+  m_EdgeRadius: 0
 --- !u!1 &1719880616
 GameObject:
   m_ObjectHideFlags: 0
@@ -16779,5 +16824,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5670200409659299984, guid: 5d7fa37961362c7418149d2d7fb38eab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5d7fa37961362c7418149d2d7fb38eab, type: 3}
