@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject castleTower;
 
+    public showShop showShop;
+
     void Start()
     {
         sanddollarCount = 0;
@@ -269,6 +271,15 @@ public class PlayerController : MonoBehaviour
 								animator.SetBool("BucketFull", bucketFilled);
                 kidSpeed = 5f;
             }
+        }
+
+        //show shop
+        if (other.gameObject.CompareTag("physicalshop"))
+        {
+            Debug.Log("Opening Shop");
+            showShop.shop.SetActive(true);
+            //pause game
+            Time.timeScale = 0f;
         }
     }
 		

@@ -1331,6 +1331,7 @@ MonoBehaviour:
   bucketAmount: 0
   castleTower: {fileID: 4889900415070837901, guid: 9e792924d593a4606be50d8f14d4ea9d,
     type: 3}
+  showShop: {fileID: 89968270}
 --- !u!61 &96897583
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7214,6 +7215,7 @@ MonoBehaviour:
   trenchParent: {fileID: 0}
   bucketAmount: 0
   castleTower: {fileID: 0}
+  showShop: {fileID: 0}
 --- !u!212 &812899627
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14470,9 +14472,9 @@ GameObject:
   - component: {fileID: 1961271541}
   - component: {fileID: 1961271540}
   - component: {fileID: 1961271539}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -27,17 +27,17 @@ public class showShop : MonoBehaviour
         }
     }
 
-    //show shop
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("physicalshop"))
-        {
-            Debug.Log("Opening Shop");
-        }
-        shop.SetActive(true);
-        //pause game
-        Time.timeScale = 0f;
-    }
+    ////show shop, moved to playercontroller script since random spawning of sanddollars triggered this
+    //void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    if (other.gameObject.CompareTag("physicalshop"))
+    //    {
+    //        Debug.Log("Opening Shop");
+    //    }
+    //    shop.SetActive(true);
+    //    //pause game
+    //    Time.timeScale = 0f;
+    //}
 
     //hide store
     public void hideStore()
