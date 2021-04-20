@@ -116,32 +116,7 @@ public class PlayerController : MonoBehaviour
 		
 		if (Input.GetButtonDown("Equip") && (has_item == true))
         {
-            Debug.Log("you are letting go! " + Time.deltaTime);
-            if (has_shovel == true)
-            {
-                has_shovel = false;
-                animator.SetBool("Shovel", has_shovel);
-            }
-            if (has_crabcatcher == true)
-            {
-                has_crabcatcher = false;
-				animator.SetBool("CrabCatcher", has_crabcatcher);
-            }
-            if (has_bucket == true)
-            {
-                has_bucket = false;
-								animator.SetBool("Bucket", has_bucket);
-            }
-
-            //copying the trench digging functionality
-            GetComponent<BoxCollider2D>().enabled = false;
-            Vector3Int currCell = tilemapBG.WorldToCell(transform.position);
-            GameObject clone = Instantiate(current_item, currCell , transform.rotation);
-            clone.SetActive(true);
-            clone.transform.SetParent(trenchParent.transform);
-            has_item = false;
-            Destroy(current_item);
-            StartCoroutine(EnableBox(0.5f));
+            PutDown();
         }
 
         if (Input.GetButtonDown("Build"))
@@ -187,6 +162,11 @@ public class PlayerController : MonoBehaviour
         //functionality is just collecting shovel for now
         if (other.gameObject.CompareTag("beachshovel"))
         {
+            if (has_item == true)
+            {
+                PutDown();
+            }
+
             if (has_item == false)
             {
                 pickUpShovelAudio.Play();
@@ -211,6 +191,11 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("bucket"))
         {
+            if (has_item == true)
+            {
+                PutDown();
+            }
+
             if (has_item == false)
             {
                 Debug.Log("Yay you got the bucket");
@@ -229,6 +214,11 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.CompareTag("crabcatcher"))
         {
+            if (has_item == true)
+            {
+                PutDown();
+            }
+
             if (has_item == false)
             {
                 Debug.Log("crabcatcher obtained!");
@@ -319,7 +309,7 @@ public class PlayerController : MonoBehaviour
         GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
 		thisTrench.SetActive(true);
         thisTrench.transform.SetParent(trenchParent.transform);
-        Destroy(thisTrench, 10f);
+        //Destroy(thisTrench, 10f);
 
         //subtracts digs left
         digs_left--;
@@ -335,6 +325,35 @@ public class PlayerController : MonoBehaviour
         pickUpShovelAudio = allMyAudioSources[2];
     }
 
+    void PutDown()
+    {
+        Debug.Log("you are letting go! " + Time.deltaTime);
+        if (has_shovel == true)
+        {
+            has_shovel = false;
+            animator.SetBool("Shovel", has_shovel);
+        }
+        if (has_crabcatcher == true)
+        {
+            has_crabcatcher = false;
+            animator.SetBool("CrabCatcher", has_crabcatcher);
+        }
+        if (has_bucket == true)
+        {
+            has_bucket = false;
+                            animator.SetBool("Bucket", has_bucket);
+        }
+
+        //copying the trench digging functionality
+        GetComponent<BoxCollider2D>().enabled = false;
+        Vector3Int currCell = tilemapBG.WorldToCell(transform.position);
+        GameObject clone = Instantiate(current_item, currCell , transform.rotation);
+        clone.SetActive(true);
+        clone.transform.SetParent(trenchParent.transform);
+        has_item = false;
+        Destroy(current_item);
+        StartCoroutine(EnableBox(0.5f));
+    }
 
 }
 
