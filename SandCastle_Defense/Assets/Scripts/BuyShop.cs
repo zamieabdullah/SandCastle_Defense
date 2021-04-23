@@ -8,6 +8,7 @@ public class BuyShop : MonoBehaviour
     public PlayerController playercontroller;
     public Button purchase;
     public GameObject item, parent;
+    public Text feedbackText;
 
     public void purchaseShovel()
     {
@@ -20,8 +21,12 @@ public class BuyShop : MonoBehaviour
             GameObject a = Instantiate(item) as GameObject;
             a.transform.position = new Vector2(Random.Range(-10f, 10f), Random.Range(-3f, 5f));
             a.transform.SetParent(parent.transform);
+            feedbackText.color = Color.green;
+            feedbackText.text = "Successful Purchase!";
         } else
         {
+            feedbackText.color = Color.red;
+            feedbackText.text = "Get more sand dollars!";
             Debug.Log("CANNOT BUY!!! Collect sand dollars");
         }
         Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
@@ -38,9 +43,13 @@ public class BuyShop : MonoBehaviour
             GameObject a = Instantiate(item) as GameObject;
             a.transform.position = new Vector2(Random.Range(-10f, 10f), Random.Range(-3f, 5f));
             a.transform.SetParent(parent.transform);
+            feedbackText.color = Color.green;
+            feedbackText.text = "Successful Purchase!";
         }
         else
         {
+            feedbackText.color = Color.red;
+            feedbackText.text = "Get more sand dollars!";
             Debug.Log("CANNOT BUY!!! Collect sand dollars");
         }
         Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
@@ -57,9 +66,14 @@ public class BuyShop : MonoBehaviour
             GameObject a = Instantiate(item) as GameObject;
             a.transform.position = new Vector2(Random.Range(-10f, 10f), Random.Range(-3f, 5f));
             a.transform.SetParent(parent.transform);
+            feedbackText.color = Color.green;
+            feedbackText.text = "Successful Purchase!";
+
         }
         else
         {
+            feedbackText.color = Color.red;
+            feedbackText.text = "Get more sand dollars!";
             Debug.Log("CANNOT BUY!!! Collect sand dollars");
         }
         Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);

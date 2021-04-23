@@ -9,6 +9,7 @@ public class showShop : MonoBehaviour
     public PlayerController playercontroller;
     public Button hidebutton;
     SpriteRenderer shopSprite;
+    public Text feedbackText;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class showShop : MonoBehaviour
     //hide store
     public void hideStore()
     {
+        feedbackText.text = " ";
         shop.SetActive(false);
         Time.timeScale = 1f;
     }
