@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     //So player can only hold one item at a time
     private GameObject current_item;
+		public GameObject inventory;
     public bool has_item = false;
     public bool has_shovel = false;
     public bool has_bucket = false;
@@ -341,7 +342,7 @@ public class PlayerController : MonoBehaviour
         if (has_bucket == true)
         {
             has_bucket = false;
-                            animator.SetBool("Bucket", has_bucket);
+            animator.SetBool("Bucket", has_bucket);
         }
 
         //copying the trench digging functionality
