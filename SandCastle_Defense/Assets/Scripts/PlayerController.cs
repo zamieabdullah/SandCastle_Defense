@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
 
     public showShop showShop;
 
+    public GameObject particlesPrefab;
+
     void Start()
     {
         sanddollarCount = 0;
@@ -288,6 +290,9 @@ public class PlayerController : MonoBehaviour
         //subtracts digs left
         digs_left--;
         SetDigsLeftCountText();
+
+        //creates sand dust effect
+        GameObject ps = Instantiate(particlesPrefab, transform.position, Quaternion.identity);
 
         if (digs_left == 0)
         {

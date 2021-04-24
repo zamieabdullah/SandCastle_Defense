@@ -86,6 +86,13 @@ public class CrabMovement : MonoBehaviour
             speed = 0.5f; // TESTING SOMETHING
 		}
 
+        //to trap the very first crab
+        if (other.gameObject.CompareTag("crabTrap"))
+        {
+            Debug.Log("crab 1 trapped!");
+            speed = 0f;
+        }
+
 
 		
 	}
