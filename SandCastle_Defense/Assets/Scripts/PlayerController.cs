@@ -21,8 +21,14 @@ public class PlayerController : MonoBehaviour
     public GameObject trench;
 
     public TextMeshProUGUI sanddollarCountText;
-	  public Animator animator;
     public int sanddollarCount;
+
+    public TextMeshProUGUI digsLeftCountText;
+    public int digs_left = 5;
+    public GameObject digsLeftUI;
+
+
+    public Animator animator;
 	  private bool looking_right = true;
 
     //So player can only hold one item at a time
@@ -34,13 +40,15 @@ public class PlayerController : MonoBehaviour
     public bool has_crabcatcher = false;
     
     public bool bucketFilled = false;
-    private int digs_left = 5;
 
     public GameObject trenchParent;
 
     private AudioSource sanddollarAudio;
     private AudioSource digAudio;
-    private AudioSource pickUpShovelAudio;
+    private AudioSource pickUpToolAudio;
+    private AudioSource shovelBreakAudio;
+    //private AudioSource swapToolAudio;
+   
 
 	  Vector2 movement;
 
@@ -56,6 +64,7 @@ public class PlayerController : MonoBehaviour
         SetSanddollarCountText();
 
         SetUpAudio();
+
     }
 
     // Update is called once per frame
@@ -85,27 +94,21 @@ public class PlayerController : MonoBehaviour
                  //this should always run
                  if (digs_left > 0)
                  {
-
                     DigTrench();
                     Debug.Log("digs left after digging = " + digs_left);
-
 
                     if (digs_left == 0)
                     {
                         Debug.Log("0000000 digs left");
-                        
                         has_shovel = false;
                         has_item = false;
                         Destroy(current_item);
-												digs_left = 5;
+						digs_left = 5;
 
                         //shovel disappears off the kid
                         animator.SetBool("Shovel", has_shovel);
-
                     }
-
                  }
-            
             }
             else
             {
@@ -113,7 +116,6 @@ public class PlayerController : MonoBehaviour
             }
             
         }
-		
 		
 		if (Input.GetButtonDown("Equip") && (has_item == true))
         {
@@ -147,46 +149,24 @@ public class PlayerController : MonoBehaviour
     	rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }
 
-
-
     void OnTriggerEnter2D(Collider2D other)
     {      
-        if(other.gameObject.CompareTag("sanddollar"))
-        {
-            sanddollarAudio.Play();
-            sanddollarCount++;
-            Destroy(other.gameObject);
-			
-            SetSanddollarCountText();
-        }
-
-        //functionality is just collecting shovel for now
         if (other.gameObject.CompareTag("beachshovel"))
         {
             if (has_item == true)
             {
                 PutDown();
             }
-
             if (has_item == false)
             {
-                pickUpShovelAudio.Play();
-
-                //removed 'digs_left = 5' because player shouldn't get more digs by putting down the shovel!
-                //Destroy(other.gameObject);
+                pickUpToolAudio.Play();
+                SetDigsLeftCountText();
+                
                 other.gameObject.SetActive(false);
                 has_shovel = true;
                 has_item = true;
                 current_item = other.gameObject;
                 animator.SetBool("Shovel", has_shovel);
-
-                     /* no need to attach shovel to head now: 
-                    other.transform.parent = attachPoint;
-			         other.transform.localRotation = Quaternion.Euler(0, 0, 135f); */
-            }
-            else
-            {
-                Debug.Log("You can only pick up one item at a time!");
             }
         }
 
@@ -196,22 +176,18 @@ public class PlayerController : MonoBehaviour
             {
                 PutDown();
             }
-
             if (has_item == false)
             {
-                Debug.Log("Yay you got the bucket");
-								other.gameObject.SetActive(false);
+                digsLeftUI.SetActive(false);
+                pickUpToolAudio.Play();
+				
+                other.gameObject.SetActive(false);
                 has_bucket = true;
                 has_item = true;
                 current_item = other.gameObject;
-								animator.SetBool("Bucket", has_bucket);
-            }
-            else
-            {
-                Debug.Log("You can only pick up one item at a time!");
+				animator.SetBool("Bucket", has_bucket);
             }
         }
-
 
         if (other.gameObject.CompareTag("crabcatcher"))
         {
@@ -219,23 +195,29 @@ public class PlayerController : MonoBehaviour
             {
                 PutDown();
             }
-
             if (has_item == false)
             {
+                digsLeftUI.SetActive(false);
+                pickUpToolAudio.Play();
                 Debug.Log("crabcatcher obtained!");
 								other.gameObject.SetActive(false);
                 has_item = true;
                 has_crabcatcher = true;
                 current_item = other.gameObject;
-                // other.transform.parent = attachPoint;
-								animator.SetBool("CrabCatcher", has_crabcatcher);
+				animator.SetBool("CrabCatcher", has_crabcatcher);
             }
+        }
+
+        if(other.gameObject.CompareTag("sanddollar"))
+        {
+            sanddollarAudio.Play();
+            sanddollarCount++;
+            Destroy(other.gameObject);
+            SetSanddollarCountText();
         }
 
         if(other.gameObject.CompareTag("sandpile"))
         {
-        
-
             if (has_bucket == true)
             {
                 //fill bucket with sand
@@ -257,18 +239,15 @@ public class PlayerController : MonoBehaviour
 
             if(bucketFilled == true)
             {
-
-                //C ASTLE GROWS AND GAINS AN "APPENDAGE" @CHRIS
-
+                //CASTLE GROWS AND GAINS AN "APPENDAGE" @CHRIS
                 // maybe here we should also give the castle more health somehow?
-
                 bucketFilled = false;
-								animator.SetBool("BucketFull", bucketFilled);
+				animator.SetBool("BucketFull", bucketFilled);
                 kidSpeed = 5f;
             }
         }
 
-        //show shop
+        // show shop
         if (other.gameObject.CompareTag("physicalshop"))
         {
             Debug.Log("Opening Shop");
@@ -289,12 +268,6 @@ public class PlayerController : MonoBehaviour
 					transform.localScale = theScale;
 			}
 
-    public void SetSanddollarCountText()
-    {
-        sanddollarCountText.text = sanddollarCount.ToString();
-        
-    }
-
     //trenches will only last for 10 seconds of the game
     void DigTrench()
     {
@@ -314,16 +287,12 @@ public class PlayerController : MonoBehaviour
 
         //subtracts digs left
         digs_left--;
-    }
+        SetDigsLeftCountText();
 
-
-
-    void SetUpAudio()
-    {        
-        AudioSource[] allMyAudioSources = GetComponents<AudioSource>();
-        sanddollarAudio = allMyAudioSources[0];
-        digAudio = allMyAudioSources[1];
-        pickUpShovelAudio = allMyAudioSources[2];
+        if (digs_left == 0)
+        {
+            shovelBreakAudio.Play();
+        }
     }
 
     void PutDown()
@@ -333,6 +302,7 @@ public class PlayerController : MonoBehaviour
         {
             has_shovel = false;
             animator.SetBool("Shovel", has_shovel);
+            digsLeftUI.SetActive(false);
         }
         if (has_crabcatcher == true)
         {
@@ -356,5 +326,24 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(EnableBox(0.5f));
     }
 
+    void SetUpAudio()
+    {        
+        AudioSource[] allMyAudioSources = GetComponents<AudioSource>();
+        sanddollarAudio = allMyAudioSources[0];
+        digAudio = allMyAudioSources[1];
+        pickUpToolAudio = allMyAudioSources[2];
+        shovelBreakAudio = allMyAudioSources[3];
+        //swapToolAudio = allMyAudioSources[4];
+    }
+
+    public void SetSanddollarCountText()
+    {
+        sanddollarCountText.text = sanddollarCount.ToString();
+    }
+
+    public void SetDigsLeftCountText()
+    {
+        digsLeftCountText.text = digs_left.ToString();
+    }
 }
 
