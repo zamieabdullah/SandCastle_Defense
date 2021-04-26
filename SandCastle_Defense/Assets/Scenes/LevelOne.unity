@@ -18053,8 +18053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37452fb6645584db68609d51438bfc06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 96897585}
-  smoothTime: 0.3
+  player: {fileID: 96897578}
 --- !u!1 &1998149628
 GameObject:
   m_ObjectHideFlags: 0
@@ -19712,7 +19711,7 @@ PrefabInstance:
     - target: {fileID: 1295429510961487399, guid: a7592c3724ebc493ca7f49cc962e8818,
         type: 3}
       propertyPath: m_Volume
-      value: 0.305
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 4556093036620240641, guid: a7592c3724ebc493ca7f49cc962e8818,
         type: 3}
