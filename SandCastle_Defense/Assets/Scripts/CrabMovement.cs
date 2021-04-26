@@ -62,7 +62,7 @@ public class CrabMovement : MonoBehaviour
 
         if ( (other.gameObject.CompareTag("Player")) )
         {
-            if (pc.has_crabcatcher)
+            if (pc.has_crabcatcher && Input.GetButtonDown("Hit"))
             {
                 Debug.Log("CRABCATCHER HIT CRAB");
 

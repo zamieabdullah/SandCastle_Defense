@@ -137,8 +137,7 @@ public class PlayerController : MonoBehaviour
                 bucketAmount -= 2; 
             }
         }
-		
-		
+
     }
 
     IEnumerator EnableBox(float wait_time)
