@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mat_ocean
-  m_Shader: {fileID: -6465566751694194690, guid: f75cda1e843a2674aa36663f8fccaae1,
+  m_Name: Mat_Ocean2
+  m_Shader: {fileID: -6465566751694194690, guid: ac8844eccc15d2d43961cd5a411744d8,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,16 +20,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTexture:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_49062DFB_Texture_1:
+    - _SampleTexture2D_D0776CC5_Texture_1:
         m_Texture: {fileID: 2800000, guid: 7b5a5f0d9c94e854ba18597a2c23aaa4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Height1: 0.9
+    - _Height2: 0.69
     m_Colors:
-    - _Main2Color: {r: 0.21176472, g: 0.75294125, b: 0.89019614, a: 0}
-    - _MainColor: {r: 0.21176472, g: 0.75294125, b: 0.89019614, a: 0.7647059}
+    - _MainColor3: {r: 0, g: 0, b: 0, a: 0}
+    - _MainColor4: {r: 0.3069153, g: 0.4123973, b: 0.5377358, a: 0}

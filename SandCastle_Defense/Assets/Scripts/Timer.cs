@@ -52,7 +52,7 @@ public class Timer : MonoBehaviour
     public void BeginTimer()
     {
         timerIsRunning = true;
-        timeLeft = 90f; //0.5 minute 
+        timeLeft = 90f; 
 
         StartCoroutine(UpdateTimer());
     }

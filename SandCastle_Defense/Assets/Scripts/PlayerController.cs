@@ -129,6 +129,7 @@ public class PlayerController : MonoBehaviour
             if (bucketAmount <= 0)
             {
                 Debug.Log("Your bucket is empty!");
+                bucketFilled = false;
             }
             else
             { 
@@ -185,6 +186,10 @@ public class PlayerController : MonoBehaviour
 				
                 other.gameObject.SetActive(false);
                 has_bucket = true;
+                if (bucketFilled == true)
+                {
+                    kidSpeed = 3f;
+                }
                 has_item = true;
                 current_item = other.gameObject;
 				animator.SetBool("Bucket", has_bucket);
@@ -227,7 +232,7 @@ public class PlayerController : MonoBehaviour
                 bucketAmount += 2;
                 Destroy(other.gameObject);
                 animator.SetBool("BucketFull", bucketFilled);
-                kidSpeed = 3f;
+                kidSpeed = 2.5f;
             }
             else
             {
@@ -270,7 +275,6 @@ public class PlayerController : MonoBehaviour
 					transform.localScale = theScale;
 			}
 
-    //trenches will only last for 10 seconds of the game
     void DigTrench()
     {
     	digAudio.Play();
@@ -318,6 +322,7 @@ public class PlayerController : MonoBehaviour
         {
             has_bucket = false;
             animator.SetBool("Bucket", has_bucket);
+            kidSpeed = 5f;
         }
 
         //copying the trench digging functionality

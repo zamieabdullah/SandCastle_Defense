@@ -9670,6 +9670,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 645896218}
+  - {fileID: 1961271542}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9785,7 +9786,7 @@ Transform:
   - {fileID: 2015904336}
   - {fileID: 1031222195}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1409904745
 GameObject:
@@ -17730,8 +17731,9 @@ GameObject:
   - component: {fileID: 1961271541}
   - component: {fileID: 1961271540}
   - component: {fileID: 1961271539}
+  - component: {fileID: 1961271543}
   m_Layer: 4
-  m_Name: Quad
+  m_Name: Wave
   m_TagString: wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17805,13 +17807,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961271538}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.497, y: -1.878, z: -4.5836253}
-  m_LocalScale: {x: 41.005024, y: 12.793835, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.76, y: -3.416, z: -4.460681}
+  m_LocalScale: {x: 41.005024, y: 10.060963, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_Father: {fileID: 1381867127}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1961271543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961271538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11c6cb9d396f440439c1367fcd66d083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 799135086}
+  Mat_Ocean: {fileID: 2100000, guid: 0024898c1352dbc44a392a239b5375d8, type: 2}
 --- !u!1 &1992638841
 GameObject:
   m_ObjectHideFlags: 0
