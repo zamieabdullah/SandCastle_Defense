@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
+using TMPro;
 
 public class Timer : MonoBehaviour
 {
@@ -15,38 +16,24 @@ public class Timer : MonoBehaviour
 
     CrabMovement crabMovement;
     public PlayerController pc;
-    //public GameObject centerTower;
 
+    public TextMeshProUGUI currentLevelText;
     public float currentLevel = 1;
+
 
     // PRIVATE DECLARATIONS
     private TimeSpan timePlaying;        //TimeSpan part of System namespace
                                          // used to format Time better
 
-    //private bool timerIsRunning = false;         //true when game starts, false when ends
-
-    //private float timeLeft;           //holds Time.deltaTime value
     public float timeLeft;
 
     public GameObject crab;
     public GameObject bigcrab;
 
 
-    Vector2 whereToSpawn;
-
-    // private void Awake()
-    // {
-    //     instance = this;
-    // }
-
     private void Start()
     {
-        countDisplay.text = "Wave1: 01:00.00";
-
         PlayLevelX(currentLevel);
-
-        //BeginTimer(currentLevel);
-        
     }
 
     private void Update()
@@ -56,7 +43,7 @@ public class Timer : MonoBehaviour
             timeLeft -= Time.deltaTime;
             timePlaying = TimeSpan.FromSeconds(timeLeft);
  
-            countDisplay.text = "Wave Duration: " + timePlaying.ToString("mm':'ss");
+            countDisplay.text = "Time until next wave: " + timePlaying.ToString("mm':'ss");
             if (timeLeft <= 15.00)
             {
                 if (timeLeft <= 5.00)
@@ -71,15 +58,18 @@ public class Timer : MonoBehaviour
         }
         else 
         {
+            countDisplay.color = Color.white;
+
             PlayLevelX(currentLevel++);
         }
     }
 
     private void PlayLevelX(float currentLevel)
     {   
+        SetCurrentLevelText();
+        SetPlayerStats();
+
         timeLeft = 30 + (5*currentLevel);
-        PlayerController.numbOfLevels = currentLevel;
-        PlayerController.timePlayed = PlayerController.timePlayed + timeLeft;
 
         StartCoroutine(GracePeriod());
         
@@ -87,14 +77,13 @@ public class Timer : MonoBehaviour
 
     }
 
-    IEnumerator GracePeriod() // RIGHT NOW THIS GRACE PERIOD ISN'T WAITING
+    IEnumerator GracePeriod()
     {
         Debug.Log("grace period");
         float wait_time = 10 + (2 * currentLevel);
         yield return new WaitForSeconds(wait_time);
 
         CrabsAttack();
-        //GetComponent<BoxCollider2D>().enabled = true;
     }
 
     private void CrabsAttack()
@@ -103,11 +92,11 @@ public class Timer : MonoBehaviour
         float bigcrabCountToSpawn = (1 * currentLevel);
         for (int i = 0; i < crabCountToSpawn; i++)
         {
-            SpawnCrab(); // right now they all spawn at the same time but fix later
+            SpawnCrab(); 
         }
         for (int i = 0; i < bigcrabCountToSpawn; i++)
         {
-            SpawnBigCrab(); // right now they all spawn at the same time but fix later
+            SpawnBigCrab(); 
         }
     }
 
@@ -228,16 +217,27 @@ public class Timer : MonoBehaviour
 
     void SpawnCrab()
     {
-        Vector2 whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
+        Vector2 whereToSpawn = new Vector2(Random.Range(-20f, 20f), Random.Range(-30f, -5f));
 
         Instantiate(crab, whereToSpawn, Quaternion.identity);
     }
 
     void SpawnBigCrab()
     {
-        Vector2 whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
+        Vector2 whereToSpawn = new Vector2(Random.Range(-20f, 20f), Random.Range(-15f, -5f));
 
         Instantiate(bigcrab, whereToSpawn, Quaternion.identity);
+    }
+
+    public void SetCurrentLevelText()
+    {
+        currentLevelText.text = "Level : " + currentLevel.ToString();;
+    }
+
+    private void SetPlayerStats()
+    {
+        PlayerController.numbOfLevels = currentLevel;
+        PlayerController.timePlayed = PlayerController.timePlayed + timeLeft;
     }
 
 }
