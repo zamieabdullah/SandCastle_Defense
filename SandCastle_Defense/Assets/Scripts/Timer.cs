@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour
 
     private void Start()
     {
-        PlayLevelX(currentLevel);
+        PlayLevelX();
     }
 
     private void Update()
@@ -60,18 +60,19 @@ public class Timer : MonoBehaviour
         {
             countDisplay.color = Color.white;
 
-            PlayLevelX(currentLevel++);
+            currentLevel++;
+            PlayLevelX();
 
             PlayerController.timePlayed = PlayerController.timePlayed + 30 + (5 * currentLevel);
         }
     }
 
-    private void PlayLevelX(float currentLevel)
+    private void PlayLevelX()
     {   
         SetCurrentLevelText();
         SetPlayerStats();
 
-        timeLeft = 30 + (5*currentLevel);
+        timeLeft = 30 + (5 * currentLevel);
 
         StartCoroutine(GracePeriod());
         
