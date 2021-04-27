@@ -34,7 +34,6 @@ public class Timer : MonoBehaviour
     private void Start()
     {
         PlayLevelX();
-        PlayerController.timePlayed = PlayerController.timePlayed + (30 + (5 * currentLevel));
     }
 
     private void Update()
