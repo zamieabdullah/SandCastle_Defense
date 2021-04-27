@@ -14,10 +14,10 @@ public class Timer : MonoBehaviour
     public Text countDisplay;            //Text variable for GameObject reference
 
     CrabMovement crabMovement;
-    //public PlayerController pc;
+    public PlayerController pc;
     //public GameObject centerTower;
 
-    private float currentLevel = 1;
+    public float currentLevel = 1;
 
     // PRIVATE DECLARATIONS
     private TimeSpan timePlaying;        //TimeSpan part of System namespace
@@ -78,6 +78,8 @@ public class Timer : MonoBehaviour
     private void PlayLevelX(float currentLevel)
     {   
         timeLeft = 30 + (5*currentLevel);
+        PlayerController.numbOfLevels = currentLevel;
+        PlayerController.timePlayed = PlayerController.timePlayed + timeLeft;
 
         StartCoroutine(GracePeriod());
         

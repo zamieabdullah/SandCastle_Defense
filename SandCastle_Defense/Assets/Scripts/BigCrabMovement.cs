@@ -96,6 +96,7 @@ public class BigCrabMovement : MonoBehaviour
                     target.y = -10;
                     target.x = Random.Range(-20f, 20f);
                     deflectCrabAudio.Play();
+                    PlayerController.crabsHit++;
                 }
                 health--;
             }

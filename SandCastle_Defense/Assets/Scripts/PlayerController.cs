@@ -60,6 +60,12 @@ public class PlayerController : MonoBehaviour
 
     public GameObject particlesPrefab;
 
+    static public int crabsHit = 0;
+    static public int trenchesDug = 0;
+    static public int bucketUses = 0;
+    static public float timePlayed = 0f;
+    static public float numbOfLevels = 0f;
+
     void Start()
     {
         sanddollarCount = 0;
@@ -97,6 +103,7 @@ public class PlayerController : MonoBehaviour
                  if (digs_left > 0)
                  {
                     DigTrench();
+                    trenchesDug++;
                     Debug.Log("digs left after digging = " + digs_left);
 
                     if (digs_left == 0)
@@ -134,7 +141,8 @@ public class PlayerController : MonoBehaviour
             else
             { 
                 Instantiate(castleTower, transform.position, Quaternion.identity);
-                bucketAmount -= 2; 
+                bucketAmount -= 2;
+                bucketUses++;
             }
         }
 
