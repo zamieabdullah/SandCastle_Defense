@@ -1444,6 +1444,8 @@ MonoBehaviour:
   digsLeftUI: {fileID: 922919624}
   usingCrabCatcher: {fileID: 740684099}
   usingBucket: {fileID: 1990385241}
+  filledBucket: {fileID: 1261395001}
+  emptyBucket: {fileID: 235410344}
   BucketState: {fileID: 1167478239}
   animator: {fileID: 425951789}
   has_item: 0
@@ -2262,7 +2264,7 @@ GameObject:
   - component: {fileID: 235410347}
   - component: {fileID: 235410346}
   m_Layer: 5
-  m_Name: UsingBucket_sprite
+  m_Name: EmptyBucket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2284,8 +2286,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -577.14, y: 224}
-  m_SizeDelta: {x: 148.27112, y: 172.33728}
+  m_AnchoredPosition: {x: -575.28, y: 220.28}
+  m_SizeDelta: {x: 134.89069, y: 187.20453}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!122 &235410346
 Halo:
@@ -8364,6 +8366,8 @@ MonoBehaviour:
   digsLeftUI: {fileID: 0}
   usingCrabCatcher: {fileID: 0}
   usingBucket: {fileID: 0}
+  filledBucket: {fileID: 0}
+  emptyBucket: {fileID: 0}
   BucketState: {fileID: 0}
   animator: {fileID: 812899631}
   has_item: 0
@@ -10125,7 +10129,7 @@ RectTransform:
   m_Children:
   - {fileID: 134554483}
   m_Father: {fileID: 1990385242}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -10366,6 +10370,93 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1047377589}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1261395001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1261395002}
+  - component: {fileID: 1261395005}
+  - component: {fileID: 1261395004}
+  - component: {fileID: 1261395003}
+  m_Layer: 5
+  m_Name: FilledBucket
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1261395002
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261395001}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5000001, y: 0.5000001, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1990385242}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -572.31, y: 221.03}
+  m_SizeDelta: {x: 117.04994, y: 142.60278}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!122 &1261395003
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261395001}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4289387775
+  m_Size: 40
+--- !u!114 &1261395004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261395001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 2fc24dd01a73d4a118afadd00a91d520, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1261395005
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261395001}
+  m_CullTransparentMesh: 0
 --- !u!1 &1316449380
 GameObject:
   m_ObjectHideFlags: 0
@@ -18980,6 +19071,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 235410345}
+  - {fileID: 1261395002}
   - {fileID: 1167478238}
   m_Father: {fileID: 2029482788}
   m_RootOrder: 3

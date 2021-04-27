@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 		public GameObject usingCrabCatcher;
 		
 		public GameObject usingBucket;
+		public GameObject filledBucket;
+		public GameObject emptyBucket;
 		public TextMeshProUGUI BucketState;
 
 
@@ -74,6 +76,7 @@ public class PlayerController : MonoBehaviour
     {
         sanddollarCount = 0;
         SetSanddollarCountText();
+				SetBucketState();
         digsLeftUI.SetActive(false);
 				usingCrabCatcher.SetActive(false);
 				usingBucket.SetActive(false);
@@ -381,8 +384,12 @@ public class PlayerController : MonoBehaviour
 		public void SetBucketState()
 		{
 				if (bucketFilled) {
+					  filledBucket.SetActive(true);
+						emptyBucket.SetActive(false);
 				    BucketState.text = "Filled";
 				} else {
+						filledBucket.SetActive(false);
+						emptyBucket.SetActive(true);
 					  BucketState.text = "Empty";
 				}
 		}
