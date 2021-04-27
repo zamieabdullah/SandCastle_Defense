@@ -29,6 +29,7 @@ public class Timer : MonoBehaviour
     public float timeLeft;
 
     public GameObject crab;
+    public GameObject bigcrab;
 
 
     Vector2 whereToSpawn;
@@ -97,9 +98,14 @@ public class Timer : MonoBehaviour
     private void CrabsAttack()
     {
         float crabCountToSpawn = (5 * currentLevel);
+        float bigcrabCountToSpawn = (1 * currentLevel);
         for (int i = 0; i < crabCountToSpawn; i++)
         {
             SpawnCrab(); // right now they all spawn at the same time but fix later
+        }
+        for (int i = 0; i < bigcrabCountToSpawn; i++)
+        {
+            SpawnBigCrab(); // right now they all spawn at the same time but fix later
         }
     }
 
@@ -223,6 +229,13 @@ public class Timer : MonoBehaviour
         Vector2 whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
 
         Instantiate(crab, whereToSpawn, Quaternion.identity);
+    }
+
+    void SpawnBigCrab()
+    {
+        Vector2 whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
+
+        Instantiate(bigcrab, whereToSpawn, Quaternion.identity);
     }
 
 }
