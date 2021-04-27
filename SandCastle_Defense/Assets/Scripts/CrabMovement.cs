@@ -37,8 +37,8 @@ public class CrabMovement : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 
-		if ( (other.gameObject.CompareTag("castle")) )
-		{
+        if ((other.gameObject.CompareTag("castle")))
+        {
             if (hasTower == false)
             {
                 // removed the if statement for without destroying shovel: (other.gameObject.CompareTag("beachshovel")
@@ -58,26 +58,6 @@ public class CrabMovement : MonoBehaviour
 
                 deflectCrabAudio.Play();
             }
-		}
-
-        if ( (other.gameObject.CompareTag("Player")) )
-        {
-            if (pc.has_crabcatcher && Input.GetButtonDown("Hit"))
-            {
-                Debug.Log("CRABCATCHER HIT CRAB");
-
-                if (hasTower)
-                {
-                    transform.DetachChildren();
-                }
-
-                speed *= 5;
-                target.y = -10;
-                target.x = Random.Range(-20f, 20f);
-                deflectCrabAudio.Play();
-            }
-            
-
         }
 
         if (other.gameObject.CompareTag("trench"))
@@ -97,7 +77,30 @@ public class CrabMovement : MonoBehaviour
 		
 	}
 
-   IEnumerator gameOver()
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if ((other.gameObject.CompareTag("Player")))
+        {
+            if (pc.has_crabcatcher && Input.GetButtonDown("Hit"))
+            {
+                Debug.Log("CRABCATCHER HIT CRAB");
+
+                if (hasTower)
+                {
+                    transform.DetachChildren();
+                }
+
+                speed *= 5;
+                target.y = -10;
+                target.x = Random.Range(-20f, 20f);
+                deflectCrabAudio.Play();
+            }
+
+
+        }
+    }
+
+    IEnumerator gameOver()
    {
         yield return new WaitForSeconds(3.5f);
 
