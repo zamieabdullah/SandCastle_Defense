@@ -18,14 +18,14 @@ public class Timer : MonoBehaviour
     public PlayerController pc;
 
     public TextMeshProUGUI currentLevelText;
-    public float currentLevel = 1;
+    public static float currentLevel = 1;
 
 
     // PRIVATE DECLARATIONS
     private TimeSpan timePlaying;        //TimeSpan part of System namespace
                                          // used to format Time better
 
-    public float timeLeft;
+    public static float timeLeft = 0f;
 
     public GameObject crab;
     public GameObject bigcrab;
@@ -61,6 +61,8 @@ public class Timer : MonoBehaviour
             countDisplay.color = Color.white;
 
             PlayLevelX(currentLevel++);
+
+            PlayerController.timePlayed = PlayerController.timePlayed + 30 + (5 * currentLevel);
         }
     }
 
@@ -74,7 +76,6 @@ public class Timer : MonoBehaviour
         StartCoroutine(GracePeriod());
         
         WaterAttack();
-
     }
 
     IEnumerator GracePeriod()
@@ -236,8 +237,7 @@ public class Timer : MonoBehaviour
 
     private void SetPlayerStats()
     {
-        PlayerController.numbOfLevels = currentLevel;
-        PlayerController.timePlayed = PlayerController.timePlayed + timeLeft;
+        PlayerController.numbOfLevels = currentLevel - 1;
     }
 
 }

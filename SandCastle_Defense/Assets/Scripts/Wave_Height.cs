@@ -16,10 +16,10 @@ public class Wave_Height : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Timer newtimer = timer.GetComponent<Timer>();
+        //Timer newtimer = timer.GetComponent<Timer>();
         float curr_height = 0.9f;
 
-        if (newtimer.timeLeft < 3f && (newtimer.timeLeft > 0f))
+        if (Timer.timeLeft < 3f && (Timer.timeLeft > 0f))
         {
             curr_height = 0.58f;
             Mat_Ocean.SetFloat("_Height1", curr_height);

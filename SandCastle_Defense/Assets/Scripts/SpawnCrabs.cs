@@ -31,17 +31,17 @@ public class SpawnCrabs : MonoBehaviour
     {
         Timer newtimer = timer.GetComponent<Timer>();
 
-        if (newtimer.timeLeft < 10f)
-        {
-            //nextSpawn = Time.time + spawnRate;
-            whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
+        //if (newtimer.timeLeft < 10f)
+        //{
+        //    //nextSpawn = Time.time + spawnRate;
+        //    whereToSpawn = new Vector2(Random.Range(-20f, 20f), -5f);
 
-            for (int i = 0; i < crab.Length; i++)
-            {
-                Instantiate(crab[i], whereToSpawn, Quaternion.identity);
-            }
+        //    for (int i = 0; i < crab.Length; i++)
+        //    {
+        //        Instantiate(crab[i], whereToSpawn, Quaternion.identity);
+        //    }
             
-        }
+        //}
 
     }
 }
