@@ -26,6 +26,11 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI digsLeftCountText;
     public int digs_left = 5;
     public GameObject digsLeftUI;
+		
+		public GameObject usingCrabCatcher;
+		
+		public GameObject usingBucket;
+		public TextMeshProUGUI BucketState;
 
 
     public Animator animator;
@@ -33,7 +38,6 @@ public class PlayerController : MonoBehaviour
 
     //So player can only hold one item at a time
     private GameObject current_item;
-		public GameObject inventory;
     public bool has_item = false;
     public bool has_shovel = false;
     public bool has_bucket = false;
@@ -70,7 +74,9 @@ public class PlayerController : MonoBehaviour
     {
         sanddollarCount = 0;
         SetSanddollarCountText();
-
+        digsLeftUI.SetActive(false);
+				usingCrabCatcher.SetActive(false);
+				usingBucket.SetActive(false);
         SetUpAudio();
 
     }
@@ -112,10 +118,11 @@ public class PlayerController : MonoBehaviour
                         has_shovel = false;
                         has_item = false;
                         Destroy(current_item);
-						digs_left = 5;
+					      				digs_left = 5;
 
                         //shovel disappears off the kid
                         animator.SetBool("Shovel", has_shovel);
+												digsLeftUI.SetActive(false);
                     }
                  }
             }
@@ -126,10 +133,10 @@ public class PlayerController : MonoBehaviour
             
         }
 		
-		if (Input.GetButtonDown("Equip") && (has_item == true))
-        {
-            PutDown();
-        }
+				if (Input.GetButtonDown("Equip") && (has_item == true))
+		    {
+		        PutDown();
+		    }
 
         if (Input.GetButtonDown("Build"))
         {
@@ -137,6 +144,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Your bucket is empty!");
                 bucketFilled = false;
+								SetBucketState();
             }
             else
             { 
@@ -177,6 +185,7 @@ public class PlayerController : MonoBehaviour
                 has_item = true;
                 current_item = other.gameObject;
                 animator.SetBool("Shovel", has_shovel);
+								digsLeftUI.SetActive(true);
             }
         }
 
@@ -199,7 +208,8 @@ public class PlayerController : MonoBehaviour
                 }
                 has_item = true;
                 current_item = other.gameObject;
-				animator.SetBool("Bucket", has_bucket);
+				        animator.SetBool("Bucket", has_bucket);
+								usingBucket.SetActive(true);
             }
         }
 
@@ -218,7 +228,8 @@ public class PlayerController : MonoBehaviour
                 has_item = true;
                 has_crabcatcher = true;
                 current_item = other.gameObject;
-				animator.SetBool("CrabCatcher", has_crabcatcher);
+				        animator.SetBool("CrabCatcher", has_crabcatcher);
+								usingCrabCatcher.SetActive(true);
             }
         }
 
@@ -239,6 +250,7 @@ public class PlayerController : MonoBehaviour
                 bucketAmount += 2;
                 Destroy(other.gameObject);
                 animator.SetBool("BucketFull", bucketFilled);
+								SetBucketState();
                 kidSpeed = 2.5f;
             }
             else
@@ -256,7 +268,8 @@ public class PlayerController : MonoBehaviour
                 //CASTLE GROWS AND GAINS AN "APPENDAGE" @CHRIS
                 // maybe here we should also give the castle more health somehow?
                 bucketFilled = false;
-				animator.SetBool("BucketFull", bucketFilled);
+				        animator.SetBool("BucketFull", bucketFilled);
+								SetBucketState();
                 kidSpeed = 5f;
             }
         }
@@ -324,11 +337,13 @@ public class PlayerController : MonoBehaviour
         {
             has_crabcatcher = false;
             animator.SetBool("CrabCatcher", has_crabcatcher);
+						usingCrabCatcher.SetActive(false);
         }
         if (has_bucket == true)
         {
             has_bucket = false;
             animator.SetBool("Bucket", has_bucket);
+						usingBucket.SetActive(false);
             kidSpeed = 5f;
         }
 
@@ -362,5 +377,14 @@ public class PlayerController : MonoBehaviour
     {
         digsLeftCountText.text = digs_left.ToString();
     }
+		
+		public void SetBucketState()
+		{
+				if (bucketFilled) {
+				    BucketState.text = "Filled";
+				} else {
+					  BucketState.text = "Empty";
+				}
+		}
 }
 
