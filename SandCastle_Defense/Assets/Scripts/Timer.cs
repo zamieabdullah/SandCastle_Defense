@@ -30,9 +30,19 @@ public class Timer : MonoBehaviour
     public GameObject crab;
     public GameObject bigcrab;
 
+   
+
+   
+
+    private bool waveRisen = false;
+
+   
+
+
 
     private void Start()
-    {
+    { 
+        
         PlayLevelX();
     }
 
@@ -75,8 +85,18 @@ public class Timer : MonoBehaviour
         timeLeft = 30 + (5 * currentLevel);
 
         StartCoroutine(GracePeriod());
+
+        //if ((timeLeft < 5) && (timeLeft > 0))
+        //{
+            Debug.Log("wave should be coming");
+            if (!waveRisen)
+            {
+                WaterAttack();
+            }
+            
+        //}
+
         
-        WaterAttack();
     }
 
     IEnumerator GracePeriod()
@@ -105,6 +125,11 @@ public class Timer : MonoBehaviour
     private void WaterAttack()
     {
         //coming soon
+        waveRisen = true;
+        //m_Rigidbody.velocity = transform.up * m_Speed;
+        
+
+
     }
 
 

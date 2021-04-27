@@ -182,7 +182,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("trench"))
         {
-            Debug.Log("player_is_on_trench is true");
+            //Debug.Log("player_is_on_trench is true");
             player_is_on_trench = true;
             if (Input.GetButtonDown("Dig"))
             {
@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             player_is_on_trench = false;
-            Debug.Log("player_is_on_trench is FALSE");
+            //Debug.Log("player_is_on_trench is FALSE");
         }
     }
 
