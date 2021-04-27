@@ -107,6 +107,8 @@ public class BigCrabMovement : MonoBehaviour
 
     IEnumerator gameOver()
     {
+        PlayerController.timePlayed = PlayerController.timePlayed + ((30 + (5 * Timer.currentLevel)) - Timer.timeLeft);
+
         yield return new WaitForSeconds(3.5f);
 
         SceneManager.LoadScene("LoseScene");
