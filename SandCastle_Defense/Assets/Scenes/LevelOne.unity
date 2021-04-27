@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 64658628}
   m_Layer: 0
   m_Name: trenches
-  m_TagString: trench
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1460,6 +1460,8 @@ MonoBehaviour:
   showShop: {fileID: 89968270}
   particlesPrefab: {fileID: 896491090158972169, guid: ca5b5efcebacc402cb5599d0d496d2e9,
     type: 3}
+  player_is_digging: 0
+  player_is_on_trench: 0
 --- !u!61 &96897583
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7290,9 +7292,10 @@ GameObject:
   m_Component:
   - component: {fileID: 645896218}
   - component: {fileID: 645896219}
+  - component: {fileID: 645896220}
   m_Layer: 0
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: background
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7326,6 +7329,32 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!61 &645896220
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645896217}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.48230076, y: 0.78296757}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 41.329758, y: 17.31175}
+  m_EdgeRadius: 0
 --- !u!4 &660734502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6086985369454539547, guid: f83c2480dd2a41749ba8d953246e8e91,
@@ -8380,6 +8409,8 @@ MonoBehaviour:
   castleTower: {fileID: 0}
   showShop: {fileID: 0}
   particlesPrefab: {fileID: 0}
+  player_is_digging: 0
+  player_is_on_trench: 0
 --- !u!212 &812899627
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9118,7 +9149,7 @@ GameObject:
   - component: {fileID: 876166716}
   m_Layer: 9
   m_Name: Horizontal_Strip_of_Waves
-  m_TagString: Untagged
+  m_TagString: wave
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9131,7 +9162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876166715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.21, y: 8.02, z: -19.144615}
+  m_LocalPosition: {x: 0, y: -5.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 660734502}
@@ -10068,6 +10099,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1108441675}
+  - component: {fileID: 1108441676}
   m_Layer: 0
   m_Name: sandpile
   m_TagString: sandpile
@@ -10092,6 +10124,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1108441676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108441674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35f37c3f8f92b4db380591c87b582bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sandpile: {fileID: 1567668241}
+  numToStart: 1
+  parent: {fileID: 1108441674}
 --- !u!4 &1140899453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6086985369454539547, guid: f83c2480dd2a41749ba8d953246e8e91,
@@ -11911,6 +11958,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553851150}
   m_CullTransparentMesh: 0
+--- !u!1 &1567668241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 783828774427260913, guid: 64e403437b43e45c9bf5b9430264d301,
+    type: 3}
+  m_PrefabInstance: {fileID: 1047377589}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1598888935
 GameObject:
   m_ObjectHideFlags: 0
@@ -12005,7 +12058,7 @@ GameObject:
   - component: {fileID: 1618657695}
   m_Layer: 9
   m_Name: TilemapTrenches
-  m_TagString: trench
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12195,6 +12248,7 @@ MonoBehaviour:
   tilemapColliders: {fileID: 1618657692}
   trenchRuleTileDry: {fileID: 11400000, guid: b7804f832a30348e7bba6c306b9ca319, type: 2}
   trenchRuleTileWet: {fileID: 11400000, guid: e4226af6c0bff4a8cb8441f434be7c8c, type: 2}
+  trench_dig_count: 1
 --- !u!1001 &1640761172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21534,6 +21588,23 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 64658628}
     m_Modifications:
+    - target: {fileID: 4105807052468862926, guid: 5d7fa37961362c7418149d2d7fb38eab,
+        type: 3}
+      propertyPath: tilemapColliders
+      value: 
+      objectReference: {fileID: 1618657692}
+    - target: {fileID: 4105807052468862926, guid: 5d7fa37961362c7418149d2d7fb38eab,
+        type: 3}
+      propertyPath: trenchRuleTileDry
+      value: 
+      objectReference: {fileID: 11400000, guid: b7804f832a30348e7bba6c306b9ca319,
+        type: 2}
+    - target: {fileID: 4105807052468862926, guid: 5d7fa37961362c7418149d2d7fb38eab,
+        type: 3}
+      propertyPath: trenchRuleTileWet
+      value: 
+      objectReference: {fileID: 11400000, guid: e4226af6c0bff4a8cb8441f434be7c8c,
+        type: 2}
     - target: {fileID: 8076314191066260010, guid: 5d7fa37961362c7418149d2d7fb38eab,
         type: 3}
       propertyPath: m_LocalPosition.x

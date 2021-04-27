@@ -18,6 +18,8 @@ TagManager:
   - tower
   - physicalshop
   - crabTrap
+  - background
+  - doubleTrench
   layers:
   - Default
   - TransparentFX

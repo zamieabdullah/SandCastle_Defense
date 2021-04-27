@@ -72,6 +72,10 @@ public class PlayerController : MonoBehaviour
     static public float timePlayed = 0f;
     static public float numbOfLevels = 0f;
 
+    public bool player_is_digging = false;
+
+    public bool player_is_on_trench = false;
+
     void Start()
     {
         sanddollarCount = 0;
@@ -111,7 +115,11 @@ public class PlayerController : MonoBehaviour
                  //this should always run
                  if (digs_left > 0)
                  {
+
+                  
                     DigTrench();
+
+                    
                     trenchesDug++;
                     Debug.Log("digs left after digging = " + digs_left);
 
@@ -170,8 +178,29 @@ public class PlayerController : MonoBehaviour
     	rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }
 
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("trench"))
+        {
+            Debug.Log("player_is_on_trench is true");
+            player_is_on_trench = true;
+            if (Input.GetButtonDown("Dig"))
+            {
+                other.gameObject.GetComponent<Trench>().trench_dig_count++;
+                Debug.Log("trench_dig_count is " + other.gameObject.GetComponent<Trench>().trench_dig_count);
+            }
+
+        }
+        else
+        {
+            player_is_on_trench = false;
+            Debug.Log("player_is_on_trench is FALSE");
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {      
+
         if (other.gameObject.CompareTag("beachshovel"))
         {
             if (has_item == true)
@@ -302,29 +331,46 @@ public class PlayerController : MonoBehaviour
     {
     	digAudio.Play();
 
-        // get current grid location
-        Vector3Int currCell = tilemapColliders.WorldToCell(transform.position);
-
-        // replace the tile there with trenchRuleTile
-        tilemapColliders.SetTile(currCell, trenchRuleTileWet);
-
-        //creates trench GameObject at the position of the player
-        GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
-		thisTrench.SetActive(true);
-        thisTrench.transform.SetParent(trenchParent.transform);
-        //Destroy(thisTrench, 10f);
-
-        //subtracts digs left
-        digs_left--;
-        SetDigsLeftCountText();
-
-        //creates sand dust effect
-        GameObject ps = Instantiate(particlesPrefab, transform.position, Quaternion.identity);
-
-        if (digs_left == 0)
+        if (!player_is_on_trench)
         {
-            shovelBreakAudio.Play();
+            // get current grid location
+
+            Vector3Int currCell = tilemapColliders.WorldToCell(transform.position);
+            Debug.Log("trench made at " + currCell);
+
+            // replace the tile there with trenchRuleTile
+            tilemapColliders.SetTile(currCell, trenchRuleTileDry);
+
+
+
+            //creates trench GameObject at the position of the player
+            GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
+            thisTrench.SetActive(true);
+            thisTrench.transform.SetParent(trenchParent.transform);
+            //Destroy(thisTrench, 10f);
+
+            //subtracts digs left
+            digs_left--;
+            SetDigsLeftCountText();
+
+            //creates sand dust effect
+            GameObject ps = Instantiate(particlesPrefab, transform.position, Quaternion.identity);
+
+            if (digs_left == 0)
+            {
+                shovelBreakAudio.Play();
+            }
         }
+        
+    }
+
+    void DigDoubleTrench()
+    { //???
+        // if (thisTrench.GetComponent<Trench>().trench_dig_count < 2)
+        // {
+        //     thisTrench.GetComponent<Trench>().trench_dig_count++;
+        // }
+
     }
 
     void PutDown()
