@@ -10151,7 +10151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35f37c3f8f92b4db380591c87b582bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sandpile: {fileID: 1567668241}
+  sandpile: {fileID: 783828774427260913, guid: 64e403437b43e45c9bf5b9430264d301, type: 3}
   numToStart: 1
   parent: {fileID: 1108441674}
 --- !u!4 &1140899453 stripped
@@ -11979,12 +11979,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553851150}
   m_CullTransparentMesh: 0
---- !u!1 &1567668241 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 783828774427260913, guid: 64e403437b43e45c9bf5b9430264d301,
-    type: 3}
-  m_PrefabInstance: {fileID: 1047377589}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1598888935
 GameObject:
   m_ObjectHideFlags: 0
