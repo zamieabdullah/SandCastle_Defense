@@ -82,19 +82,20 @@ public class Timer : MonoBehaviour
         SetCurrentLevelText();
         SetPlayerStats();
 
-        timeLeft = 30 + (5 * currentLevel);
-
         StartCoroutine(GracePeriod());
 
-        //if ((timeLeft < 5) && (timeLeft > 0))
-        //{
+        Debug.Log("time left is " + timeLeft);
+
+        if (timeLeft <= 0)
+        {
+            timeLeft = 30 + (5 * currentLevel);   // MOVED FROM LINE 84 TO HERE INSIDE IF STATEMENT
             Debug.Log("wave should be coming");
             if (!waveRisen)
             {
                 WaterAttack();
             }
             
-        //}
+        }
 
         
     }
