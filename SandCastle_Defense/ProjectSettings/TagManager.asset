@@ -20,6 +20,7 @@ TagManager:
   - crabTrap
   - background
   - doubleTrench
+  - waveBlocker
   layers:
   - Default
   - TransparentFX

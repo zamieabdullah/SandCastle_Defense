@@ -7,7 +7,7 @@ public class Wave : MonoBehaviour
     public GameObject centerTower;
     private Vector3 target;
 
-    private float speed = 5;
+    private float speed = 1;
 
 
     // Start is called before the first frame update
@@ -20,5 +20,14 @@ public class Wave : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("waveBlocker")) //NOT REGISTERING COLLISION, IDK WHY
+        {
+            Debug.Log("hit waveblocker");
+            speed = 0f;
+        }
     }
 }

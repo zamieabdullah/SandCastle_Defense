@@ -30,19 +30,26 @@ public class Timer : MonoBehaviour
     public GameObject crab;
     public GameObject bigcrab;
 
-   
 
-   
+
+    public GameObject wave;
 
     private bool waveRisen = false;
 
-   
+    public GameObject centerTower;
+    private Vector3 target;
+    private float speed = 5;
+
+    private Vector3 waveSpawnLocation;
 
 
 
     private void Start()
-    { 
-        
+    {
+        target = centerTower.transform.position;
+        waveSpawnLocation.x = wave.transform.position.x;
+        waveSpawnLocation.y = -7;
+
         PlayLevelX();
     }
 
@@ -88,14 +95,16 @@ public class Timer : MonoBehaviour
 
         if (timeLeft <= 0)
         {
-            timeLeft = 30 + (5 * currentLevel);   // MOVED FROM LINE 84 TO HERE INSIDE IF STATEMENT
-            Debug.Log("wave should be coming");
-            if (!waveRisen)
-            {
+            timeLeft = 5 + (5 * currentLevel);   // MOVED FROM LINE 84 TO HERE INSIDE IF STATEMENT
+            
+            //if (!waveRisen)
+            //{
+                Debug.Log("wave should be coming");
                 WaterAttack();
-            }
+            //}
             
         }
+        //wave.SetActive(false);
 
         
     }
@@ -126,9 +135,14 @@ public class Timer : MonoBehaviour
     private void WaterAttack()
     {
         //coming soon
+        //waveRisen = true;
+        //wave.transform.Translate(Vector3.up * Time.deltaTime, Space.World);
+        //wave.transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+        //wave.SetActive(true);
+        Instantiate(wave, waveSpawnLocation, Quaternion.identity);
         waveRisen = true;
         //m_Rigidbody.velocity = transform.up * m_Speed;
-        
+
 
 
     }
