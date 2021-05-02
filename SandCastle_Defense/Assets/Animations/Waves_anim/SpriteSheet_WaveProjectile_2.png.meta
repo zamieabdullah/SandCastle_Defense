@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 587139ac89506534bab26221d248aab9
+guid: 59df72d147e37a647b416cfc046a88ce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6788333729492337114
-    second: SpriteSheet_WaveProjectile_1_0
+      213: 2130166241103584782
+    second: SpriteSheet_WaveProjectile_2_0
   - first:
-      213: -858931093142948073
-    second: SpriteSheet_WaveProjectile_1_1
+      213: 8737635636870392820
+    second: SpriteSheet_WaveProjectile_2_1
   - first:
-      213: 6335526644472024085
-    second: SpriteSheet_WaveProjectile_1_2
+      213: -7299023642039416277
+    second: SpriteSheet_WaveProjectile_2_2
   - first:
-      213: 2644986574997269700
-    second: SpriteSheet_WaveProjectile_1_3
+      213: -934828914490282977
+    second: SpriteSheet_WaveProjectile_2_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -111,12 +111,54 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteSheet_WaveProjectile_1_0
+      name: SpriteSheet_WaveProjectile_2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e128109eedf8d10800000000000000
+      internalID: 2130166241103584782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_WaveProjectile_2_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fb24785151524970800000000000000
+      internalID: 8737635636870392820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteSheet_WaveProjectile_2_2
       rect:
         serializedVersion: 2
         x: 0
         y: 16
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -125,19 +167,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad181339f81053e50800000000000000
-      internalID: 6788333729492337114
+      spriteID: b2a00116ba8a4ba90800000000000000
+      internalID: -7299023642039416277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteSheet_WaveProjectile_1_1
+      name: SpriteSheet_WaveProjectile_2_3
       rect:
         serializedVersion: 2
-        x: 16
+        x: 32
         y: 16
-        width: 16
+        width: 32
         height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -146,50 +188,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7173daab8b67414f0800000000000000
-      internalID: -858931093142948073
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpriteSheet_WaveProjectile_1_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 51c07c48aef4ce750800000000000000
-      internalID: 6335526644472024085
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: SpriteSheet_WaveProjectile_1_3
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4cca366b641e4b420800000000000000
-      internalID: 2644986574997269700
+      spriteID: f1cea022e02d603f0800000000000000
+      internalID: -934828914490282977
       vertices: []
       indices: 
       edges: []
