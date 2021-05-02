@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Wave : MonoBehaviour
 {
@@ -13,7 +15,9 @@ public class Wave : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = centerTower.transform.position;
+        target.x = transform.position.x;
+        target.y = transform.position.y + 12f;
+        target.z = transform.position.z;
     }
 
     // Update is called once per frame
@@ -29,5 +33,26 @@ public class Wave : MonoBehaviour
             Debug.Log("hit waveblocker");
             speed = 0f;
         }
+
+        if (collision.CompareTag("castle"))
+        {
+            Debug.Log("hit rock");
+            Destroy(gameObject);
+
+            if (collision.gameObject.name == "Center Tower")
+            {
+                Debug.Log("hit centerTower");
+                SceneManager.LoadScene("LoseScene");
+
+            }
+        }
+
+        if ((collision.gameObject.CompareTag("trench")) || (collision.gameObject.CompareTag("wetTrench")))
+        {
+            Destroy(gameObject);
+        }
+
+
+
     }
 }

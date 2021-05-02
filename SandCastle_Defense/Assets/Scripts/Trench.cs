@@ -59,7 +59,7 @@ public class Trench : MonoBehaviour
     void DoubleTrench()
     {
         // make trench sprite darker
-        gameObject.GetComponent<SpriteRenderer>().color = new Color (71, 65, 59, 100);
+        //gameObject.GetComponent<SpriteRenderer>().color = new Color (71, 65, 59, 100);
         
 
         gameObject.tag = "doubleTrench";
@@ -71,5 +71,6 @@ public class Trench : MonoBehaviour
     {
         Vector3Int currCell = tilemapColliders.WorldToCell(transform.position);
         tilemapColliders.SetTile(currCell, trenchRuleTileWet); // WET TILE
+        gameObject.tag = "wetTrench";
     }
 }

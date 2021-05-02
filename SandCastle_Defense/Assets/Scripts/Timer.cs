@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
     private TimeSpan timePlaying;        //TimeSpan part of System namespace
                                          // used to format Time better
 
-    public static float timeLeft = 0f;
+    public static float timeLeft = 5f;
 
     public GameObject crab;
     public GameObject bigcrab;
@@ -34,11 +34,11 @@ public class Timer : MonoBehaviour
 
     public GameObject wave;
 
-    private bool waveRisen = false;
+    //private bool waveRisen = false;
 
     public GameObject centerTower;
     private Vector3 target;
-    private float speed = 5;
+    
 
     private Vector3 waveSpawnLocation;
 
@@ -97,14 +97,13 @@ public class Timer : MonoBehaviour
         {
             timeLeft = 5 + (5 * currentLevel);   // MOVED FROM LINE 84 TO HERE INSIDE IF STATEMENT
             
-            //if (!waveRisen)
-            //{
-                Debug.Log("wave should be coming");
-                WaterAttack();
-            //}
+            
+            Debug.Log("wave should be coming");
+            WaterAttack();
+            
             
         }
-        //wave.SetActive(false);
+       
 
         
     }
@@ -136,12 +135,8 @@ public class Timer : MonoBehaviour
     {
         //coming soon
         //waveRisen = true;
-        //wave.transform.Translate(Vector3.up * Time.deltaTime, Space.World);
-        //wave.transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
-        //wave.SetActive(true);
         Instantiate(wave, waveSpawnLocation, Quaternion.identity);
-        waveRisen = true;
-        //m_Rigidbody.velocity = transform.up * m_Speed;
+        //waveRisen = true;
 
 
 
