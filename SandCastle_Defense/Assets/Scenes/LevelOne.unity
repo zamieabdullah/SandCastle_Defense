@@ -7126,6 +7126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerTower: {fileID: 1806484359}
+  Mat_WaveProjectile1: {fileID: 2100000, guid: e4ed7e60cdbba7d499649ab280db6c07, type: 2}
 --- !u!50 &562727816
 Rigidbody2D:
   serializedVersion: 4
@@ -7388,6 +7389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerTower: {fileID: 1806484359}
+  Mat_WaveProjectile1: {fileID: 2100000, guid: e4ed7e60cdbba7d499649ab280db6c07, type: 2}
 --- !u!50 &617735577
 Rigidbody2D:
   serializedVersion: 4
@@ -9377,6 +9379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerTower: {fileID: 1806484359}
+  Mat_WaveProjectile1: {fileID: 2100000, guid: e4ed7e60cdbba7d499649ab280db6c07, type: 2}
 --- !u!1 &887746332
 GameObject:
   m_ObjectHideFlags: 0
@@ -9642,6 +9645,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -7299023642039416277, guid: 59df72d147e37a647b416cfc046a88ce,
         type: 3}
+    - target: {fileID: 6086985369454539544, guid: f83c2480dd2a41749ba8d953246e8e91,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086985369454539544, guid: f83c2480dd2a41749ba8d953246e8e91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e4ed7e60cdbba7d499649ab280db6c07, type: 2}
     - target: {fileID: 6086985369454539547, guid: f83c2480dd2a41749ba8d953246e8e91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10997,6 +11010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerTower: {fileID: 1806484359}
+  Mat_WaveProjectile1: {fileID: 2100000, guid: e4ed7e60cdbba7d499649ab280db6c07, type: 2}
 --- !u!50 &1294882021
 Rigidbody2D:
   serializedVersion: 4
@@ -11888,6 +11902,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -934828914490282977, guid: 59df72d147e37a647b416cfc046a88ce,
         type: 3}
+    - target: {fileID: 6086985369454539544, guid: f83c2480dd2a41749ba8d953246e8e91,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086985369454539544, guid: f83c2480dd2a41749ba8d953246e8e91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e4ed7e60cdbba7d499649ab280db6c07, type: 2}
     - target: {fileID: 6086985369454539547, guid: f83c2480dd2a41749ba8d953246e8e91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12222,6 +12246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerTower: {fileID: 1806484359}
+  Mat_WaveProjectile1: {fileID: 2100000, guid: e4ed7e60cdbba7d499649ab280db6c07, type: 2}
 --- !u!50 &1495807948
 Rigidbody2D:
   serializedVersion: 4
@@ -13186,6 +13211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerTower: {fileID: 1806484359}
+  Mat_WaveProjectile1: {fileID: 0}
 --- !u!50 &1671799812
 Rigidbody2D:
   serializedVersion: 4
@@ -19278,6 +19304,16 @@ PrefabInstance:
       propertyPath: m_DrawMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6086985369454539544, guid: f83c2480dd2a41749ba8d953246e8e91,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6086985369454539544, guid: f83c2480dd2a41749ba8d953246e8e91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e4ed7e60cdbba7d499649ab280db6c07, type: 2}
     - target: {fileID: 6086985369454539547, guid: f83c2480dd2a41749ba8d953246e8e91,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22379,6 +22415,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6086985369454539544, guid: f83c2480dd2a41749ba8d953246e8e91,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e4ed7e60cdbba7d499649ab280db6c07, type: 2}
     - target: {fileID: 6086985369454539547, guid: f83c2480dd2a41749ba8d953246e8e91,
         type: 3}
       propertyPath: m_LocalPosition.x
