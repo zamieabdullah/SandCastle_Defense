@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: 11c6cb9d396f440439c1367fcd66d083
+guid: c2900a663ff71e74492373fd9670f4b8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - timer: {instanceID: 0}
-  - Mat_Ocean: {fileID: 2100000, guid: e4ed7e60cdbba7d499649ab280db6c07, type: 2}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

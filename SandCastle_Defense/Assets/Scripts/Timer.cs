@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
                                          //from other scripts/ classes outside
 
     public Text countDisplay;            //Text variable for GameObject reference
-
+    public Material Mat_WaveProjectile1;
     CrabMovement crabMovement;
     public PlayerController pc;
 
@@ -99,6 +99,7 @@ public class Timer : MonoBehaviour
             
             
             Debug.Log("wave should be coming");
+            Mat_WaveProjectile1.SetFloat("_Visibility", 3f);
             WaterAttack();
             
             
