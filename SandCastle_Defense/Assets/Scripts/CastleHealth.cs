@@ -1,111 +1,57 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 
 
 
 public class CastleHealth : MonoBehaviour
 {
-    public int maxHealth = 20;
-    public int currentHealth;
+    public LayerMask castle;
+    private Collider2D[] castleTowers;
+    SpriteRenderer spriteRenderer;
 
-    public HealthBar healthBar;
-
-    public SpriteRenderer spriteRenderer;
-    public Sprite sprite1;
-    public Sprite sprite2;
-    public Sprite sprite3;
-    public Sprite sprite4;
-
-    private AudioSource crabAttackAudio;
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        //spriteRenderer.sprite = sprite3;
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-
-        SetUpAudio();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        castleTowers = Physics2D.OverlapCircleAll(transform.position, 2f, castle);
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
-        Debug.Log("hit");
+        castleTowers = Physics2D.OverlapCircleAll(transform.position, 2f, castle);
 
-
-        if (other.gameObject.CompareTag("crab"))
-        {
-            TakeDamage(5);
-            ChangeSprite();
-            crabAttackAudio.Play();
-        }
+        Vulnerable();
     }
 
-    void LevelOver()
+    void Vulnerable()
     {
-        if (currentHealth == 0)
+        if ((castleTowers != null) && (castleTowers.Length <= 5))
         {
-            SceneManager.LoadScene("LoseScene");
+            Debug.Log("VULNERABLE!!!");
+
+            if (spriteRenderer.color == Color.white)
+            {
+                Debug.Log("should turn red now!");
+                spriteRenderer.color = Color.red;
+                StartCoroutine(Wait());
+                spriteRenderer.color = Color.white;
+            }
+            
+
+
+            
         }
     }
 
-
-    void TakeDamage(int damage)
+    void OnDrawGizmosSelected()
     {
-        Debug.Log("damage");
-
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-
-        if (currentHealth <= 0)
-        {
-            //SceneManager.LoadScene("LoseScene");
-            StartCoroutine(WaitForSceneLoad());
-        }
-
-
-        
+        if (transform.position == null) return;
+        Gizmos.DrawWireSphere(transform.position, 2f);
     }
 
-    void ChangeSprite()
+    IEnumerator Wait()
     {
-        if (currentHealth == 15)
-        {
-            spriteRenderer.sprite = sprite1;
-
-        }
-        else if (currentHealth == 10)
-        {
-            spriteRenderer.sprite = sprite2;
-        }
-        else if (currentHealth == 5)
-        {
-            spriteRenderer.sprite = sprite3;
-        }
-        else 
-        {
-            spriteRenderer.sprite = sprite4;
-        }
-        
-        
-    }
-
-    private IEnumerator WaitForSceneLoad()
-    {
-        yield return new WaitForSeconds(.5f);
-        SceneManager.LoadScene("LoseScene");
-
-    }
-
-    void SetUpAudio()
-    {        
-        AudioSource[] allMyAudioSources = GetComponents<AudioSource>();
-        crabAttackAudio = allMyAudioSources[0];
-        
+        yield return new WaitForSeconds(1f);
     }
 }

@@ -18,6 +18,9 @@ public class CrabMovement : MonoBehaviour
     public GameObject centerTower;
 
     private bool hasTower = false;
+    private bool hitByPlayer = false;
+
+    private GameObject capturedTower;
 
 
     private void Start()
@@ -39,7 +42,7 @@ public class CrabMovement : MonoBehaviour
 
         if ((other.gameObject.CompareTag("castle")))
         {
-            if (hasTower == false)
+            if ((hitByPlayer == false) && (hasTower == false))
             {
                 // removed the if statement for without destroying shovel: (other.gameObject.CompareTag("beachshovel")
                 speed *= 5;
@@ -54,7 +57,6 @@ public class CrabMovement : MonoBehaviour
                 {
                     StartCoroutine(gameOver());
                 }
-
 
                 deflectCrabAudio.Play();
             }
@@ -85,9 +87,18 @@ public class CrabMovement : MonoBehaviour
             {
                 Debug.Log("CRABCATCHER HIT CRAB");
 
+                hitByPlayer = true;
+
                 if (hasTower)
                 {
+                    
+                    capturedTower = FindGameObjectInChildWithTag(gameObject, "tower");
+                    capturedTower.tag = "castle";
+                    
+                    Debug.Log("CASTLE NOW!!!!");
+
                     transform.DetachChildren();
+                    hasTower = false;
                 }
 
                 speed *= 5;
@@ -102,12 +113,28 @@ public class CrabMovement : MonoBehaviour
     }
 
     IEnumerator gameOver()
-   {
+    {
         PlayerController.timePlayed = PlayerController.timePlayed + ((30 + (5 * Timer.currentLevel)) - Timer.timeLeft);
 
         yield return new WaitForSeconds(3.5f);
 
         SceneManager.LoadScene("LoseScene");
-   }
+    }
+
+    public static GameObject FindGameObjectInChildWithTag(GameObject parent, string tag)
+    {
+        Transform t = parent.transform;
+
+        for (int i = 0; i < t.childCount; i++)
+        {
+            if (t.GetChild(i).gameObject.tag == tag)
+            {
+                return t.GetChild(i).gameObject;
+            }
+
+        }
+
+        return null;
+    }
 
 }

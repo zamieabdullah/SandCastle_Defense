@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
     private TimeSpan timePlaying;        //TimeSpan part of System namespace
                                          // used to format Time better
 
-    public static float timeLeft = 5f;
+    public static float timeLeft = 30f;
 
     public GameObject crab;
     public GameObject bigcrab;
@@ -95,7 +95,7 @@ public class Timer : MonoBehaviour
 
         if (timeLeft <= 0)
         {
-            timeLeft = 5 + (5 * currentLevel);   // MOVED FROM LINE 84 TO HERE INSIDE IF STATEMENT
+            timeLeft = 30 + (5 * currentLevel);   // MOVED FROM LINE 84 TO HERE INSIDE IF STATEMENT
             
             
             Debug.Log("wave should be coming");
