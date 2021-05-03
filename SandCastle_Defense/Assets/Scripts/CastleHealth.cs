@@ -10,16 +10,18 @@ public class CastleHealth : MonoBehaviour
     public LayerMask castle;
     private Collider2D[] castleTowers;
     SpriteRenderer spriteRenderer;
+    Vector3 target = new Vector3(0, 5, 0);
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        castleTowers = Physics2D.OverlapCircleAll(transform.position, 2f, castle);
+        castleTowers = Physics2D.OverlapCircleAll(target, 2f, castle);
+
     }
 
     private void Update()
     {
-        castleTowers = Physics2D.OverlapCircleAll(transform.position, 2f, castle);
+        castleTowers = Physics2D.OverlapCircleAll(target, 2f, castle);
 
         Vulnerable();
     }
@@ -34,20 +36,17 @@ public class CastleHealth : MonoBehaviour
             {
                 Debug.Log("should turn red now!");
                 spriteRenderer.color = Color.red;
-                StartCoroutine(Wait());
-                spriteRenderer.color = Color.white;
+                //StartCoroutine(Wait());
+                //spriteRenderer.color = Color.white;
             }
-            
-
-
-            
+  
         }
     }
 
     void OnDrawGizmosSelected()
     {
         if (transform.position == null) return;
-        Gizmos.DrawWireSphere(transform.position, 2f);
+        Gizmos.DrawWireSphere(target, 1f);
     }
 
     IEnumerator Wait()
