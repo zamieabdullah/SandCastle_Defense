@@ -44,7 +44,9 @@ public class Trench : MonoBehaviour
         {
             if (gameObject.tag == "wetTrench")
             {
-                Destroy(gameObject); 
+                Vector3Int currCell = tilemapColliders.WorldToCell(transform.position);
+                tilemapColliders.SetTile(currCell, null);
+                Destroy(gameObject);
             }
             else  // trench or doubleTrench
             {
@@ -62,7 +64,7 @@ public class Trench : MonoBehaviour
         //gameObject.GetComponent<SpriteRenderer>().color = new Color (71, 65, 59, 100);
         
 
-        gameObject.tag = "doubleTrench";
+        //gameObject.tag = "doubleTrench";
         // tag it so in the crab script, crab gets trapped by it
 
     }
