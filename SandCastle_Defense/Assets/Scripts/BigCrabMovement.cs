@@ -11,8 +11,6 @@ public class BigCrabMovement : MonoBehaviour
     private int health;
     // float wiggleDistance = 1;
     // float wiggleSpeed = 5;
-
-
     public AudioSource deflectCrabAudio;
 
     public PlayerController pc;
@@ -21,8 +19,7 @@ public class BigCrabMovement : MonoBehaviour
     private bool hasTower = false;
     private bool hitByPlayer = false;
 
-     private GameObject capturedTower;
-
+    private GameObject capturedTower;
     public GameObject sandpile;
 
     private void Start()
@@ -47,6 +44,7 @@ public class BigCrabMovement : MonoBehaviour
         {
             if ((hitByPlayer == false) && (hasTower == false))
             {
+                capturedTower = other.gameObject;
                 // removed the if statement for without destroying shovel: (other.gameObject.CompareTag("beachshovel")
                 speed *= 5;
                 target.y = -10;

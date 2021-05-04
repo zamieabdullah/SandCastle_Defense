@@ -297,11 +297,12 @@ public class PlayerController : MonoBehaviour
 
         if(other.gameObject.CompareTag("sandpile"))
         {
-            if (has_bucket == true)
+            if ((has_bucket == true) && (bucketFilled == false))
             {
                 //fill bucket with sand
                 SpawnSandPiles.currnumofpiles--;
                 bucketFilled = true;
+
                 bucketAmount += 2;
                 Destroy(other.gameObject);
                 animator.SetBool("BucketFull", bucketFilled);
@@ -364,8 +365,6 @@ public class PlayerController : MonoBehaviour
 
             // replace the tile there with trenchRuleTile
             tilemapColliders.SetTile(currCell, trenchRuleTileDry);
-
-
 
             //creates trench GameObject at the position of the player
             GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
@@ -452,17 +451,17 @@ public class PlayerController : MonoBehaviour
         digsLeftCountText.text = digs_left.ToString();
     }
 		
-		public void SetBucketState()
-		{
-				if (bucketFilled) {
-					  filledBucket.SetActive(true);
-						emptyBucket.SetActive(false);
-				    BucketState.text = "Filled";
-				} else {
-						filledBucket.SetActive(false);
-						emptyBucket.SetActive(true);
-					  BucketState.text = "Empty";
-				}
-		}
+	public void SetBucketState()
+	{
+			if (bucketFilled) {
+				  filledBucket.SetActive(true);
+					emptyBucket.SetActive(false);
+			    BucketState.text = "Filled";
+			} else {
+					filledBucket.SetActive(false);
+					emptyBucket.SetActive(true);
+				  BucketState.text = "Empty";
+			}
+	}
 }
 

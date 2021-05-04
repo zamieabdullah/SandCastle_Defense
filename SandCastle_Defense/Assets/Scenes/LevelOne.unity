@@ -8624,6 +8624,12 @@ PrefabInstance:
       propertyPath: deflectCrabAudio
       value: 
       objectReference: {fileID: 1766509922}
+    - target: {fileID: 3068128729054085751, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: sandpile
+      value: 
+      objectReference: {fileID: 783828774427260913, guid: 64e403437b43e45c9bf5b9430264d301,
+        type: 3}
     - target: {fileID: 5394968002252069387, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_Offset.y
@@ -10523,7 +10529,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927922866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.87, y: -0.24, z: 0}
+  m_LocalPosition: {x: 16.4, y: -1.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 887746333}
@@ -11398,6 +11404,7 @@ MonoBehaviour:
   deflectCrabAudio: {fileID: 1219495606}
   pc: {fileID: 96897582}
   centerTower: {fileID: 1806484359}
+  sandpile: {fileID: 783828774427260913, guid: 64e403437b43e45c9bf5b9430264d301, type: 3}
 --- !u!114 &1219495604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11702,7 +11709,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341192156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.27, y: -3.56, z: 0}
+  m_LocalPosition: {x: 2.36, y: -4.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 887746333}
@@ -12525,7 +12532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440325449}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 10.64, y: -2.93, z: 0}
+  m_LocalPosition: {x: 10.85, y: -4.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 887746333}
@@ -22935,6 +22942,12 @@ PrefabInstance:
       propertyPath: deflectCrabAudio
       value: 
       objectReference: {fileID: 1960140999}
+    - target: {fileID: 3068128729054085751, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: sandpile
+      value: 
+      objectReference: {fileID: 783828774427260913, guid: 64e403437b43e45c9bf5b9430264d301,
+        type: 3}
     - target: {fileID: 5394968002252069387, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_Offset.y

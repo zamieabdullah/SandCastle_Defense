@@ -47,7 +47,7 @@ public class SpawnSanddollars : MonoBehaviour
         {
             GameObject a = Instantiate(sanddollar) as GameObject;
 
-            a.transform.position = new Vector2(Random.Range(-13f, 13f), Random.Range(-3f, 7f));
+            a.transform.position = new Vector2(Random.Range(-13f, 13f), Random.Range(-3f, 6.5f));
             a.transform.SetParent(parent.transform);
 
             // if (rand.Next(0, 3) == 0)

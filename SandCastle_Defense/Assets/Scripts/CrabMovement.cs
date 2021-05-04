@@ -10,7 +10,6 @@ public class CrabMovement : MonoBehaviour
  	private float speed = 1;
     // float wiggleDistance = 1;
     // float wiggleSpeed = 5;
-
 	
     public AudioSource deflectCrabAudio;
 
@@ -25,9 +24,6 @@ public class CrabMovement : MonoBehaviour
     private GameObject capturedTower;
 
     public GameObject sandpile;
-
-
-
 
     private void Start()
     {
@@ -75,14 +71,12 @@ public class CrabMovement : MonoBehaviour
             speed = 0.5f; // TESTING SOMETHING
 		}
 
-        //to trap the very first crab
+        // to trap the very first crab
         if (other.gameObject.CompareTag("crabTrap"))
         {
             Debug.Log("crab 1 trapped!");
             speed = 0f;
         }
-
-
 		
 	}
 
