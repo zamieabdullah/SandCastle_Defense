@@ -168,6 +168,7 @@ public class PlayerController : MonoBehaviour
                     bucketusesLeft--;
                     if (bucketusesLeft == 0)
                     {
+                        shovelBreakAudio.Play();
                         bucketAmount = 0;
                         has_bucket = false;
                         has_item = false;
