@@ -64,9 +64,6 @@ TagManager:
   - name: Waves
     uniqueID: 2030155209
     locked: 0
-  - name: Sanddollars
-    uniqueID: 2367535129
-    locked: 0
   - name: Kid
     uniqueID: 568362871
     locked: 0
@@ -78,6 +75,9 @@ TagManager:
     locked: 0
   - name: Sandcastle
     uniqueID: 1014968431
+    locked: 0
+  - name: Sanddollars
+    uniqueID: 2367535129
     locked: 0
   - name: Destroyed Sandcastle
     uniqueID: 603820957

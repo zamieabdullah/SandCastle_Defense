@@ -11,7 +11,10 @@ public class SpawnSanddollars : MonoBehaviour
     private float spawnInterval = 3f;
     private float tempTime = 0f;
 
+    public System.Random rand = new System.Random();
 
+    private float x_coord;
+    private float y_coord;
 
     void Start()
     {
@@ -38,7 +41,30 @@ public class SpawnSanddollars : MonoBehaviour
     private void spawnSanddollar()
     {
         GameObject a = Instantiate(sanddollar) as GameObject;
-        a.transform.position = new Vector2(Random.Range(-13f, 13f), Random.Range(-3f, 7f));
+
+        a.transform.position = new Vector2(Random.Range(-13f,13f), Random.Range(-3f,7f));
         a.transform.SetParent(parent.transform);
+
+        // if (rand.Next(0, 3) == 0)
+        // {   
+        //     // left of castle
+        //     x_coord = Random.Range(-13f,-2f);
+        //     y_coord = Random.Range(-3f,7f);
+        // }
+        // if (rand.Next(0, 3) == 1)
+        // {
+        //     // right of castle
+        //     x_coord = Random.Range(2f,13f);
+        //     y_coord = Random.Range(-3f,7f);
+        // }
+        // else
+        // {
+        //     // beneath castle
+        //     x_coord = Random.Range(-13f,13f);
+        //     y_coord = Random.Range(--3f,3f);
+        // }
+
+        // a.transform.position = new Vector2(x_coord, y_coord);
+        // a.transform.SetParent(parent.transform);
     }
 }
