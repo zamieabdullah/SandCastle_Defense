@@ -297,6 +297,7 @@ public class PlayerController : MonoBehaviour
             if (has_bucket == true)
             {
                 //fill bucket with sand
+                SpawnSandPiles.currnumofpiles--;
                 bucketFilled = true;
                 bucketAmount += 2;
                 Destroy(other.gameObject);

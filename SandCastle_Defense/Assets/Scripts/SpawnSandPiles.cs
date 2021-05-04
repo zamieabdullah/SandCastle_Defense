@@ -11,6 +11,9 @@ public class SpawnSandPiles : MonoBehaviour
     private float spawnInterval = 8f;
     private float tempTime = 0f;
 
+    static public int currnumofpiles = 0;
+    public int maxpiles = 5;
+
     public System.Random rand = new System.Random();
 
     void Start()
@@ -33,19 +36,24 @@ public class SpawnSandPiles : MonoBehaviour
 
     private void spawnSandpile()
     {
-        GameObject a = Instantiate(sandpile) as GameObject;
-
-        if (rand.Next(0, 2) == 0)
+        if (maxpiles != currnumofpiles)
         {
-            // left edge
-            a.transform.position = new Vector2(Random.Range(-11f, -6f), Random.Range(-3f, 6f));
-        }
-        else
-        {
-            // right edge
-            a.transform.position = new Vector2(Random.Range(6f, 11f), Random.Range(-3f, 6f));
-        }
+            GameObject a = Instantiate(sandpile) as GameObject;
 
-        a.transform.SetParent(parent.transform);
+            if (rand.Next(0, 2) == 0)
+            {
+                // left edge
+                a.transform.position = new Vector2(Random.Range(-11f, -6f), Random.Range(-3f, 6f));
+            }
+            else
+            {
+                // right edge
+                a.transform.position = new Vector2(Random.Range(6f, 11f), Random.Range(-3f, 6f));
+            }
+
+            a.transform.SetParent(parent.transform);
+
+            currnumofpiles++;
+        }
     }
 }
