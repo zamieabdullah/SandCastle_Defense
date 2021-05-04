@@ -11657,6 +11657,7 @@ MonoBehaviour:
     type: 3}
   numToStart: 6
   parent: {fileID: 1409904745}
+  maxdollars: 10
 --- !u!114 &1409904748
 MonoBehaviour:
   m_ObjectHideFlags: 0

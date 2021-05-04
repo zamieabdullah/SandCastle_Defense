@@ -17,12 +17,11 @@ public class SpawnSanddollars : MonoBehaviour
     private float y_coord;
 
     public int maxdollars = 10;
-    static public int currdollars;
+    static public int currdollars = 0;
 
     void Start()
     {
         numToStart = 6;
-        currdollars = 6;
 
         for(int i = 0; i < numToStart; i++)
         {
