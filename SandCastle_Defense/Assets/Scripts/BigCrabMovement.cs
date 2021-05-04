@@ -22,6 +22,8 @@ public class BigCrabMovement : MonoBehaviour
     private GameObject capturedTower;
     public GameObject sandpile;
 
+    public GameObject particlesPrefab;
+
     private void Start()
     {
         target = centerTower.transform.position;
@@ -134,7 +136,9 @@ public class BigCrabMovement : MonoBehaviour
 
         GameObject a = Instantiate(sandpile) as GameObject;
         a.transform.position = transform.position;
-        
+
+        GameObject ps = Instantiate(particlesPrefab, transform.position, Quaternion.identity);
+
         Destroy(capturedTower);
     }
 

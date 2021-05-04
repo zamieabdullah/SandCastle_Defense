@@ -8630,6 +8630,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 783828774427260913, guid: 64e403437b43e45c9bf5b9430264d301,
         type: 3}
+    - target: {fileID: 3068128729054085751, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: particlesPrefab
+      value: 
+      objectReference: {fileID: 896491090158972169, guid: ca5b5efcebacc402cb5599d0d496d2e9,
+        type: 3}
     - target: {fileID: 5394968002252069387, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_Offset.y
@@ -11405,6 +11411,8 @@ MonoBehaviour:
   pc: {fileID: 96897582}
   centerTower: {fileID: 1806484359}
   sandpile: {fileID: 783828774427260913, guid: 64e403437b43e45c9bf5b9430264d301, type: 3}
+  particlesPrefab: {fileID: 896491090158972169, guid: ca5b5efcebacc402cb5599d0d496d2e9,
+    type: 3}
 --- !u!114 &1219495604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22947,6 +22955,12 @@ PrefabInstance:
       propertyPath: sandpile
       value: 
       objectReference: {fileID: 783828774427260913, guid: 64e403437b43e45c9bf5b9430264d301,
+        type: 3}
+    - target: {fileID: 3068128729054085751, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+        type: 3}
+      propertyPath: particlesPrefab
+      value: 
+      objectReference: {fileID: 896491090158972169, guid: ca5b5efcebacc402cb5599d0d496d2e9,
         type: 3}
     - target: {fileID: 5394968002252069387, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
