@@ -14,11 +14,18 @@ public class BuyShop : MonoBehaviour
     static public bool crabcatcherpurchased;
     static public bool bucketpurchased;
 
+    private AudioSource canbuyAudio;
+    private AudioSource cantbuyAudio;
+
     private void Start()
     {
         shovelpurchased = false;
         crabcatcherpurchased = false;
         bucketpurchased = false;
+        AudioSource[] allMyAudioSources = GetComponents<AudioSource>();
+        canbuyAudio = allMyAudioSources[0];
+        //cantbuyAudio = allMyAudioSources[1];
+
     }
 
     public void purchaseShovel()
@@ -28,6 +35,7 @@ public class BuyShop : MonoBehaviour
             Debug.Log("BUYING SHOVEL " + playercontroller.sanddollarCount);
             if (playercontroller.sanddollarCount > 2)
             {
+                canbuyAudio.Play();
                 playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
                 playercontroller.SetSanddollarCountText();
 
@@ -61,6 +69,7 @@ public class BuyShop : MonoBehaviour
             Debug.Log("BUYING CRAB CATCHER " + playercontroller.sanddollarCount);
             if (playercontroller.sanddollarCount > 2)
             {
+                canbuyAudio.Play();
                 playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
                 playercontroller.SetSanddollarCountText();
 
@@ -94,6 +103,7 @@ public class BuyShop : MonoBehaviour
             Debug.Log("BUYING BUCKET " + playercontroller.sanddollarCount);
             if (playercontroller.sanddollarCount > 2)
             {
+                canbuyAudio.Play();
                 playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
                 playercontroller.SetSanddollarCountText();
 
