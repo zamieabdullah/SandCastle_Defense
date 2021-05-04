@@ -11,8 +11,8 @@ public class SpawnSandPiles : MonoBehaviour
     private float spawnInterval = 8f;
     private float tempTime = 0f;
 
-    static public int currnumofpiles = 0;
-    public int maxpiles = 5;
+    static public int currnumofpiles = 3;
+    public int maxpiles = 7;
 
     public System.Random rand = new System.Random();
 
@@ -32,6 +32,7 @@ public class SpawnSandPiles : MonoBehaviour
           spawnSandpile();
           tempTime -= spawnInterval;
         }
+        Debug.Log("number of piles: " + currnumofpiles);
     }
 
     private void spawnSandpile()

@@ -1462,6 +1462,7 @@ MonoBehaviour:
     type: 3}
   player_is_digging: 0
   player_is_on_trench: 0
+  bucketusesLeft: 3
 --- !u!61 &96897583
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2744,7 +2745,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 568362871
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 437917b0b5dbb4855a4e332335bbcdd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -8601,6 +8602,7 @@ MonoBehaviour:
   particlesPrefab: {fileID: 0}
   player_is_digging: 0
   player_is_on_trench: 0
+  bucketusesLeft: 3
 --- !u!212 &812899627
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8638,7 +8640,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 568362871
-  m_SortingLayer: 3
+  m_SortingLayer: 2
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: d0fd7fdd621cc47fa89d6c4e0186ed19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9865,12 +9867,12 @@ PrefabInstance:
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.01
+      value: -15.33
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.61
+      value: -12.07
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
@@ -10007,7 +10009,8 @@ PrefabInstance:
       propertyPath: centerTower
       value: 
       objectReference: {fileID: 1806484359}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3068128729054085751, guid: bcbf3f8346f5648cd8f5e3b829b1632c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bcbf3f8346f5648cd8f5e3b829b1632c, type: 3}
 --- !u!1 &927922866
 GameObject:
@@ -10658,6 +10661,7 @@ MonoBehaviour:
   sandpile: {fileID: 783828774427260913, guid: 64e403437b43e45c9bf5b9430264d301, type: 3}
   numToStart: 1
   parent: {fileID: 1108441674}
+  maxpiles: 7
 --- !u!4 &1140899453 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6086985369454539547, guid: f83c2480dd2a41749ba8d953246e8e91,
@@ -10909,6 +10913,7 @@ MonoBehaviour:
   deflectCrabAudio: {fileID: 1219495606}
   pc: {fileID: 96897582}
   centerTower: {fileID: 1806484359}
+  crabbody: {fileID: 1219495607}
 --- !u!114 &1219495604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10927,6 +10932,12 @@ MonoBehaviour:
 --- !u!82 &1219495606 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5467298393899171249, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
+    type: 3}
+  m_PrefabInstance: {fileID: 924224710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1219495607 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1525720470485422465, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
     type: 3}
   m_PrefabInstance: {fileID: 924224710}
   m_PrefabAsset: {fileID: 0}
@@ -20774,14 +20785,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0e353ed5d19437eb5675a178a12423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  currentHealth: 0
-  healthBar: {fileID: 288236496}
-  spriteRenderer: {fileID: 0}
-  sprite1: {fileID: 21300000, guid: 1f7b8a3c2eef24189afb118d1c56458d, type: 3}
-  sprite2: {fileID: 21300000, guid: 82981f88b7ffe49109e17af651a34e2b, type: 3}
-  sprite3: {fileID: 21300000, guid: aacc1698fd1a44f40baf5f1dc9c26f85, type: 3}
-  sprite4: {fileID: 0}
+  castle:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &2060685452
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22104,12 +22110,12 @@ PrefabInstance:
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.18
+      value: -14.68
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.72
+      value: -11.22
       objectReference: {fileID: 0}
     - target: {fileID: 5514849297623593235, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
         type: 3}
