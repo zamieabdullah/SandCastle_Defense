@@ -28,7 +28,7 @@ public class CastleHealth : MonoBehaviour
 
     void Vulnerable()
     {
-        if ((castleTowers != null) && (castleTowers.Length <= 5))
+        if ((castleTowers != null) && (castleTowers.Length <= 6))
         {
             Debug.Log("VULNERABLE!!!");
 
