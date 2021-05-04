@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource pickUpToolAudio;
     private AudioSource shovelBreakAudio;
     //private AudioSource swapToolAudio;
+    private AudioSource openshopAudio;
    
 
 	  Vector2 movement;
@@ -331,6 +332,7 @@ public class PlayerController : MonoBehaviour
         // show shop
         if (other.gameObject.CompareTag("physicalshop"))
         {
+            openshopAudio.Play();
             Debug.Log("Opening Shop");
             showShop.shop.SetActive(true);
             //pause game
@@ -437,6 +439,7 @@ public class PlayerController : MonoBehaviour
         pickUpToolAudio = allMyAudioSources[2];
         shovelBreakAudio = allMyAudioSources[3];
         //swapToolAudio = allMyAudioSources[4];
+        openshopAudio = allMyAudioSources[5];
     }
 
     public void SetSanddollarCountText()
