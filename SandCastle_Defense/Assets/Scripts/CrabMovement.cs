@@ -20,7 +20,10 @@ public class CrabMovement : MonoBehaviour
     private bool hasTower = false;
     private bool hitByPlayer = false;
 
+    private SpriteRenderer crab;
+
     private GameObject capturedTower;
+
 
 
     private void Start()
@@ -92,15 +95,23 @@ public class CrabMovement : MonoBehaviour
                 if (hasTower)
                 {
                     
-                    capturedTower = FindGameObjectInChildWithTag(gameObject, "tower");
-                    capturedTower.tag = "castle";
+                    //capturedTower = FindGameObjectInChildWithTag(gameObject, "tower");
+                    //capturedTower.tag = "castle";
                     
                     Debug.Log("CASTLE NOW!!!!");
 
                     transform.DetachChildren();
+
+                    GameObject[] towers;
+                    towers = GameObject.FindGameObjectsWithTag("tower");
+                    foreach (GameObject tower in towers)
+                    {
+                        tower.tag = "castle";
+                    }
+
                     hasTower = false;
                 }
-
+                GetComponent<SpriteRenderer>().color = Color.gray;
                 speed *= 5;
                 target.y = -10;
                 target.x = Random.Range(-20f, 20f);
