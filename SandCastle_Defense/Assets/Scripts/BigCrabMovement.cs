@@ -85,7 +85,8 @@ public class BigCrabMovement : MonoBehaviour
         {
             if (pc.has_crabcatcher && Input.GetButtonDown("Hit"))
             {
-                Debug.Log("CRABCATCHER HIT BIGCRAB");
+                StartCoroutine("EnemyFlash");
+                //Debug.Log("CRABCATCHER HIT BIGCRAB");
                 if (health == 0)
                 {
 
@@ -110,7 +111,7 @@ public class BigCrabMovement : MonoBehaviour
 
                         hasTower = false;
                     }
-
+                    GetComponent<SpriteRenderer>().color = Color.gray;
                     speed *= 5;
                     target.y = -10;
                     target.x = Random.Range(-20f, 20f);
@@ -123,6 +124,14 @@ public class BigCrabMovement : MonoBehaviour
 
 
         }
+    }
+
+    public IEnumerator EnemyFlash ()
+    {
+        GetComponent<Renderer>().material.color = Color.gray;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<Renderer>().material.color = Color.white;
+        StopCoroutine("EnemyFlash");
     }
 
     IEnumerator gameOver()
