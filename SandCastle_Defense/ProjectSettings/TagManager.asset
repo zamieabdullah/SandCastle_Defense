@@ -24,6 +24,7 @@ TagManager:
   - rock
   - centerTower
   - wetTrench
+  - bigcrab
   layers:
   - Default
   - TransparentFX

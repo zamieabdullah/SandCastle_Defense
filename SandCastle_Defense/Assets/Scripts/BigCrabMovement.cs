@@ -21,8 +21,6 @@ public class BigCrabMovement : MonoBehaviour
     private bool hasTower = false;
     private bool hitByPlayer = false;
 
-    public Rigidbody2D crabbody;
-
     private void Start()
     {
         target = centerTower.transform.position;
@@ -119,8 +117,6 @@ public class BigCrabMovement : MonoBehaviour
                     deflectCrabAudio.Play();
                     PlayerController.crabsHit++;
                 }
-                crabbody = GetComponent<Rigidbody2D>();
-                crabbody.AddForce(transform.up * -20f);
                 deflectCrabAudio.Play();
                 health--;
             }

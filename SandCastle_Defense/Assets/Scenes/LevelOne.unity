@@ -11398,7 +11398,6 @@ MonoBehaviour:
   deflectCrabAudio: {fileID: 1219495606}
   pc: {fileID: 96897582}
   centerTower: {fileID: 1806484359}
-  crabbody: {fileID: 1219495607}
 --- !u!114 &1219495604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11417,12 +11416,6 @@ MonoBehaviour:
 --- !u!82 &1219495606 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5467298393899171249, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
-    type: 3}
-  m_PrefabInstance: {fileID: 924224710}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1219495607 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 1525720470485422465, guid: bcbf3f8346f5648cd8f5e3b829b1632c,
     type: 3}
   m_PrefabInstance: {fileID: 924224710}
   m_PrefabAsset: {fileID: 0}
