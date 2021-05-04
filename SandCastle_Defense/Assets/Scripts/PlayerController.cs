@@ -286,6 +286,7 @@ public class PlayerController : MonoBehaviour
 
         if(other.gameObject.CompareTag("sanddollar"))
         {
+            SpawnSanddollars.currdollars--;
             sanddollarAudio.Play();
             sanddollarCount++;
             Destroy(other.gameObject);
