@@ -19,6 +19,10 @@ public class BigCrabMovement : MonoBehaviour
     public GameObject centerTower;
 
     private bool hasTower = false;
+    private bool hitByPlayer = false;
+
+    private GameObject towerone;
+    private GameObject towertwo;
 
 
     private void Start()
@@ -40,7 +44,7 @@ public class BigCrabMovement : MonoBehaviour
 
         if ((other.gameObject.CompareTag("castle")))
         {
-            if (hasTower == false)
+            if ((hitByPlayer == false) && (hasTower == false))
             {
                 // removed the if statement for without destroying shovel: (other.gameObject.CompareTag("beachshovel")
                 speed *= 5;
@@ -87,9 +91,27 @@ public class BigCrabMovement : MonoBehaviour
                 Debug.Log("CRABCATCHER HIT BIGCRAB");
                 if (health == 0)
                 {
+
+                    hitByPlayer = true;
+
                     if (hasTower)
                     {
+
+                        //foreach (Transform t in gameObject.transform)
+                        //{
+                        //    t.gameObject.tag = "castle";
+                        //}
+
                         transform.DetachChildren();
+
+                        GameObject[] towers;
+                        towers = GameObject.FindGameObjectsWithTag("tower");
+                        foreach (GameObject tower in towers)
+                        {
+                            tower.tag = "castle";
+                        }
+
+                        hasTower = false;
                     }
 
                     speed *= 5;
@@ -114,4 +136,19 @@ public class BigCrabMovement : MonoBehaviour
         SceneManager.LoadScene("LoseScene");
     }
 
+    public static GameObject FindGameObjectInChildWithTag(GameObject parent, string tag)
+    {
+        Transform t = parent.transform;
+
+        for (int i = 0; i < t.childCount; i++)
+        {
+            if (t.GetChild(i).gameObject.tag == tag)
+            {
+                return t.GetChild(i).gameObject;
+            }
+
+        }
+
+        return null;
+    }
 }
