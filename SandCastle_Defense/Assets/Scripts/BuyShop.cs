@@ -24,7 +24,7 @@ public class BuyShop : MonoBehaviour
         bucketpurchased = false;
         AudioSource[] allMyAudioSources = GetComponents<AudioSource>();
         canbuyAudio = allMyAudioSources[0];
-        //cantbuyAudio = allMyAudioSources[1];
+        cantbuyAudio = allMyAudioSources[1];
 
     }
 
@@ -49,6 +49,7 @@ public class BuyShop : MonoBehaviour
             }
             else
             {
+                cantbuyAudio.Play();
                 feedbackText.color = Color.red;
                 feedbackText.text = "Get more sand dollars!";
                 Debug.Log("CANNOT BUY!!! Collect sand dollars");
@@ -57,6 +58,7 @@ public class BuyShop : MonoBehaviour
 
         } else
         {
+            cantbuyAudio.Play();
             feedbackText.color = Color.red;
             feedbackText.text = "Can only have one shovel!";
         }
@@ -83,6 +85,7 @@ public class BuyShop : MonoBehaviour
             }
             else
             {
+                cantbuyAudio.Play();
                 feedbackText.color = Color.red;
                 feedbackText.text = "Get more sand dollars!";
                 Debug.Log("CANNOT BUY!!! Collect sand dollars");
@@ -91,6 +94,7 @@ public class BuyShop : MonoBehaviour
         }
         else
         {
+            cantbuyAudio.Play();
             feedbackText.color = Color.red;
             feedbackText.text = "Can only have one crab catcher!";
         }
@@ -117,6 +121,7 @@ public class BuyShop : MonoBehaviour
             }
             else
             {
+                cantbuyAudio.Play();
                 feedbackText.color = Color.red;
                 feedbackText.text = "Get more sand dollars!";
                 Debug.Log("CANNOT BUY!!! Collect sand dollars");
@@ -124,6 +129,7 @@ public class BuyShop : MonoBehaviour
             Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
         } else
         {
+            cantbuyAudio.Play();
             feedbackText.color = Color.red;
             feedbackText.text = "Can only have one bucket!";
         }
