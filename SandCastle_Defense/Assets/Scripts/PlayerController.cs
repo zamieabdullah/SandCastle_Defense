@@ -76,6 +76,8 @@ public class PlayerController : MonoBehaviour
 
     public bool player_is_on_trench = false;
 
+    public int bucketusesLeft = 3;
+
     void Start()
     {
         sanddollarCount = 0;
@@ -159,11 +161,22 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if (has_bucket == true)
+                if (has_bucket == true && bucketusesLeft > 0)
                 {
-
                     Instantiate(castleTower, transform.position, Quaternion.identity);
                     bucketAmount -= 2;
+                    bucketusesLeft--;
+                    if (bucketusesLeft == 0)
+                    {
+                        has_bucket = false;
+                        has_item = false;
+                        Destroy(current_item);
+                        bucketusesLeft = 3;
+                        animator.SetBool("Bucket", has_bucket);
+                        usingBucket.SetActive(false);
+                        filledBucket.SetActive(false);
+                        emptyBucket.SetActive(false);
+                    }
                     bucketUses++;
                 }
             }
