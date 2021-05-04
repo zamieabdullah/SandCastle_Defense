@@ -158,10 +158,14 @@ public class PlayerController : MonoBehaviour
 								SetBucketState();
             }
             else
-            { 
-                Instantiate(castleTower, transform.position, Quaternion.identity);
-                bucketAmount -= 2;
-                bucketUses++;
+            {
+                if (has_bucket == true)
+                {
+
+                    Instantiate(castleTower, transform.position, Quaternion.identity);
+                    bucketAmount -= 2;
+                    bucketUses++;
+                }
             }
         }
 
