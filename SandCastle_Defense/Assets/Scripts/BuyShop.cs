@@ -10,72 +10,112 @@ public class BuyShop : MonoBehaviour
     public GameObject item, parent;
     public Text feedbackText;
 
+    static public bool shovelpurchased;
+    static public bool crabcatcherpurchased;
+    static public bool bucketpurchased;
+
+    private void Start()
+    {
+        shovelpurchased = false;
+        crabcatcherpurchased = false;
+        bucketpurchased = false;
+    }
+
     public void purchaseShovel()
     {
-        Debug.Log("BUYING SHOVEL " + playercontroller.sanddollarCount);
-        if (playercontroller.sanddollarCount > 2)
+        if(shovelpurchased == false)
         {
-            playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
-            playercontroller.SetSanddollarCountText();
+            Debug.Log("BUYING SHOVEL " + playercontroller.sanddollarCount);
+            if (playercontroller.sanddollarCount > 2)
+            {
+                playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
+                playercontroller.SetSanddollarCountText();
 
-            GameObject a = Instantiate(item) as GameObject;
-            a.transform.position = new Vector2(7f, 5.5f);
-            a.transform.SetParent(parent.transform);
-            feedbackText.color = Color.green;
-            feedbackText.text = "Successful Purchase!";
+                GameObject a = Instantiate(item) as GameObject;
+                a.transform.position = new Vector2(7f, 5.5f);
+                a.transform.SetParent(parent.transform);
+                feedbackText.color = Color.green;
+                feedbackText.text = "Successful Purchase!";
+
+                shovelpurchased = true;
+            }
+            else
+            {
+                feedbackText.color = Color.red;
+                feedbackText.text = "Get more sand dollars!";
+                Debug.Log("CANNOT BUY!!! Collect sand dollars");
+            }
+            Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
+
         } else
         {
             feedbackText.color = Color.red;
-            feedbackText.text = "Get more sand dollars!";
-            Debug.Log("CANNOT BUY!!! Collect sand dollars");
+            feedbackText.text = "Can only have one shovel!";
         }
-        Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
     }
 
     public void purchaseCrabcatcher()
     {
-        Debug.Log("BUYING CRAB CATCHER " + playercontroller.sanddollarCount);
-        if (playercontroller.sanddollarCount > 2)
+        if (crabcatcherpurchased == false)
         {
-            playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
-            playercontroller.SetSanddollarCountText();
+            Debug.Log("BUYING CRAB CATCHER " + playercontroller.sanddollarCount);
+            if (playercontroller.sanddollarCount > 2)
+            {
+                playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
+                playercontroller.SetSanddollarCountText();
 
-            GameObject a = Instantiate(item) as GameObject;
-            a.transform.position = new Vector2(7f, 4.2f);
-            a.transform.SetParent(parent.transform);
-            feedbackText.color = Color.green;
-            feedbackText.text = "Successful Purchase!";
+                GameObject a = Instantiate(item) as GameObject;
+                a.transform.position = new Vector2(7f, 4.2f);
+                a.transform.SetParent(parent.transform);
+                feedbackText.color = Color.green;
+                feedbackText.text = "Successful Purchase!";
+
+                crabcatcherpurchased = true;
+            }
+            else
+            {
+                feedbackText.color = Color.red;
+                feedbackText.text = "Get more sand dollars!";
+                Debug.Log("CANNOT BUY!!! Collect sand dollars");
+            }
+            Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
         }
         else
         {
             feedbackText.color = Color.red;
-            feedbackText.text = "Get more sand dollars!";
-            Debug.Log("CANNOT BUY!!! Collect sand dollars");
+            feedbackText.text = "Can only have one crab catcher!";
         }
-        Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
     }
 
     public void purchaseBucket()
     {
-        Debug.Log("BUYING BUCKET " + playercontroller.sanddollarCount);
-        if (playercontroller.sanddollarCount > 2)
+        if(bucketpurchased == false)
         {
-            playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
-            playercontroller.SetSanddollarCountText();
+            Debug.Log("BUYING BUCKET " + playercontroller.sanddollarCount);
+            if (playercontroller.sanddollarCount > 2)
+            {
+                playercontroller.sanddollarCount = playercontroller.sanddollarCount - 3;
+                playercontroller.SetSanddollarCountText();
 
-            GameObject a = Instantiate(item) as GameObject;
-            a.transform.position = new Vector2(7f, 3f);
-            a.transform.SetParent(parent.transform);
-            feedbackText.color = Color.green;
-            feedbackText.text = "Successful Purchase!";
+                GameObject a = Instantiate(item) as GameObject;
+                a.transform.position = new Vector2(7f, 3f);
+                a.transform.SetParent(parent.transform);
+                feedbackText.color = Color.green;
+                feedbackText.text = "Successful Purchase!";
 
-        }
-        else
+                bucketpurchased = true;
+            }
+            else
+            {
+                feedbackText.color = Color.red;
+                feedbackText.text = "Get more sand dollars!";
+                Debug.Log("CANNOT BUY!!! Collect sand dollars");
+            }
+            Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
+        } else
         {
             feedbackText.color = Color.red;
-            feedbackText.text = "Get more sand dollars!";
-            Debug.Log("CANNOT BUY!!! Collect sand dollars");
+            feedbackText.text = "Can only have one bucket!";
         }
-        Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
     }
 }

@@ -8,7 +8,7 @@ public class BigCrabMovement : MonoBehaviour
 {
     private Vector3 target;
     private float speed = .8f;
-    private int health = 3;
+    private int health;
     // float wiggleDistance = 1;
     // float wiggleSpeed = 5;
 
@@ -21,13 +21,12 @@ public class BigCrabMovement : MonoBehaviour
     private bool hasTower = false;
     private bool hitByPlayer = false;
 
-    private GameObject towerone;
-    private GameObject towertwo;
-
+    public Rigidbody2D crabbody;
 
     private void Start()
     {
         target = centerTower.transform.position;
+        health = 3;
     }
 
     void Update()
@@ -120,6 +119,9 @@ public class BigCrabMovement : MonoBehaviour
                     deflectCrabAudio.Play();
                     PlayerController.crabsHit++;
                 }
+                crabbody = GetComponent<Rigidbody2D>();
+                crabbody.AddForce(transform.up * -20f);
+                deflectCrabAudio.Play();
                 health--;
             }
 
@@ -134,21 +136,5 @@ public class BigCrabMovement : MonoBehaviour
         yield return new WaitForSeconds(3.5f);
 
         SceneManager.LoadScene("LoseScene");
-    }
-
-    public static GameObject FindGameObjectInChildWithTag(GameObject parent, string tag)
-    {
-        Transform t = parent.transform;
-
-        for (int i = 0; i < t.childCount; i++)
-        {
-            if (t.GetChild(i).gameObject.tag == tag)
-            {
-                return t.GetChild(i).gameObject;
-            }
-
-        }
-
-        return null;
     }
 }
