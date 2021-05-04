@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
                         has_item = false;
                         Destroy(current_item);
 					      				digs_left = 5;
-
+                        BuyShop.shovelpurchased = false;
                         //shovel disappears off the kid
                         animator.SetBool("Shovel", has_shovel);
 												digsLeftUI.SetActive(false);
@@ -168,9 +168,11 @@ public class PlayerController : MonoBehaviour
                     bucketusesLeft--;
                     if (bucketusesLeft == 0)
                     {
+                        bucketAmount = 0;
                         has_bucket = false;
                         has_item = false;
                         Destroy(current_item);
+                        BuyShop.bucketpurchased = false;
                         bucketusesLeft = 3;
                         animator.SetBool("Bucket", has_bucket);
                         usingBucket.SetActive(false);
