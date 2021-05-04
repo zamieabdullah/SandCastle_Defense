@@ -21,6 +21,10 @@ public class BigCrabMovement : MonoBehaviour
     private bool hasTower = false;
     private bool hitByPlayer = false;
 
+     private GameObject capturedTower;
+
+    public GameObject sandpile;
+
     private void Start()
     {
         target = centerTower.transform.position;
@@ -99,17 +103,8 @@ public class BigCrabMovement : MonoBehaviour
                         //{
                         //    t.gameObject.tag = "castle";
                         //}
+                        DropTower();
 
-                        transform.DetachChildren();
-
-                        GameObject[] towers;
-                        towers = GameObject.FindGameObjectsWithTag("tower");
-                        foreach (GameObject tower in towers)
-                        {
-                            tower.tag = "castle";
-                        }
-
-                        hasTower = false;
                     }
                     GetComponent<SpriteRenderer>().color = Color.gray;
                     speed *= 5;
@@ -124,6 +119,25 @@ public class BigCrabMovement : MonoBehaviour
 
 
         }
+    }
+
+    void DropTower()
+    {
+        transform.DetachChildren();
+
+        GameObject[] towers;
+        towers = GameObject.FindGameObjectsWithTag("tower");
+        foreach (GameObject tower in towers)
+        {
+            tower.tag = "castle";
+        }
+
+        hasTower = false;
+
+        GameObject a = Instantiate(sandpile) as GameObject;
+        a.transform.position = transform.position;
+        
+        Destroy(capturedTower);
     }
 
     public IEnumerator EnemyFlash ()

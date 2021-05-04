@@ -24,6 +24,9 @@ public class CrabMovement : MonoBehaviour
 
     private GameObject capturedTower;
 
+    public GameObject sandpile;
+
+
 
 
     private void Start()
@@ -47,6 +50,7 @@ public class CrabMovement : MonoBehaviour
         {
             if ((hitByPlayer == false) && (hasTower == false))
             {
+                capturedTower = other.gameObject;
                 // removed the if statement for without destroying shovel: (other.gameObject.CompareTag("beachshovel")
                 speed *= 5;
                 target.y = -10;
@@ -94,22 +98,11 @@ public class CrabMovement : MonoBehaviour
 
                 if (hasTower)
                 {
+                    DropTower();
                     
-                    //capturedTower = FindGameObjectInChildWithTag(gameObject, "tower");
                     //capturedTower.tag = "castle";
-                    
-                    Debug.Log("CASTLE NOW!!!!");
+                    //Debug.Log("CASTLE NOW!!!!");
 
-                    transform.DetachChildren();
-
-                    GameObject[] towers;
-                    towers = GameObject.FindGameObjectsWithTag("tower");
-                    foreach (GameObject tower in towers)
-                    {
-                        tower.tag = "castle";
-                    }
-
-                    hasTower = false;
                 }
                 GetComponent<SpriteRenderer>().color = Color.gray;
                 speed *= 5;
@@ -121,6 +114,24 @@ public class CrabMovement : MonoBehaviour
 
 
         }
+    }
+    void DropTower()
+    {
+        transform.DetachChildren();
+        GameObject[] towers;
+        towers = GameObject.FindGameObjectsWithTag("tower");
+        foreach (GameObject tower in towers)
+        {
+            tower.tag = "castle";
+        }
+
+        hasTower = false;
+
+        GameObject a = Instantiate(sandpile) as GameObject;
+        a.transform.position = transform.position;
+        
+        Destroy(capturedTower);
+
     }
 
     IEnumerator gameOver()
