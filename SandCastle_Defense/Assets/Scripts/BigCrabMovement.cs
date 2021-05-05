@@ -25,6 +25,7 @@ public class BigCrabMovement : MonoBehaviour
     public GameObject particlesPrefab;
 
     public int towerstaken = 0;
+    Vector3 temp = new Vector3(0, 0, 0);
 
     private void Start()
     {
@@ -134,17 +135,17 @@ public class BigCrabMovement : MonoBehaviour
         towers = GameObject.FindGameObjectsWithTag("tower");
         foreach (GameObject tower in towers)
         {
-            tower.tag = "castle";
+            GameObject a = Instantiate(sandpile) as GameObject;
+            a.transform.position = transform.position + temp;
+
+            GameObject ps = Instantiate(particlesPrefab, transform.position, Quaternion.identity);
+
+            temp = new Vector3(0, .5f, 0);
+
+            Destroy(tower);
         }
 
         hasTower = false;
-
-        GameObject a = Instantiate(sandpile) as GameObject;
-        a.transform.position = transform.position;
-
-        GameObject ps = Instantiate(particlesPrefab, transform.position, Quaternion.identity);
-
-        Destroy(capturedTower);
     }
 
     public IEnumerator EnemyFlash ()
