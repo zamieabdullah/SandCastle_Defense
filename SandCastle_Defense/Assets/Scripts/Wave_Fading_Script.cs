@@ -8,7 +8,7 @@ public class Wave_Fading_Script : MonoBehaviour
     public Material Mat_WaveProjectile1;
     private float curr_visibility;
 
-    private float speed = 1.3f;
+    private float speed = 0.9f;
     // Start is called before the first frame update
     void Start()
     {

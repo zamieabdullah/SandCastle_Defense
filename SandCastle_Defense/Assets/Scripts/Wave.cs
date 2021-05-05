@@ -47,6 +47,13 @@ public class Wave : MonoBehaviour
             }
         }
 
+        if (collision.CompareTag("rock"))
+        {
+            Debug.Log("hit rock");
+            Destroy(gameObject);
+
+        }
+
         if ((collision.gameObject.CompareTag("trench")) || (collision.gameObject.CompareTag("wetTrench")))
         {
             Destroy(gameObject);
