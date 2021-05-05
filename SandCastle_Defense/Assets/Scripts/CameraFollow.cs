@@ -9,11 +9,6 @@ public class CameraFollow : MonoBehaviour
     private Vector2 player_prev_position;
     private Vector3 cameraPos = new Vector3();
 
-    //changes to the camera follow:
-    // public Transform target;
-    // public float smoothTime = 0.3f;
-    // private Vector3 velocity = Vector3.zero;
-
 	void Start()
 	{ 
 		cameraPos.y = this.transform.position.y;
@@ -31,9 +26,6 @@ public class CameraFollow : MonoBehaviour
 			transform.Translate(delta_position);
 		}
 		player_prev_position = player.transform.position;
-        //changes to the camera follow:
 
-        // Vector3 targetPosition = target.TransformPoint(new Vector3(0, 0-2, -10));
-        // transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
 }

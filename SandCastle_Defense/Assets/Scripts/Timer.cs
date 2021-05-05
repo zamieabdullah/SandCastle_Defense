@@ -20,8 +20,7 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI currentLevelText;
     public static float currentLevel = 1;
 
-
-    // PRIVATE DECLARATIONS
+        // PRIVATE DECLARATIONS
     private TimeSpan timePlaying;        //TimeSpan part of System namespace
                                          // used to format Time better
 
