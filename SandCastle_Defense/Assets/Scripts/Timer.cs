@@ -120,7 +120,7 @@ public class Timer : MonoBehaviour
     private void CrabsAttack()
     {
         float crabCountToSpawn = (5 * currentLevel);
-        float bigcrabCountToSpawn = (1 * currentLevel);
+        float bigcrabCountToSpawn = (1 * (currentLevel - 1));
         for (int i = 0; i < crabCountToSpawn; i++)
         {
             SpawnCrab(); 

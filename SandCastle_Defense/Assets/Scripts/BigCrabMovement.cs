@@ -24,6 +24,8 @@ public class BigCrabMovement : MonoBehaviour
 
     public GameObject particlesPrefab;
 
+    public int towerstaken = 0;
+
     private void Start()
     {
         target = centerTower.transform.position;
@@ -47,14 +49,17 @@ public class BigCrabMovement : MonoBehaviour
             if ((hitByPlayer == false) && (hasTower == false))
             {
                 capturedTower = other.gameObject;
-                // removed the if statement for without destroying shovel: (other.gameObject.CompareTag("beachshovel")
-                speed *= 5;
-                target.y = -10;
-                target.x = Random.Range(-20f, 20f);
+                towerstaken++;
 
                 other.gameObject.tag = "tower";
                 other.transform.parent = transform;
-                hasTower = true;
+                if (towerstaken == 2)
+                {
+                    speed *= 5;
+                    target.y = -10;
+                    target.x = Random.Range(-20f, 20f);
+                    hasTower = true;
+                }
 
                 if (other.gameObject.name == "Center Tower")
                 {
