@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if (has_bucket == true && bucketusesLeft > 0)
+                if (has_bucket == true && bucketusesLeft > 0 && bucketFilled)
                 {
                     Instantiate(castleTower, transform.position, Quaternion.identity);
                     bucketAmount -= 2;
