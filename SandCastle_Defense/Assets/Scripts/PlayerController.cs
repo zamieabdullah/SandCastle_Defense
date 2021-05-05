@@ -166,6 +166,10 @@ public class PlayerController : MonoBehaviour
                 {
                     Instantiate(castleTower, transform.position, Quaternion.identity);
                     bucketAmount -= 2;
+                    bucketFilled = false;
+                    animator.SetBool("BucketFull", bucketFilled);
+                    SetBucketState();
+                    kidSpeed = 5f;
                     bucketusesLeft--;
                     if (bucketusesLeft == 0)
                     {
@@ -257,7 +261,7 @@ public class PlayerController : MonoBehaviour
                 has_bucket = true;
                 if (bucketFilled == true)
                 {
-                    kidSpeed = 3f;
+                    kidSpeed = 2.5f;
                 }
                 has_item = true;
                 current_item = other.gameObject;
@@ -315,20 +319,20 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (other.gameObject.CompareTag("castle"))
-        {
-            Debug.Log("player collided with sandcastle");
+        //if (other.gameObject.CompareTag("castle"))
+        //{
+        //    Debug.Log("player collided with sandcastle");
 
-            if(bucketFilled == true)
-            {
-                //CASTLE GROWS AND GAINS AN "APPENDAGE" @CHRIS
-                // maybe here we should also give the castle more health somehow?
-                bucketFilled = false;
-				        animator.SetBool("BucketFull", bucketFilled);
-								SetBucketState();
-                kidSpeed = 5f;
-            }
-        }
+        //    if(bucketFilled == true)
+        //    {
+        //        //CASTLE GROWS AND GAINS AN "APPENDAGE" @CHRIS
+        //        // maybe here we should also give the castle more health somehow?
+        //        //bucketFilled = false;
+				    //    animator.SetBool("BucketFull", bucketFilled);
+								//SetBucketState();
+        //        //kidSpeed = 5f;
+        //    }
+        //}
 
         // show shop
         if (other.gameObject.CompareTag("physicalshop"))
