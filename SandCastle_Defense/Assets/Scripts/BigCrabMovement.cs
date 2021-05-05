@@ -27,10 +27,15 @@ public class BigCrabMovement : MonoBehaviour
     public int towerstaken = 0;
     Vector3 temp = new Vector3(0, 0, 0);
 
+    public bool alive = true;
+
+    private GameObject player;
+
     private void Start()
     {
         target = centerTower.transform.position;
         health = 3;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -95,11 +100,10 @@ public class BigCrabMovement : MonoBehaviour
         {
             if (pc.has_crabcatcher && Input.GetButtonDown("Hit"))
             {
-                StartCoroutine("EnemyFlash");
                 //Debug.Log("CRABCATCHER HIT BIGCRAB");
                 if (health == 0)
                 {
-
+                    alive = false;
                     hitByPlayer = true;
 
                     if (hasTower)
@@ -119,6 +123,7 @@ public class BigCrabMovement : MonoBehaviour
                     deflectCrabAudio.Play();
                     PlayerController.crabsHit++;
                 }
+                StartCoroutine("EnemyFlash");
                 deflectCrabAudio.Play();
                 health--;
             }
@@ -150,8 +155,18 @@ public class BigCrabMovement : MonoBehaviour
 
     public IEnumerator EnemyFlash ()
     {
+        //"Knockback"
+        if (alive)
+        {
+            speed = -3f;
+        }
         GetComponent<Renderer>().material.color = Color.gray;
         yield return new WaitForSeconds(0.1f);
+
+        if (alive)
+        {
+            speed = .8f;
+        }
         GetComponent<Renderer>().material.color = Color.white;
         StopCoroutine("EnemyFlash");
     }
