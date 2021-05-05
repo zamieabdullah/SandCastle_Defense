@@ -140,7 +140,7 @@ public class BigCrabMovement : MonoBehaviour
 
             GameObject ps = Instantiate(particlesPrefab, transform.position, Quaternion.identity);
 
-            temp = new Vector3(0, .5f, 0);
+            temp = new Vector3(.5f, 0, 0);
 
             Destroy(tower);
         }
