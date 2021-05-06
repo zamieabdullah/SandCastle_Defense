@@ -98,7 +98,7 @@ public class BigCrabMovement : MonoBehaviour
     {
         if ((other.gameObject.CompareTag("Player")))
         {
-            if (pc.has_crabcatcher && Input.GetButtonDown("Hit"))
+            if (pc.has_crabcatcher && Input.GetButtonDown("Hit") && gameObject.tag != "dead")
             {
                 //Debug.Log("CRABCATCHER HIT BIGCRAB");
                 if (health == 0)
@@ -120,6 +120,7 @@ public class BigCrabMovement : MonoBehaviour
                     speed *= 5;
                     target.y = -10;
                     target.x = Random.Range(-20f, 20f);
+                    gameObject.tag = "dead";
                     deflectCrabAudio.Play();
                     PlayerController.crabsHit++;
                 }
