@@ -19,7 +19,7 @@ public class BuyShop : MonoBehaviour
 
     private void Start()
     {
-        shovelpurchased = false;
+        shovelpurchased = true;
         crabcatcherpurchased = false;
         bucketpurchased = false;
         AudioSource[] allMyAudioSources = GetComponents<AudioSource>();

@@ -146,11 +146,11 @@ public class PlayerController : MonoBehaviour
             }
             
         }
-		
-				if (Input.GetButtonDown("Equip") && (has_item == true))
-		    {
-		        PutDown();
-		    }
+		//dont need i think
+				//if (Input.GetButtonDown("Equip") && (has_item == true))
+		  //  {
+		  //      PutDown();
+		  //  }
 
         if (Input.GetButtonDown("Build"))
         {
@@ -385,6 +385,7 @@ public class PlayerController : MonoBehaviour
 
             if (digs_left == 0)
             {
+                BuyShop.shovelpurchased = false;
                 shovelBreakAudio.Play();
             }
         }
