@@ -146,11 +146,11 @@ public class PlayerController : MonoBehaviour
             }
             
         }
-		//dont need i think
-				//if (Input.GetButtonDown("Equip") && (has_item == true))
-		  //  {
-		  //      PutDown();
-		  //  }
+        //dont need i think
+        //if (Input.GetButtonDown("Equip") && (has_item == true))
+        //{
+        //    PutDown();
+        //}
 
         if (Input.GetButtonDown("Build"))
         {
@@ -406,18 +406,29 @@ public class PlayerController : MonoBehaviour
         Debug.Log("you are letting go! " + Time.deltaTime);
         if (has_shovel == true)
         {
+
+            GameObject a = Instantiate(current_item) as GameObject;
+            a.transform.position = new Vector2(6.92f, 5.79f);
+            a.SetActive(true);
             has_shovel = false;
             animator.SetBool("Shovel", has_shovel);
             digsLeftUI.SetActive(false);
+
         }
         if (has_crabcatcher == true)
         {
+            GameObject a = Instantiate(current_item) as GameObject;
+            a.transform.position = new Vector2(6.92f, 4.2f);
+            a.SetActive(true);
             has_crabcatcher = false;
             animator.SetBool("CrabCatcher", has_crabcatcher);
 						usingCrabCatcher.SetActive(false);
         }
         if (has_bucket == true)
         {
+            GameObject a = Instantiate(current_item) as GameObject;
+            a.transform.position = new Vector2(6.92f, 2.8f);
+            a.SetActive(true);
             has_bucket = false;
             animator.SetBool("Bucket", has_bucket);
 						usingBucket.SetActive(false);
@@ -425,14 +436,14 @@ public class PlayerController : MonoBehaviour
         }
 
         //copying the trench digging functionality
-        GetComponent<BoxCollider2D>().enabled = false;
-        Vector3Int currCell = tilemapBG.WorldToCell(transform.position);
-        GameObject clone = Instantiate(current_item, currCell , transform.rotation);
-        clone.SetActive(true);
-        clone.transform.SetParent(trenchParent.transform);
+        //GetComponent<BoxCollider2D>().enabled = false;
+        //Vector3Int currCell = tilemapBG.WorldToCell(transform.position);
+        //GameObject clone = Instantiate(current_item, currCell , transform.rotation);
+        //clone.SetActive(true);
+        //clone.transform.SetParent(trenchParent.transform);
         has_item = false;
-        Destroy(current_item);
-        StartCoroutine(EnableBox(0.5f));
+        //Destroy(current_item);
+        //StartCoroutine(EnableBox(0.5f));
     }
 
     void SetUpAudio()

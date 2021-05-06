@@ -40,7 +40,7 @@ public class BuyShop : MonoBehaviour
                 playercontroller.SetSanddollarCountText();
 
                 GameObject a = Instantiate(item) as GameObject;
-                a.transform.position = new Vector2(7f, 5.5f);
+                a.transform.position = new Vector2(6.92f, 5.79f);
                 a.transform.SetParent(parent.transform);
                 feedbackText.color = Color.green;
                 feedbackText.text = "Successful Purchase!";
@@ -76,7 +76,7 @@ public class BuyShop : MonoBehaviour
                 playercontroller.SetSanddollarCountText();
 
                 GameObject a = Instantiate(item) as GameObject;
-                a.transform.position = new Vector2(7f, 4.2f);
+                a.transform.position = new Vector2(6.92f, 4.2f);
                 a.transform.SetParent(parent.transform);
                 feedbackText.color = Color.green;
                 feedbackText.text = "Successful Purchase!";
@@ -112,7 +112,7 @@ public class BuyShop : MonoBehaviour
                 playercontroller.SetSanddollarCountText();
 
                 GameObject a = Instantiate(item) as GameObject;
-                a.transform.position = new Vector2(7f, 3f);
+                a.transform.position = new Vector2(6.92f, 2.8f);
                 a.transform.SetParent(parent.transform);
                 feedbackText.color = Color.green;
                 feedbackText.text = "Successful Purchase!";
