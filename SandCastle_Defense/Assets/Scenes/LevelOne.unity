@@ -1449,12 +1449,14 @@ MonoBehaviour:
   emptyBucket: {fileID: 235410344}
   BucketState: {fileID: 1167478239}
   animator: {fileID: 425951789}
+  current_item: {fileID: 0}
   has_item: 0
   has_shovel: 0
   has_bucket: 0
   has_crabcatcher: 0
   bucketFilled: 0
   trenchParent: {fileID: 64658627}
+  shovelBreakAudio: {fileID: 0}
   bucketAmount: 0
   castleTower: {fileID: 4889900415070837901, guid: 9e792924d593a4606be50d8f14d4ea9d,
     type: 3}
@@ -10992,12 +10994,14 @@ MonoBehaviour:
   emptyBucket: {fileID: 0}
   BucketState: {fileID: 0}
   animator: {fileID: 812899631}
+  current_item: {fileID: 0}
   has_item: 0
   has_shovel: 0
   has_bucket: 0
   has_crabcatcher: 0
   bucketFilled: 0
   trenchParent: {fileID: 0}
+  shovelBreakAudio: {fileID: 0}
   bucketAmount: 0
   castleTower: {fileID: 0}
   showShop: {fileID: 0}

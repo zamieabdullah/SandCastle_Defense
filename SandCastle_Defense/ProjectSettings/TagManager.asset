@@ -25,6 +25,7 @@ TagManager:
   - centerTower
   - wetTrench
   - bigcrab
+  - dead
   layers:
   - Default
   - TransparentFX
