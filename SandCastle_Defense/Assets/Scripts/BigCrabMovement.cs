@@ -128,6 +128,7 @@ public class BigCrabMovement : MonoBehaviour
                 deflectCrabAudio.Play();
                 health--;
                 CrabMovement.crabcatcherLeft--;
+                pc.SetCCLeftCountText();
                 Debug.Log("crabcatcher left: " + CrabMovement.crabcatcherLeft);
                 if (CrabMovement.crabcatcherLeft == 0)
                 {

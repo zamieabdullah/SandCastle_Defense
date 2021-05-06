@@ -28,11 +28,13 @@ public class PlayerController : MonoBehaviour
     public GameObject digsLeftUI;
 		
 		public GameObject usingCrabCatcher;
-		
-		public GameObject usingBucket;
+    public TextMeshProUGUI crabcatcherLeftCountText;
+
+    public GameObject usingBucket;
 		public GameObject filledBucket;
 		public GameObject emptyBucket;
 		public TextMeshProUGUI BucketState;
+    public TextMeshProUGUI bucketLeftCountText;
 
 
     public Animator animator;
@@ -44,6 +46,8 @@ public class PlayerController : MonoBehaviour
     public bool has_shovel = false;
     public bool has_bucket = false;
     public bool has_crabcatcher = false;
+
+    public GameObject UsesLeftText;
     
     public bool bucketFilled = false;
 
@@ -88,7 +92,7 @@ public class PlayerController : MonoBehaviour
 				usingCrabCatcher.SetActive(false);
 				usingBucket.SetActive(false);
         SetUpAudio();
-
+        UsesLeftText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -110,6 +114,15 @@ public class PlayerController : MonoBehaviour
 				} else if (movement.x > 0 && !looking_right) {
 					  Flip();
 				}
+
+        if (has_item)
+        {
+            UsesLeftText.SetActive(true);
+        }
+        if (!has_item)
+        {
+            UsesLeftText.SetActive(false);
+        }
 
         if (Input.GetButtonDown("Dig"))
         {
@@ -171,6 +184,7 @@ public class PlayerController : MonoBehaviour
                     SetBucketState();
                     kidSpeed = 5f;
                     bucketusesLeft--;
+                    SetBucketLeftCountText();
                     if (bucketusesLeft == 0)
                     {
                         shovelBreakAudio.Play();
@@ -256,7 +270,8 @@ public class PlayerController : MonoBehaviour
             {
                 digsLeftUI.SetActive(false);
                 pickUpToolAudio.Play();
-				
+                SetBucketLeftCountText();
+
                 other.gameObject.SetActive(false);
                 has_bucket = true;
                 if (bucketFilled == true)
@@ -280,6 +295,8 @@ public class PlayerController : MonoBehaviour
             {
                 digsLeftUI.SetActive(false);
                 pickUpToolAudio.Play();
+                SetCCLeftCountText();
+
                 Debug.Log("crabcatcher obtained!");
 								other.gameObject.SetActive(false);
                 has_item = true;
@@ -465,6 +482,16 @@ public class PlayerController : MonoBehaviour
     public void SetDigsLeftCountText()
     {
         digsLeftCountText.text = digs_left.ToString();
+    }
+
+    public void SetCCLeftCountText()
+    {
+        crabcatcherLeftCountText.text = CrabMovement.crabcatcherLeft.ToString();
+    }
+
+    public void SetBucketLeftCountText()
+    {
+        bucketLeftCountText.text = bucketusesLeft.ToString();
     }
 		
 	public void SetBucketState()

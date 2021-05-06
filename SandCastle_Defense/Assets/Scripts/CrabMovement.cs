@@ -110,6 +110,7 @@ public class CrabMovement : MonoBehaviour
                 deflectCrabAudio.Play();
                 PlayerController.crabsHit++;
                 crabcatcherLeft--;
+                pc.SetCCLeftCountText();
                 Debug.Log("crabcatcher left: " + crabcatcherLeft);
 
                 if (crabcatcherLeft == 0)
