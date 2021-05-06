@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 	  private bool looking_right = true;
 
     //So player can only hold one item at a time
-    private GameObject current_item;
+    public GameObject current_item;
     public bool has_item = false;
     public bool has_shovel = false;
     public bool has_bucket = false;
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource sanddollarAudio;
     private AudioSource digAudio;
     private AudioSource pickUpToolAudio;
-    private AudioSource shovelBreakAudio;
+    public AudioSource shovelBreakAudio;
     //private AudioSource swapToolAudio;
     private AudioSource openshopAudio;
    
@@ -401,7 +401,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void PutDown()
+    public void PutDown()
     {
         Debug.Log("you are letting go! " + Time.deltaTime);
         if (has_shovel == true)

@@ -27,6 +27,8 @@ public class CrabMovement : MonoBehaviour
 
     public GameObject particlesPrefab;
 
+    public static int crabcatcherLeft = 10;
+
     private void Start()
     {
         target = centerTower.transform.position;
@@ -35,11 +37,11 @@ public class CrabMovement : MonoBehaviour
     void Update()
     { 
         transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
-      
-	    // float xPosition = Mathf.Sin(Time.time * wiggleSpeed) * wiggleDistance;
 
-	    // transform.localPosition = new Vector3(xPosition, 0, 0);
-	}
+        // float xPosition = Mathf.Sin(Time.time * wiggleSpeed) * wiggleDistance;
+
+        // transform.localPosition = new Vector3(xPosition, 0, 0);
+    }
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
@@ -106,6 +108,20 @@ public class CrabMovement : MonoBehaviour
                 target.x = Random.Range(-20f, 20f);
                 deflectCrabAudio.Play();
                 PlayerController.crabsHit++;
+                crabcatcherLeft--;
+                Debug.Log("crabcatcher left: " + crabcatcherLeft);
+
+                if (crabcatcherLeft == 0)
+                {
+                    pc.shovelBreakAudio.Play();
+                    pc.has_crabcatcher = false;
+                    pc.has_item = false;
+                    Destroy(pc.current_item);
+                    BuyShop.crabcatcherpurchased = false;
+                    pc.animator.SetBool("CrabCatcher", pc.has_crabcatcher);
+                    pc.usingCrabCatcher.SetActive(false);
+                    crabcatcherLeft = 10;
+                }
             }
 
 

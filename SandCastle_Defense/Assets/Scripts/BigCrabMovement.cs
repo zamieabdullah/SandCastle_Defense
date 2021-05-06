@@ -126,6 +126,19 @@ public class BigCrabMovement : MonoBehaviour
                 StartCoroutine("EnemyFlash");
                 deflectCrabAudio.Play();
                 health--;
+                CrabMovement.crabcatcherLeft--;
+                Debug.Log("crabcatcher left: " + CrabMovement.crabcatcherLeft);
+                if (CrabMovement.crabcatcherLeft == 0)
+                {
+                    pc.shovelBreakAudio.Play();
+                    pc.has_crabcatcher = false;
+                    pc.has_item = false;
+                    Destroy(pc.current_item);
+                    BuyShop.crabcatcherpurchased = false;
+                    pc.animator.SetBool("CrabCatcher", pc.has_crabcatcher);
+                    pc.usingCrabCatcher.SetActive(false);
+                    CrabMovement.crabcatcherLeft = 10;
+                }
             }
 
 
