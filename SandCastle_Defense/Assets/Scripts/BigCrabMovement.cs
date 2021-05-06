@@ -172,6 +172,7 @@ public class BigCrabMovement : MonoBehaviour
         //"Knockback"
         if (alive)
         {
+            gameObject.tag = "dead";
             speed = -3f;
         }
         GetComponent<Renderer>().material.color = Color.gray;
@@ -179,6 +180,7 @@ public class BigCrabMovement : MonoBehaviour
 
         if (alive)
         {
+            gameObject.tag = "crab";
             speed = .8f;
         }
         GetComponent<Renderer>().material.color = Color.white;
