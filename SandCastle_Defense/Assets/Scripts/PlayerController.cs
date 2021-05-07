@@ -296,7 +296,6 @@ public class PlayerController : MonoBehaviour
             {
                 digsLeftUI.SetActive(false);
                 pickUpToolAudio.Play();
-                SetCCLeftCountText();
 
                 Debug.Log("crabcatcher obtained!");
 								other.gameObject.SetActive(false);
@@ -483,11 +482,6 @@ public class PlayerController : MonoBehaviour
     public void SetDigsLeftCountText()
     {
         digsLeftCountText.text = digs_left.ToString();
-    }
-
-    public void SetCCLeftCountText()
-    {
-        crabcatcherLeftCountText.text = CrabMovement.crabcatcherLeft.ToString();
     }
 
     public void SetBucketLeftCountText()

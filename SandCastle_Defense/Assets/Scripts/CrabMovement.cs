@@ -27,8 +27,6 @@ public class CrabMovement : MonoBehaviour
 
     public GameObject particlesPrefab;
 
-    public static int crabcatcherLeft = 10;
-
     private void Start()
     {
         target = centerTower.transform.position;
@@ -109,21 +107,6 @@ public class CrabMovement : MonoBehaviour
                 gameObject.tag = "dead";
                 deflectCrabAudio.Play();
                 PlayerController.crabsHit++;
-                crabcatcherLeft--;
-                pc.SetCCLeftCountText();
-                Debug.Log("crabcatcher left: " + crabcatcherLeft);
-
-                if (crabcatcherLeft == 0)
-                {
-                    pc.shovelBreakAudio.Play();
-                    pc.has_crabcatcher = false;
-                    pc.has_item = false;
-                    Destroy(pc.current_item);
-                    BuyShop.crabcatcherpurchased = false;
-                    pc.animator.SetBool("CrabCatcher", pc.has_crabcatcher);
-                    pc.usingCrabCatcher.SetActive(false);
-                    crabcatcherLeft = 10;
-                }
             }
 
 
