@@ -111,7 +111,7 @@ public class Timer : MonoBehaviour
     IEnumerator GracePeriod()
     {
         Debug.Log("grace period");
-        float wait_time = 10 + (2 * currentLevel);
+        float wait_time = 20 + (5 * currentLevel);
         yield return new WaitForSeconds(wait_time);
 
         CrabsAttack();
