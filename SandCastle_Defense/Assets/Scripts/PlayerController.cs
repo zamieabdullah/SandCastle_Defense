@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     public int bucketAmount = 0;
 
-    public GameObject castleTower;
+    public GameObject[] castleTowers;
 
     public showShop showShop;
 
@@ -177,7 +177,8 @@ public class PlayerController : MonoBehaviour
             {
                 if (has_bucket == true && bucketusesLeft > 0 && bucketFilled)
                 {
-                    Instantiate(castleTower, transform.position, Quaternion.identity);
+                    int castleNumber = Random.Range(0, 7);
+                    Instantiate(castleTowers[castleNumber], transform.position, Quaternion.identity);
                     bucketAmount -= 2;
                     bucketFilled = false;
                     animator.SetBool("BucketFull", bucketFilled);

@@ -1461,8 +1461,15 @@ MonoBehaviour:
   trenchParent: {fileID: 64658627}
   shovelBreakAudio: {fileID: 0}
   bucketAmount: 0
-  castleTower: {fileID: 4889900415070837901, guid: 9e792924d593a4606be50d8f14d4ea9d,
-    type: 3}
+  castleTowers:
+  - {fileID: 5442173026678560147, guid: e85d53310374a4d96a482f5ac1253c78, type: 3}
+  - {fileID: 8687314331879825049, guid: c62c9541e7eb34c4db123d47c573b274, type: 3}
+  - {fileID: 496684185824507533, guid: 017f6eb74367e4f26afb9871efec2ee8, type: 3}
+  - {fileID: 5835497246061952266, guid: 7f1ae1e4809f54fa88b2e00810ce1061, type: 3}
+  - {fileID: 1204417066883281316, guid: 346c9f6a76ee64aecadf94376a895806, type: 3}
+  - {fileID: 4889900415070837901, guid: 9e792924d593a4606be50d8f14d4ea9d, type: 3}
+  - {fileID: 5840986879423496513, guid: 78761b521f7324c359ed09c60d82e1aa, type: 3}
+  - {fileID: 6698211452971163525, guid: 345f34a06f29844cc930a3140877a02d, type: 3}
   showShop: {fileID: 89968270}
   particlesPrefab: {fileID: 896491090158972169, guid: ca5b5efcebacc402cb5599d0d496d2e9,
     type: 3}
@@ -10932,7 +10939,7 @@ MonoBehaviour:
   trenchParent: {fileID: 0}
   shovelBreakAudio: {fileID: 0}
   bucketAmount: 0
-  castleTower: {fileID: 0}
+  castleTowers: []
   showShop: {fileID: 0}
   particlesPrefab: {fileID: 0}
   player_is_digging: 0
