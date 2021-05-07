@@ -34,7 +34,7 @@ public class BigCrabMovement : MonoBehaviour
     private void Start()
     {
         target = centerTower.transform.position;
-        health = 3;
+        health = 2;
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
