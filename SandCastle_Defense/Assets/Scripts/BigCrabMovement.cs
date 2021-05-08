@@ -117,9 +117,9 @@ public class BigCrabMovement : MonoBehaviour
 
                     }
                     GetComponent<SpriteRenderer>().color = Color.gray;
-                    speed *= 5;
-                    target.y = -10;
-                    target.x = Random.Range(-20f, 20f);
+                    speed *= -5;
+                    //target.y = -10;
+                    //target.x = Random.Range(-20f, 20f);
                     gameObject.tag = "dead";
                     deflectCrabAudio.Play();
                     PlayerController.crabsHit++;
