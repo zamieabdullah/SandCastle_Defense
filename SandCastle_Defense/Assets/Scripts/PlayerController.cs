@@ -61,6 +61,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource shovelBreakAudio;
     //private AudioSource swapToolAudio;
     private AudioSource openshopAudio;
+    private AudioSource buildAudio;
+    private AudioSource collectsandAudio;
 
 
     Vector2 movement;
@@ -182,6 +184,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (has_bucket == true && bucketusesLeft > 0 && bucketFilled)
                 {
+                    buildAudio.Play();
                     int castleNumber = Random.Range(0, 7);
                     Instantiate(castleTowers[castleNumber], transform.position, Quaternion.identity);
                     bucketAmount -= 2;
@@ -355,6 +358,7 @@ public class PlayerController : MonoBehaviour
             if ((has_bucket == true) && (bucketFilled == false))
             {
                 //fill bucket with sand
+                collectsandAudio.Play();
                 SpawnSandPiles.currnumofpiles--;
                 bucketFilled = true;
 
@@ -519,6 +523,8 @@ public class PlayerController : MonoBehaviour
         shovelBreakAudio = allMyAudioSources[3];
         //swapToolAudio = allMyAudioSources[4];
         openshopAudio = allMyAudioSources[5];
+        buildAudio = allMyAudioSources[6];
+        collectsandAudio = allMyAudioSources[7];
     }
 
     public void SetSanddollarCountText()
