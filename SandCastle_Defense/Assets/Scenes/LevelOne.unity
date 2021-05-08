@@ -13462,7 +13462,7 @@ MonoBehaviour:
   sandpile: {fileID: 783828774427260913, guid: 64e403437b43e45c9bf5b9430264d301, type: 3}
   numToStart: 1
   parent: {fileID: 1108441674}
-  maxpiles: 7
+  maxpiles: 5
 --- !u!1001 &1139170285
 PrefabInstance:
   m_ObjectHideFlags: 0

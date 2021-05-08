@@ -10,6 +10,7 @@ public class GameHandler : MonoBehaviour
 
     public void startGame()
     {
+        ResetVariables();
         SceneManager.LoadScene("LevelOne");
     }
     
@@ -54,6 +55,19 @@ public class GameHandler : MonoBehaviour
     public void goToInstructionsTwo()
     {
         SceneManager.LoadScene("InstructionsTwo");
+    }
+
+    void ResetVariables()
+    {
+        PlayerController.timePlayed = 0;
+        PlayerController.numbOfLevels = 0;
+        PlayerController.crabsHit = 0;
+        PlayerController.trenchesDug = 0;
+        PlayerController.bucketUses = 0;
+        SpawnSanddollars.currdollars = 0;
+        SpawnSandPiles.currnumofpiles = 3;
+        Timer.timeLeft = 30f;
+        Timer.currentLevel = 1;
     }
 
 }

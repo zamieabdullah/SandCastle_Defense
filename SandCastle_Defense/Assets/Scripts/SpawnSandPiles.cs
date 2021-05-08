@@ -12,7 +12,7 @@ public class SpawnSandPiles : MonoBehaviour
     private float tempTime = 0f;
 
     static public int currnumofpiles = 3;
-    public int maxpiles = 7;
+    public int maxpiles = 5;
 
     public System.Random rand = new System.Random();
 
