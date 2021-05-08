@@ -284,6 +284,7 @@ public class PlayerController : MonoBehaviour
                 other.gameObject.SetActive(false);
                 has_shovel = true;
                 has_item = true;
+
                 current_item = other.gameObject;
                 animator.SetBool("Shovel", has_shovel);
 								digsLeftUI.SetActive(true);
