@@ -62,12 +62,17 @@ public class PauseMenu : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
-        Timer.currentLevel = 1;
+        PlayerController.timePlayed = 0;
+        PlayerController.numbOfLevels = 0;
+        PlayerController.crabsHit = 0;
+        PlayerController.trenchesDug = 0;
+        PlayerController.bucketUses = 0;
+        SpawnSanddollars.currdollars = 0;
+        SpawnSandPiles.currnumofpiles = 3;
         Timer.timeLeft = 30f;
-        //restart the game:
-        //SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
-        game.startGame(); //this fixes the no sanddolar bug I think but the time does not reset??
-        //SceneManager.LoadScene("LevelOne");
+        Timer.currentLevel = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("LevelOne");
     }
 
     public void QuitGame()
