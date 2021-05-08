@@ -58,7 +58,13 @@ public class Timer : MonoBehaviour
         {
             timeLeft -= Time.deltaTime;
             timePlaying = TimeSpan.FromSeconds(timeLeft);
- 
+
+            if (timeLeft < 5.00 && timeLeft > 4.00)
+            {
+                Debug.Log("sounding alarm, timeleft: " + timeLeft);
+                pc.incomingwaveAudio.Play();
+            }
+
             countDisplay.text = "Time until next wave: " + timePlaying.ToString("mm':'ss");
             if (timeLeft <= 15.00)
             {

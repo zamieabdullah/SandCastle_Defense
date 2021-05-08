@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource openshopAudio;
     private AudioSource buildAudio;
     private AudioSource collectsandAudio;
+    public AudioSource incomingwaveAudio;
 
 
     Vector2 movement;
@@ -525,6 +526,7 @@ public class PlayerController : MonoBehaviour
         openshopAudio = allMyAudioSources[5];
         buildAudio = allMyAudioSources[6];
         collectsandAudio = allMyAudioSources[7];
+        incomingwaveAudio = allMyAudioSources[8];
     }
 
     public void SetSanddollarCountText()
