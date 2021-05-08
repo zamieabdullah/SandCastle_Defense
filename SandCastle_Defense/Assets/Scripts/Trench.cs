@@ -8,6 +8,7 @@ public class Trench : MonoBehaviour
 	public Tilemap tilemapColliders;
     public RuleTile trenchRuleTileDry;
     public RuleTile trenchRuleTileWet;
+    public RuleTile trenchRuleTileDouble;
 
     public float trench_dig_count = 1;
 

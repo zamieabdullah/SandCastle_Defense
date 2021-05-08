@@ -1436,6 +1436,8 @@ MonoBehaviour:
   tilemapColliders: {fileID: 1618657692}
   trenchRuleTileDry: {fileID: 11400000, guid: b7804f832a30348e7bba6c306b9ca319, type: 2}
   trenchRuleTileWet: {fileID: 11400000, guid: e4226af6c0bff4a8cb8441f434be7c8c, type: 2}
+  trenchRuleTileDouble: {fileID: 11400000, guid: 9212fea56a92943fcaa8d4cb7869a330,
+    type: 2}
   attachPoint: {fileID: 391503914}
   trench: {fileID: 2092152920}
   sanddollarCountText: {fileID: 2052821884}
@@ -10914,6 +10916,7 @@ MonoBehaviour:
   tilemapColliders: {fileID: 0}
   trenchRuleTileDry: {fileID: 0}
   trenchRuleTileWet: {fileID: 0}
+  trenchRuleTileDouble: {fileID: 0}
   attachPoint: {fileID: 0}
   trench: {fileID: 2092152920}
   sanddollarCountText: {fileID: 2052821884}
@@ -18304,6 +18307,7 @@ MonoBehaviour:
   tilemapColliders: {fileID: 1618657692}
   trenchRuleTileDry: {fileID: 11400000, guid: b7804f832a30348e7bba6c306b9ca319, type: 2}
   trenchRuleTileWet: {fileID: 11400000, guid: e4226af6c0bff4a8cb8441f434be7c8c, type: 2}
+  trenchRuleTileDouble: {fileID: 0}
   trench_dig_count: 1
 --- !u!1 &1628234741 stripped
 GameObject:
@@ -28787,6 +28791,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4105807052468862926, guid: 5d7fa37961362c7418149d2d7fb38eab,
+        type: 3}
+      propertyPath: trenchRuleTileDouble
+      value: 
+      objectReference: {fileID: 11400000, guid: 9212fea56a92943fcaa8d4cb7869a330,
+        type: 2}
     - target: {fileID: 5049596159022811875, guid: 5d7fa37961362c7418149d2d7fb38eab,
         type: 3}
       propertyPath: m_Sprite

@@ -32,7 +32,7 @@ public class SpawnSandPiles : MonoBehaviour
           spawnSandpile();
           tempTime -= spawnInterval;
         }
-        Debug.Log("number of piles: " + currnumofpiles);
+        //Debug.Log("number of piles: " + currnumofpiles);
     }
 
     private void spawnSandpile()
