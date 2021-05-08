@@ -78,8 +78,6 @@ public class Timer : MonoBehaviour
 
             currentLevel++;
             PlayLevelX();
-
-            PlayerController.timePlayed = PlayerController.timePlayed + (30 + (5 * currentLevel));
         }
     }
 
@@ -94,6 +92,7 @@ public class Timer : MonoBehaviour
 
         if (timeLeft <= 0)
         {
+            PlayerController.timePlayed = PlayerController.timePlayed + (30 + (5 * currentLevel));
             timeLeft = 30 + (5 * currentLevel);   // MOVED FROM LINE 84 TO HERE INSIDE IF STATEMENT
             
             

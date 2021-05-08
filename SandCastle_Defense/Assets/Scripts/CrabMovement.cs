@@ -135,7 +135,7 @@ public class CrabMovement : MonoBehaviour
 
     IEnumerator gameOver()
     {
-        PlayerController.timePlayed = PlayerController.timePlayed + ((30 + (5 * Timer.currentLevel)) - Timer.timeLeft);
+        PlayerController.timePlayed = PlayerController.timePlayed + ((30 + (5 * Timer.currentLevel)) - Timer.timeLeft - 5);
 
         yield return new WaitForSeconds(3.5f);
 
