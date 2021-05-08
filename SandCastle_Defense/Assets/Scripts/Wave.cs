@@ -54,7 +54,8 @@ public class Wave : MonoBehaviour
 
         }
 
-        if ((collision.gameObject.CompareTag("trench")) || (collision.gameObject.CompareTag("wetTrench")))
+        if ((collision.gameObject.CompareTag("trench")) || (collision.gameObject.CompareTag("wetTrench")) || 
+             collision.gameObject.CompareTag("doubleTrench"))
         {
             Destroy(gameObject);
         }

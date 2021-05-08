@@ -7,16 +7,16 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
 
-	public float kidSpeed = 5f;
+    public float kidSpeed = 5f;
 
-	public Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     public Tilemap tilemapBG;
     public Tilemap tilemapColliders;
     public RuleTile trenchRuleTileDry;
     public RuleTile trenchRuleTileWet;
     public RuleTile trenchRuleTileDouble;
-    
+
 
     public Transform attachPoint;
     public GameObject trench;
@@ -27,19 +27,19 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI digsLeftCountText;
     public int digs_left = 5;
     public GameObject digsLeftUI;
-		
-		public GameObject usingCrabCatcher;
+
+    public GameObject usingCrabCatcher;
     public TextMeshProUGUI crabcatcherLeftCountText;
 
     public GameObject usingBucket;
-		public GameObject filledBucket;
-		public GameObject emptyBucket;
-		public TextMeshProUGUI BucketState;
+    public GameObject filledBucket;
+    public GameObject emptyBucket;
+    public TextMeshProUGUI BucketState;
     public TextMeshProUGUI bucketLeftCountText;
 
 
     public Animator animator;
-	  private bool looking_right = true;
+    private bool looking_right = true;
 
     //So player can only hold one item at a time
     public GameObject current_item;
@@ -49,8 +49,9 @@ public class PlayerController : MonoBehaviour
     public bool has_crabcatcher = false;
 
     public GameObject UsesLeftText;
-    
+
     public bool bucketFilled = false;
+    public bool made_double_trench = false;
 
     public GameObject trenchParent;
 
@@ -60,9 +61,9 @@ public class PlayerController : MonoBehaviour
     public AudioSource shovelBreakAudio;
     //private AudioSource swapToolAudio;
     private AudioSource openshopAudio;
-   
 
-	  Vector2 movement;
+
+    Vector2 movement;
 
     public int bucketAmount = 0;
 
@@ -88,10 +89,10 @@ public class PlayerController : MonoBehaviour
     {
         sanddollarCount = 0;
         SetSanddollarCountText();
-				SetBucketState();
+        SetBucketState();
         digsLeftUI.SetActive(false);
-				usingCrabCatcher.SetActive(false);
-				usingBucket.SetActive(false);
+        usingCrabCatcher.SetActive(false);
+        usingBucket.SetActive(false);
         SetUpAudio();
         UsesLeftText.SetActive(false);
     }
@@ -101,20 +102,20 @@ public class PlayerController : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal") * kidSpeed;
         movement.y = Input.GetAxisRaw("Vertical") * kidSpeed;
-				
-				if (Mathf.Abs(movement.x) > 0.01) {
-					  animator.SetFloat("Speed", Mathf.Abs(movement.x));
-				} else if (Mathf.Abs(movement.y) > 0.01) {
-					  animator.SetFloat("Speed", Mathf.Abs(movement.y));
-				} else {
-					  animator.SetFloat("Speed", (float)0.00);
-				}
-				
-				if (movement.x < 0 && looking_right) {
-				    Flip();
-				} else if (movement.x > 0 && !looking_right) {
-					  Flip();
-				}
+
+        if (Mathf.Abs(movement.x) > 0.01) {
+            animator.SetFloat("Speed", Mathf.Abs(movement.x));
+        } else if (Mathf.Abs(movement.y) > 0.01) {
+            animator.SetFloat("Speed", Mathf.Abs(movement.y));
+        } else {
+            animator.SetFloat("Speed", (float)0.00);
+        }
+
+        if (movement.x < 0 && looking_right) {
+            Flip();
+        } else if (movement.x > 0 && !looking_right) {
+            Flip();
+        }
 
         if (has_item)
         {
@@ -128,17 +129,20 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Dig"))
         {
             if (has_shovel == true)
-            {   
-                 //this should always run
-                 if (digs_left > 0)
-                 {
+            {
+                //this should always run
+                if (digs_left > 0)
+                {
+                    
+                    if (!player_is_on_trench)
+                    {
+                        DigTrench();
+                    }
+                    
 
-                  
-                    DigTrench();
 
                     
-                    trenchesDug++;
-                    Debug.Log("digs left after digging = " + digs_left);
+                    //Debug.Log("digs left after digging = " + digs_left);
 
                     if (digs_left == 0)
                     {
@@ -146,19 +150,19 @@ public class PlayerController : MonoBehaviour
                         has_shovel = false;
                         has_item = false;
                         Destroy(current_item);
-					      				digs_left = 5;
+                        digs_left = 5;
                         BuyShop.shovelpurchased = false;
                         //shovel disappears off the kid
                         animator.SetBool("Shovel", has_shovel);
-												digsLeftUI.SetActive(false);
+                        digsLeftUI.SetActive(false);
                     }
-                 }
+                }
             }
             else
             {
                 Debug.Log("Get your shovel before you can dig!");
             }
-            
+
         }
         //dont need i think
         //if (Input.GetButtonDown("Equip") && (has_item == true))
@@ -172,7 +176,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Your bucket is empty!");
                 bucketFilled = false;
-								SetBucketState();
+                SetBucketState();
             }
             else
             {
@@ -216,24 +220,48 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-    	rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("trench"))
+        if (other.gameObject.CompareTag("trench") || other.gameObject.CompareTag("doubleTrench"))
         {
             Debug.Log("player_is_on_trench is true");
             player_is_on_trench = true;
-            if (Input.GetButtonDown("Dig"))
+            if (Input.GetButtonDown("Dig") && has_shovel == true && !other.gameObject.CompareTag("doubleTrench") &&
+                !other.gameObject.CompareTag("wetTrench") )
             {
-                other.gameObject.GetComponent<Trench>().trench_dig_count++;
-                Debug.Log("trench_dig_count is " + other.gameObject.GetComponent<Trench>().trench_dig_count);
+                digAudio.Play();
+                Destroy(other.gameObject);
+                digs_left--;
+                SetDigsLeftCountText();
+                Vector3Int currCell = tilemapColliders.WorldToCell(other.transform.position);
+                Debug.Log("DIGGING DOUBLE TRENCH");
+                tilemapColliders.SetTile(currCell, trenchRuleTileDouble);
+                GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
+                thisTrench.tag = "doubleTrench";
+                thisTrench.SetActive(true);
+                thisTrench.transform.SetParent(trenchParent.transform);
             }
-
+            /*other.gameObject.GetComponent<Trench>().trench_dig_count++;
+            Debug.Log("trench_dig_count is " + other.gameObject.GetComponent<Trench>().trench_dig_count);*/
+            if (digs_left == 0)
+            {
+                Debug.Log("0000000 digs left");
+                has_shovel = false;
+                has_item = false;
+                Destroy(current_item);
+                digs_left = 5;
+                BuyShop.shovelpurchased = false;
+                //shovel disappears off the kid
+                animator.SetBool("Shovel", has_shovel);
+                digsLeftUI.SetActive(false);
+                shovelBreakAudio.Play();
+            }
+           
         }
-        else
-        {
+        else {
             player_is_on_trench = false;
             Debug.Log("player_is_on_trench is FALSE");
         }
@@ -260,6 +288,10 @@ public class PlayerController : MonoBehaviour
                 animator.SetBool("Shovel", has_shovel);
 								digsLeftUI.SetActive(true);
             }
+        }
+        if (other.gameObject.CompareTag("trench") || other.gameObject.CompareTag("doubleTrench") || other.gameObject.CompareTag("wetTrench"))
+        {
+            player_is_on_trench = true;
         }
 
         if (other.gameObject.CompareTag("bucket"))
@@ -378,13 +410,13 @@ public class PlayerController : MonoBehaviour
     {
     	digAudio.Play();
 
-        
 
+        Vector3Int currCell = tilemapColliders.WorldToCell(transform.position);
         if (!player_is_on_trench)
         {
             // get current grid location
 
-            Vector3Int currCell = tilemapColliders.WorldToCell(transform.position);
+
 
             Debug.Log("trench made at " + currCell);
 
@@ -400,7 +432,7 @@ public class PlayerController : MonoBehaviour
             //subtracts digs left
             digs_left--;
             SetDigsLeftCountText();
-
+            trenchesDug++;
             //creates sand dust effect
             GameObject ps = Instantiate(particlesPrefab, transform.position, Quaternion.identity);
 
@@ -412,11 +444,12 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            DigDoubleTrench();
+            //DigDoubleTrench();
         }
         
     }
 
+    /*
     void DigDoubleTrench()
     { //???
 
@@ -429,6 +462,7 @@ public class PlayerController : MonoBehaviour
         // }
 
     }
+    */
 
     public void PutDown()
     {
