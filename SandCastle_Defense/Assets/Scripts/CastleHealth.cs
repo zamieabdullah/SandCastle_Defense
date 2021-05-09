@@ -30,7 +30,7 @@ public class CastleHealth : MonoBehaviour
     {
         if ((castleTowers != null) && (castleTowers.Length <= 6))
         {
-            Debug.Log("VULNERABLE!!!");
+            
 
             if (spriteRenderer.color == Color.white)
             {

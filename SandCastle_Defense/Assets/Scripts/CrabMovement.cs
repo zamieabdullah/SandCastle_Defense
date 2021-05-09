@@ -27,6 +27,8 @@ public class CrabMovement : MonoBehaviour
 
     public GameObject particlesPrefab;
 
+    public bool hitByUpgradedCatcher = false;
+
     private void Start()
     {
         target = centerTower.transform.position;
@@ -35,6 +37,12 @@ public class CrabMovement : MonoBehaviour
     void Update()
     { 
         transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+
+        if (hitByUpgradedCatcher)
+        {
+            hitByUpgradedCrabCatcher();
+        }
+
 
         // float xPosition = Mathf.Sin(Time.time * wiggleSpeed) * wiggleDistance;
 
@@ -76,7 +84,7 @@ public class CrabMovement : MonoBehaviour
         // to trap the very first crab
         if (other.gameObject.CompareTag("crabTrap"))
         {
-            Debug.Log("crab 1 trapped!");
+            //Debug.Log("crab 1 trapped!");
             speed = 0f;
         }
 		
@@ -157,5 +165,34 @@ public class CrabMovement : MonoBehaviour
 
         return null;
     }
+
+    void hitByUpgradedCrabCatcher()
+    {
+        if (gameObject.tag != "dead")
+        {
+            Debug.Log("CRABCATCHER HIT CRAB");
+
+            hitByPlayer = true;
+
+            if (hasTower)
+            {
+                DropTower();
+
+                //capturedTower.tag = "castle";
+                //Debug.Log("CASTLE NOW!!!!");
+
+            }
+            GetComponent<SpriteRenderer>().color = Color.gray;
+            speed *= -5;
+            //target.y = -10;
+            //target.x = Random.Range(-20f, 20f);
+            gameObject.tag = "dead";
+            deflectCrabAudio.Play();
+            PlayerController.crabsHit++;
+
+            hitByUpgradedCatcher = false;
+        }
+    }
+
 
 }

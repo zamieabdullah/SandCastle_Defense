@@ -31,6 +31,8 @@ public class BigCrabMovement : MonoBehaviour
 
     private GameObject player;
 
+    public bool hitByUpgradedCatcher;
+
     private void Start()
     {
         target = centerTower.transform.position;
@@ -41,6 +43,11 @@ public class BigCrabMovement : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target, Time.deltaTime * speed);
+
+        if (hitByUpgradedCatcher)
+        {
+            hitByUpgradedCrabCatcher();
+        }
 
         // float xPosition = Mathf.Sin(Time.time * wiggleSpeed) * wiggleDistance;
 
@@ -154,7 +161,7 @@ public class BigCrabMovement : MonoBehaviour
         hasTower = false;
     }
 
-    public IEnumerator EnemyFlash ()
+    public IEnumerator EnemyFlash()
     {
         //"Knockback"
         if (alive)
@@ -182,4 +189,42 @@ public class BigCrabMovement : MonoBehaviour
 
         SceneManager.LoadScene("LoseScene");
     }
-}
+
+    
+
+    void hitByUpgradedCrabCatcher()
+    {
+        if (gameObject.tag != "dead")
+        {
+            if (health == 0)
+            {
+                alive = false;
+                hitByPlayer = true;
+
+                if (hasTower)
+                {
+
+                    //foreach (Transform t in gameObject.transform)
+                    //{
+                    //    t.gameObject.tag = "castle";
+                    //}
+                    DropTower();
+
+                }
+                GetComponent<SpriteRenderer>().color = Color.gray;
+                speed *= -5;
+                //target.y = -10;
+                //target.x = Random.Range(-20f, 20f);
+                gameObject.tag = "dead";
+                deflectCrabAudio.Play();
+                PlayerController.crabsHit++;
+            }
+            StartCoroutine("EnemyFlash");
+            deflectCrabAudio.Play();
+            health--;
+
+            hitByUpgradedCatcher = false;
+        }
+    }
+
+}        

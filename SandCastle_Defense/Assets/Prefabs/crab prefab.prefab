@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1525720470485422465}
   - component: {fileID: 5467298393899171249}
   - component: {fileID: 3068128729054085751}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: crab prefab
   m_TagString: crab
   m_Icon: {fileID: 0}
@@ -261,11 +261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05fe0ebd956914968a599b1f07779e01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackPoint: {fileID: 0}
-  attackRange: 0.3
-  castleLayer:
-    serializedVersion: 2
-    m_Bits: 256
   deflectCrabAudio: {fileID: 0}
   pc: {fileID: 0}
   centerTower: {fileID: 0}
+  sandpile: {fileID: 0}
+  particlesPrefab: {fileID: 0}
+  hitByUpgradedCatcher: 0

@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
     public bool has_bucket = false;
     public bool has_crabcatcher = false;
 
+    public bool has_upgraded_catcher = false;
+
     public GameObject UsesLeftText;
 
     public bool bucketFilled = false;
@@ -89,6 +91,12 @@ public class PlayerController : MonoBehaviour
 
     public int bucketusesLeft = 3;
 
+    public LayerMask crab;
+    public LayerMask bigCrab;
+    private Collider2D[] crabsInRadius;
+    private Collider2D[] bigCrabsInRadius;
+
+
     void Start()
     {
         sanddollarCount = 0;
@@ -99,6 +107,9 @@ public class PlayerController : MonoBehaviour
         usingBucket.SetActive(false);
         SetUpAudio();
         UsesLeftText.SetActive(false);
+
+        crabsInRadius = Physics2D.OverlapCircleAll(transform.position, 2f, crab);
+        bigCrabsInRadius = Physics2D.OverlapCircleAll(transform.position, 2f, bigCrab);
     }
 
     // Update is called once per frame
@@ -106,6 +117,9 @@ public class PlayerController : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal") * kidSpeed;
         movement.y = Input.GetAxisRaw("Vertical") * kidSpeed;
+
+        crabsInRadius = Physics2D.OverlapCircleAll(transform.position, 2f, crab);
+        bigCrabsInRadius = Physics2D.OverlapCircleAll(transform.position, 2f, bigCrab);
 
         if (Mathf.Abs(movement.x) > 0.01) {
             animator.SetFloat("Speed", Mathf.Abs(movement.x));
@@ -215,6 +229,32 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (Input.GetButtonDown("Hit") && has_upgraded_catcher)
+        {
+           
+            for (int i = 0; i <= crabsInRadius.Length; i++)
+            {
+                if (crabsInRadius.Length != 0)
+                {
+                    crabsInRadius[i].gameObject.GetComponent<CrabMovement>().hitByUpgradedCatcher = true;
+                }
+                    
+            }
+         
+            
+            if (bigCrabsInRadius.Length != 0)
+            {
+                for (int i = 0; i <= crabsInRadius.Length; i++)
+                {
+                    bigCrabsInRadius[i].gameObject.GetComponent<BigCrabMovement>().hitByUpgradedCatcher = true;
+                }
+            }
+                    
+            
+            
+        }
+
+
     }
 
     IEnumerator EnableBox(float wait_time)
@@ -232,7 +272,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("trench") || other.gameObject.CompareTag("doubleTrench"))
         {
-            Debug.Log("player_is_on_trench is true");
+            //Debug.Log("player_is_on_trench is true");
             player_is_on_trench = true;
             if (Input.GetButtonDown("Dig") && has_shovel == true && !other.gameObject.CompareTag("doubleTrench") &&
                 !other.gameObject.CompareTag("wetTrench") )
@@ -268,7 +308,7 @@ public class PlayerController : MonoBehaviour
         }
         else {
             player_is_on_trench = false;
-            Debug.Log("player_is_on_trench is FALSE");
+            //Debug.Log("player_is_on_trench is FALSE");
         }
     }
 
@@ -400,6 +440,28 @@ public class PlayerController : MonoBehaviour
             //pause game
             Time.timeScale = 0f;
         }
+
+        if (other.gameObject.CompareTag("upgradedCrabCatcher"))
+        {
+            if (has_item == true)
+            {
+                PutDown();
+            }
+            if (has_item == false)
+            {
+                pickUpToolAudio.Play();
+
+                other.gameObject.SetActive(false);
+                has_upgraded_catcher = true;
+                has_item = true;
+
+                current_item = other.gameObject;
+                // ADD ANIMATION HERE FOR UPGRADED CRABCATCHER
+                
+                
+            }
+            
+        }
     }
 		
 	private void Flip()
@@ -504,6 +566,19 @@ public class PlayerController : MonoBehaviour
 						usingBucket.SetActive(false);
             kidSpeed = 5f;
         }
+        if (has_upgraded_catcher == true)
+        {
+            GameObject a = Instantiate(current_item) as GameObject;
+            a.transform.position = new Vector2(6.92f, 4.2f);
+            a.SetActive(true);
+            has_upgraded_catcher = false;
+
+            // NEED ANIMATION LINES LIKE BELOW BUT FOR UPGRADED CATCHER:
+
+                //animator.SetBool("CrabCatcher", has_crabcatcher);
+                //usingCrabCatcher.SetActive(false);
+        }
+
 
         //copying the trench digging functionality
         //GetComponent<BoxCollider2D>().enabled = false;
@@ -558,5 +633,11 @@ public class PlayerController : MonoBehaviour
 				  BucketState.text = "Empty";
 			}
 	}
+
+    void OnDrawGizmosSelected()
+    {
+        if (transform.position == null) return;
+        Gizmos.DrawWireSphere(transform.position, 2f);
+    }
 }
 

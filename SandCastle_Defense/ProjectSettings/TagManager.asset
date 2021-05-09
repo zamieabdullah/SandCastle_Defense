@@ -26,6 +26,7 @@ TagManager:
   - wetTrench
   - bigcrab
   - dead
+  - upgradedCrabCatcher
   layers:
   - Default
   - TransparentFX
@@ -37,8 +38,8 @@ TagManager:
   - 
   - Castle
   - Trenches
-  - 
-  - 
+  - Crab
+  - BigCrab
   - 
   - 
   - 
