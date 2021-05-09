@@ -59,7 +59,7 @@ public class Timer : MonoBehaviour
             timeLeft -= Time.deltaTime;
             timePlaying = TimeSpan.FromSeconds(timeLeft);
 
-            if (timeLeft < 5.00 && timeLeft > 4.00)
+            if (timeLeft < 5.00 && timeLeft > 4.95)
             {
                 Debug.Log("sounding alarm, timeleft: " + timeLeft);
                 pc.incomingwaveAudio.Play();
@@ -94,8 +94,6 @@ public class Timer : MonoBehaviour
 
         StartCoroutine(GracePeriod());
 
-        Debug.Log("time left is " + timeLeft);
-
         if (timeLeft <= 0)
         {
             PlayerController.timePlayed = PlayerController.timePlayed + (30 + (5 * currentLevel));
@@ -104,6 +102,7 @@ public class Timer : MonoBehaviour
             
             Debug.Log("wave should be coming");
             Mat_WaveProjectile1.SetFloat("_Visibility", 3f);
+            pc.wavecomingAudio.Play();
             WaterAttack();
             
             

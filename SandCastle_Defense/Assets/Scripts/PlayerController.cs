@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
     private AudioSource buildAudio;
     private AudioSource collectsandAudio;
     public AudioSource incomingwaveAudio;
+    public AudioSource wavecomingAudio;
 
 
     Vector2 movement;
@@ -527,6 +528,7 @@ public class PlayerController : MonoBehaviour
         buildAudio = allMyAudioSources[6];
         collectsandAudio = allMyAudioSources[7];
         incomingwaveAudio = allMyAudioSources[8];
+        wavecomingAudio = allMyAudioSources[9];
     }
 
     public void SetSanddollarCountText()
