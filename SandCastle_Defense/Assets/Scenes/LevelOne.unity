@@ -1468,7 +1468,7 @@ MonoBehaviour:
   trenchParent: {fileID: 64658627}
   shovelBreakAudio: {fileID: 0}
   incomingwaveAudio: {fileID: 0}
-  survivedAudio: {fileID: 0}
+  wavecomingAudio: {fileID: 0}
   bucketAmount: 0
   castleTowers:
   - {fileID: 5442173026678560147, guid: e85d53310374a4d96a482f5ac1253c78, type: 3}
@@ -1498,7 +1498,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0029812157, y: 0.13472354}
+  m_Offset: {x: 0.0029812157, y: 0.41044027}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1509,7 +1509,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3359378, y: 0.4515412}
+  m_Size: {x: 0.3359378, y: 1.0029746}
   m_EdgeRadius: 0
 --- !u!50 &96897584
 Rigidbody2D:
@@ -11334,7 +11334,7 @@ MonoBehaviour:
   trenchParent: {fileID: 0}
   shovelBreakAudio: {fileID: 0}
   incomingwaveAudio: {fileID: 0}
-  survivedAudio: {fileID: 0}
+  wavecomingAudio: {fileID: 0}
   bucketAmount: 0
   castleTowers: []
   showShop: {fileID: 0}
