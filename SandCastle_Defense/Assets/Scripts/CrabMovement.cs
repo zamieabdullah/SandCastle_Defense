@@ -87,6 +87,23 @@ public class CrabMovement : MonoBehaviour
             //Debug.Log("crab 1 trapped!");
             speed = 0f;
         }
+
+        if ((other.gameObject.CompareTag("doubleTrench")))
+        {
+            Debug.Log("CRAB and DOUBLETRENCH");
+
+            TrapCrab();
+
+        }
+        if ((other.gameObject.CompareTag("wetTrench")))
+        {
+            if (speed == 0)
+            {
+                Debug.Log("CRAB and wetTrench");
+                gameObject.tag = "dead";
+                Destroy(this.gameObject);
+            }
+        }
 		
 	}
 
@@ -119,6 +136,7 @@ public class CrabMovement : MonoBehaviour
 
 
         }
+
     }
     void DropTower()
     {
@@ -139,6 +157,17 @@ public class CrabMovement : MonoBehaviour
 
         Destroy(capturedTower);
 
+    }
+
+    void TrapCrab()
+    {
+        Debug.Log("TrapCrab()");
+    
+        Vector3 theScale = transform.localScale;
+        theScale.y *= -1;
+        transform.localScale = theScale;
+        // FALLINg ANIMATION
+        speed = 0;
     }
 
     IEnumerator gameOver()
