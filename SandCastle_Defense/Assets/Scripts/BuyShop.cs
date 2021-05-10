@@ -138,7 +138,7 @@ public class BuyShop : MonoBehaviour
     public void upgradeShovel()
     {
         Debug.Log("upgrading shovel");
-        if (playercontroller.sanddollarCount > 50)
+        if (playercontroller.sanddollarCount > 49)
         {
             canbuyAudio.Play();
             playercontroller.sanddollarCount = playercontroller.sanddollarCount - 50;
@@ -146,6 +146,7 @@ public class BuyShop : MonoBehaviour
 
             //CODE to change shovel to upgraded
 
+            GetComponent<Button>().interactable = false;
             feedbackText.color = Color.green;
             feedbackText.text = "Successfully Upgraded!";
         }
@@ -162,7 +163,7 @@ public class BuyShop : MonoBehaviour
     public void upgradeCrabCatcher()
     {
         Debug.Log("upgrading crabcatcher");
-        if (playercontroller.sanddollarCount > 50)
+        if (playercontroller.sanddollarCount > 49)
         {
             canbuyAudio.Play();
             playercontroller.sanddollarCount = playercontroller.sanddollarCount - 50;
@@ -171,6 +172,7 @@ public class BuyShop : MonoBehaviour
             //CODE to change crabcatcher to upgraded
             playercontroller.has_upgraded_catcher = true;
 
+            GetComponent<Button>().interactable = false;
             feedbackText.color = Color.green;
             feedbackText.text = "Successfully Upgraded!";
         }
@@ -187,7 +189,7 @@ public class BuyShop : MonoBehaviour
     public void upgradeBucket()
     {
         Debug.Log("upgrading bucket");
-        if (playercontroller.sanddollarCount > 50)
+        if (playercontroller.sanddollarCount > 49)
         {
             canbuyAudio.Play();
             playercontroller.sanddollarCount = playercontroller.sanddollarCount - 50;
@@ -195,6 +197,7 @@ public class BuyShop : MonoBehaviour
 
             //CODE to change bucket to upgraded
 
+            GetComponent<Button>().interactable = false;
             feedbackText.color = Color.green;
             feedbackText.text = "Successfully Upgraded!";
         }
