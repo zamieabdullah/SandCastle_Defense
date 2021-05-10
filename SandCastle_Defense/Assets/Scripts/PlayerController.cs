@@ -229,7 +229,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Hit") && has_upgraded_catcher)
+        if (Input.GetButtonDown("Hit") && has_crabcatcher && has_upgraded_catcher)
         {
            
             for (int i = 0; i < crabsInRadius.Length; i++)
@@ -240,10 +240,6 @@ public class PlayerController : MonoBehaviour
                 }
                     
             }
-         
-            
-            
-            
             for (int i = 0; i < crabsInRadius.Length; i++)
             {
                 if (bigCrabsInRadius.Length != 0)
@@ -252,10 +248,6 @@ public class PlayerController : MonoBehaviour
                 }
                     
             }
-            
-                    
-            
-            
         }
 
 
@@ -445,27 +437,6 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0f;
         }
 
-        if (other.gameObject.CompareTag("upgradedCrabCatcher"))
-        {
-            if (has_item == true)
-            {
-                PutDown();
-            }
-            if (has_item == false)
-            {
-                pickUpToolAudio.Play();
-
-                other.gameObject.SetActive(false);
-                has_upgraded_catcher = true;
-                has_item = true;
-
-                current_item = other.gameObject;
-                // ADD ANIMATION HERE FOR UPGRADED CRABCATCHER
-                
-                
-            }
-            
-        }
     }
 		
 	private void Flip()
@@ -567,20 +538,8 @@ public class PlayerController : MonoBehaviour
             a.SetActive(true);
             has_bucket = false;
             animator.SetBool("Bucket", has_bucket);
-						usingBucket.SetActive(false);
+            usingBucket.SetActive(false);
             kidSpeed = 5f;
-        }
-        if (has_upgraded_catcher == true)
-        {
-            GameObject a = Instantiate(current_item) as GameObject;
-            a.transform.position = new Vector2(6.92f, 4.2f);
-            a.SetActive(true);
-            has_upgraded_catcher = false;
-
-            // NEED ANIMATION LINES LIKE BELOW BUT FOR UPGRADED CATCHER:
-
-                //animator.SetBool("CrabCatcher", has_crabcatcher);
-                //usingCrabCatcher.SetActive(false);
         }
 
 

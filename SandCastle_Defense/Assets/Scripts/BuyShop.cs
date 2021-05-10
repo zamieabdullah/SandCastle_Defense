@@ -169,6 +169,7 @@ public class BuyShop : MonoBehaviour
             playercontroller.SetSanddollarCountText();
 
             //CODE to change crabcatcher to upgraded
+            playercontroller.has_upgraded_catcher = true;
 
             feedbackText.color = Color.green;
             feedbackText.text = "Successfully Upgraded!";
