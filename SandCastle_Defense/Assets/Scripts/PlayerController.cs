@@ -232,7 +232,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Hit") && has_upgraded_catcher)
         {
            
-            for (int i = 0; i <= crabsInRadius.Length; i++)
+            for (int i = 0; i < crabsInRadius.Length; i++)
             {
                 if (crabsInRadius.Length != 0)
                 {
@@ -242,13 +242,17 @@ public class PlayerController : MonoBehaviour
             }
          
             
-            if (bigCrabsInRadius.Length != 0)
+            
+            
+            for (int i = 0; i < crabsInRadius.Length; i++)
             {
-                for (int i = 0; i <= crabsInRadius.Length; i++)
+                if (bigCrabsInRadius.Length != 0)
                 {
                     bigCrabsInRadius[i].gameObject.GetComponent<BigCrabMovement>().hitByUpgradedCatcher = true;
                 }
+                    
             }
+            
                     
             
             
