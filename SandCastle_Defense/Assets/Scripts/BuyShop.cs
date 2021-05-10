@@ -134,4 +134,76 @@ public class BuyShop : MonoBehaviour
             feedbackText.text = "Can only have one bucket!";
         }
     }
+
+    public void upgradeShovel()
+    {
+        Debug.Log("upgrading shovel");
+        if (playercontroller.sanddollarCount > 50)
+        {
+            canbuyAudio.Play();
+            playercontroller.sanddollarCount = playercontroller.sanddollarCount - 50;
+            playercontroller.SetSanddollarCountText();
+
+            //CODE to change shovel to upgraded
+
+            feedbackText.color = Color.green;
+            feedbackText.text = "Successfully Upgraded!";
+        }
+        else
+        {
+            cantbuyAudio.Play();
+            feedbackText.color = Color.red;
+            feedbackText.text = "Get more sand dollars!";
+            Debug.Log("CANNOT UPGRADE! Collect sand dollars");
+        }
+        Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
+    }
+
+    public void upgradeCrabCatcher()
+    {
+        Debug.Log("upgrading crabcatcher");
+        if (playercontroller.sanddollarCount > 50)
+        {
+            canbuyAudio.Play();
+            playercontroller.sanddollarCount = playercontroller.sanddollarCount - 50;
+            playercontroller.SetSanddollarCountText();
+
+            //CODE to change crabcatcher to upgraded
+
+            feedbackText.color = Color.green;
+            feedbackText.text = "Successfully Upgraded!";
+        }
+        else
+        {
+            cantbuyAudio.Play();
+            feedbackText.color = Color.red;
+            feedbackText.text = "Get more sand dollars!";
+            Debug.Log("CANNOT UPGRADE! Collect sand dollars");
+        }
+        Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
+    }
+
+    public void upgradeBucket()
+    {
+        Debug.Log("upgrading bucket");
+        if (playercontroller.sanddollarCount > 50)
+        {
+            canbuyAudio.Play();
+            playercontroller.sanddollarCount = playercontroller.sanddollarCount - 50;
+            playercontroller.SetSanddollarCountText();
+
+            //CODE to change bucket to upgraded
+
+            feedbackText.color = Color.green;
+            feedbackText.text = "Successfully Upgraded!";
+        }
+        else
+        {
+            cantbuyAudio.Play();
+            feedbackText.color = Color.red;
+            feedbackText.text = "Get more sand dollars!";
+            Debug.Log("CANNOT UPGRADE! Collect sand dollars");
+        }
+        Debug.Log("New sanddollar count: " + playercontroller.sanddollarCount);
+    }
 }
