@@ -105,7 +105,7 @@ public class BigCrabMovement : MonoBehaviour
     {
         if ((other.gameObject.CompareTag("Player")))
         {
-            if (pc.has_crabcatcher && Input.GetButtonDown("Hit") && gameObject.tag != "dead")
+            if (pc.has_crabcatcher && !pc.has_upgraded_catcher && Input.GetButtonDown("Hit") && gameObject.tag != "dead")
             {
                 //Debug.Log("CRABCATCHER HIT BIGCRAB");
                 if (health == 0)

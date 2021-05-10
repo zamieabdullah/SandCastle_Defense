@@ -145,6 +145,7 @@ public class BuyShop : MonoBehaviour
             playercontroller.SetSanddollarCountText();
 
             //CODE to change shovel to upgraded
+            playercontroller.has_upgraded_shovel = true;
 
             GetComponent<Button>().interactable = false;
             feedbackText.color = Color.green;
@@ -196,6 +197,7 @@ public class BuyShop : MonoBehaviour
             playercontroller.SetSanddollarCountText();
 
             //CODE to change bucket to upgraded
+            playercontroller.has_upgraded_bucket = true;
 
             GetComponent<Button>().interactable = false;
             feedbackText.color = Color.green;

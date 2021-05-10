@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     public bool has_crabcatcher = false;
 
     public bool has_upgraded_catcher = false;
+    public bool has_upgraded_bucket = false;
+    public bool has_upgraded_shovel = false;
 
     public GameObject UsesLeftText;
 
@@ -202,7 +204,21 @@ public class PlayerController : MonoBehaviour
                 {
                     buildAudio.Play();
                     int castleNumber = Random.Range(0, 7);
-                    Instantiate(castleTowers[castleNumber], transform.position, Quaternion.identity);
+
+                    if (has_upgraded_bucket)
+                    {
+                        Vector3 rightSide = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
+                        Vector3 leftSide = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
+
+                        Instantiate(castleTowers[castleNumber], transform.position, Quaternion.identity);
+                        Instantiate(castleTowers[castleNumber], rightSide, Quaternion.identity);
+                        Instantiate(castleTowers[castleNumber], leftSide, Quaternion.identity);
+                    }
+                    else
+                    {
+                        Instantiate(castleTowers[castleNumber], transform.position, Quaternion.identity);
+                    }
+
                     bucketAmount -= 2;
                     bucketFilled = false;
                     animator.SetBool("BucketFull", bucketFilled);
@@ -229,7 +245,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Hit") && has_upgraded_catcher)
+        if (Input.GetButtonDown("Hit") && has_crabcatcher && has_upgraded_catcher)
         {
            
             for (int i = 0; i < crabsInRadius.Length; i++)
