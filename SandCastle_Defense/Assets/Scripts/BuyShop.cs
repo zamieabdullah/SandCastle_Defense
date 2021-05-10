@@ -146,6 +146,12 @@ public class BuyShop : MonoBehaviour
 
             //CODE to change shovel to upgraded
             playercontroller.has_upgraded_shovel = true;
+            if (playercontroller.digs_left > 0)
+            {
+                int additional_digs = 10 - playercontroller.digs_left;
+                playercontroller.digs_left += additional_digs;
+                playercontroller.SetDigsLeftCountText();
+            }
 
             GetComponent<Button>().interactable = false;
             feedbackText.color = Color.green;

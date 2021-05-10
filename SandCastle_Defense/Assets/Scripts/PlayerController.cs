@@ -170,7 +170,15 @@ public class PlayerController : MonoBehaviour
                         has_shovel = false;
                         has_item = false;
                         Destroy(current_item);
-                        digs_left = 5;
+                        if (has_upgraded_shovel)
+                        {
+                            digs_left = 10;
+                        }
+                        else
+                        {
+                            digs_left = 5;
+                        }
+                        
                         BuyShop.shovelpurchased = false;
                         //shovel disappears off the kid
                         animator.SetBool("Shovel", has_shovel);
