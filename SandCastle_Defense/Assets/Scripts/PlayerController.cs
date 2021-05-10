@@ -256,11 +256,8 @@ public class PlayerController : MonoBehaviour
                 }
                     
             }
-         
-            
-            
-            
-            for (int i = 0; i < crabsInRadius.Length; i++)
+
+            for (int i = 0; i < bigCrabsInRadius.Length; i++)
             {
                 if (bigCrabsInRadius.Length != 0)
                 {

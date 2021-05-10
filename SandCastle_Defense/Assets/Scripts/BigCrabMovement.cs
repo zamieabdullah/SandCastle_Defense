@@ -31,7 +31,7 @@ public class BigCrabMovement : MonoBehaviour
 
     private GameObject player;
 
-    public bool hitByUpgradedCatcher;
+    public bool hitByUpgradedCatcher = false;
 
     private void Start()
     {
