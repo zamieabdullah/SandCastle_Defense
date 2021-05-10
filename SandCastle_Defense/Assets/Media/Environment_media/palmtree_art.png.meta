@@ -1,7 +1,199 @@
 fileFormatVersion: 2
 guid: 7be17f618082d407c88d829f960ce7af
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2547236908133874052
+    second: palmtree_art_0
+  - first:
+      213: 8000112475077060565
+    second: palmtree_art_1
+  - first:
+      213: -2503989317119893988
+    second: palmtree_art_2
+  - first:
+      213: -6106808991309796087
+    second: palmtree_art_3
+  - first:
+      213: -3997456775968632924
+    second: palmtree_art_4
+  - first:
+      213: 5398170016468630426
+    second: palmtree_art_5
+  - first:
+      213: -2085769770779691930
+    second: palmtree_art_6
+  - first:
+      213: -4583667450728600070
+    second: palmtree_art_7
+  - first:
+      213: 3251094349300656738
+    second: palmtree_art_8
+  - first:
+      213: -8275515249939693686
+    second: palmtree_art_9
+  - first:
+      213: -9182266860824344720
+    second: palmtree_art_10
+  - first:
+      213: 2427640703342104459
+    second: palmtree_art_11
+  - first:
+      213: 8285577067064723069
+    second: palmtree_art_12
+  - first:
+      213: 3398049704453100576
+    second: palmtree_art_13
+  - first:
+      213: -4705690958632749568
+    second: palmtree_art_14
+  - first:
+      213: -1036716589432089804
+    second: palmtree_art_15
+  - first:
+      213: 8396592475968025649
+    second: palmtree_art_16
+  - first:
+      213: -4223229745639198498
+    second: palmtree_art_17
+  - first:
+      213: 7368488029203525480
+    second: palmtree_art_18
+  - first:
+      213: 5180082153215983
+    second: palmtree_art_19
+  - first:
+      213: -9165645718336635484
+    second: palmtree_art_20
+  - first:
+      213: -4750575114577337450
+    second: palmtree_art_21
+  - first:
+      213: -7242899794970994793
+    second: palmtree_art_22
+  - first:
+      213: 7410732992899758175
+    second: palmtree_art_23
+  - first:
+      213: -3124286466900066936
+    second: palmtree_art_24
+  - first:
+      213: -8027779947409969264
+    second: palmtree_art_25
+  - first:
+      213: 6183749664082896851
+    second: palmtree_art_26
+  - first:
+      213: 771889648949403270
+    second: palmtree_art_27
+  - first:
+      213: -1384597257900066407
+    second: palmtree_art_28
+  - first:
+      213: 4366059136382677502
+    second: palmtree_art_29
+  - first:
+      213: -7574835339889167540
+    second: palmtree_art_30
+  - first:
+      213: -2295731484601567836
+    second: palmtree_art_31
+  - first:
+      213: 5587704914210451350
+    second: palmtree_art_32
+  - first:
+      213: -7389523162688094291
+    second: palmtree_art_33
+  - first:
+      213: -2109368681977228115
+    second: palmtree_art_34
+  - first:
+      213: -3519239363550954802
+    second: palmtree_art_35
+  - first:
+      213: -8952445699324054574
+    second: palmtree_art_36
+  - first:
+      213: -575286669032010284
+    second: palmtree_art_37
+  - first:
+      213: 5248422044936350503
+    second: palmtree_art_38
+  - first:
+      213: -1934056714014526123
+    second: palmtree_art_39
+  - first:
+      213: -4004597059251962226
+    second: palmtree_art_40
+  - first:
+      213: -2829487226032519885
+    second: palmtree_art_41
+  - first:
+      213: 8461239317909124713
+    second: palmtree_art_42
+  - first:
+      213: 6493325258800324036
+    second: palmtree_art_43
+  - first:
+      213: -4784349316517634347
+    second: palmtree_art_44
+  - first:
+      213: 9126214374152232660
+    second: palmtree_art_45
+  - first:
+      213: -1796717835874703176
+    second: palmtree_art_46
+  - first:
+      213: 7920770131182437681
+    second: palmtree_art_47
+  - first:
+      213: -4191595154924574773
+    second: palmtree_art_48
+  - first:
+      213: -6621201077011022593
+    second: palmtree_art_49
+  - first:
+      213: -2383241083482426976
+    second: palmtree_art_50
+  - first:
+      213: 742268758881008349
+    second: palmtree_art_51
+  - first:
+      213: 6156770248230049143
+    second: palmtree_art_52
+  - first:
+      213: 7356259218301547191
+    second: palmtree_art_53
+  - first:
+      213: 5185542872438314080
+    second: palmtree_art_54
+  - first:
+      213: -3272934499010465910
+    second: palmtree_art_55
+  - first:
+      213: -2853660795380484859
+    second: palmtree_art_56
+  - first:
+      213: -9001385697468497812
+    second: palmtree_art_57
+  - first:
+      213: -2655854924010085573
+    second: palmtree_art_58
+  - first:
+      213: -6592228861970943156
+    second: palmtree_art_59
+  - first:
+      213: 3492814669445356488
+    second: palmtree_art_60
+  - first:
+      213: 9120682867817824972
+    second: palmtree_art_61
+  - first:
+      213: 5785464170160026171
+    second: palmtree_art_62
+  - first:
+      213: 3123748677371438683
+    second: palmtree_art_63
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -31,7 +223,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +232,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -63,7 +255,31 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -73,7 +289,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: palmtree_art_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489751cd87a995320800000000000000
+      internalID: 2547236908133874052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d7a320e8eb160f60800000000000000
+      internalID: 8000112475077060565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e12b79bfa004dd0800000000000000
+      internalID: -2503989317119893988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90d61d1e391404ba0800000000000000
+      internalID: -6106808991309796087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af496fdd3e2688c0800000000000000
+      internalID: -3997456775968632924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9bf6cc77072aea40800000000000000
+      internalID: 5398170016468630426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 664bd61c17bdd03e0800000000000000
+      internalID: -2085769770779691930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd2dc62dba8360c0800000000000000
+      internalID: -4583667450728600070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26a685de5153e1d20800000000000000
+      internalID: 3251094349300656738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f340ac9b6772d80800000000000000
+      internalID: -8275515249939693686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07749b790f8029080800000000000000
+      internalID: -9182266860824344720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8f4cf48b56b0b120800000000000000
+      internalID: 2427640703342104459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d76048191784cf270800000000000000
+      internalID: 8285577067064723069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0245c0bd33c482f20800000000000000
+      internalID: 3398049704453100576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0067de3410702beb0800000000000000
+      internalID: -4705690958632749568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: palmtree_art_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 433552231c7dc91f0800000000000000
+      internalID: -1036716589432089804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
