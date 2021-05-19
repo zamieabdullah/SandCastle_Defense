@@ -15,13 +15,14 @@ public class PlayerController : MonoBehaviour
     public Tilemap tilemapColliders;
     public RuleTile trenchRuleTileDry;
     public RuleTile trenchRuleTileWet;
-    public RuleTile trenchRuleTileDouble;
+    //public RuleTile trenchRuleTileDouble;
 
 
     public Transform attachPoint;
     public GameObject trench;
 
     public TextMeshProUGUI sanddollarCountText;
+
     public int sanddollarCount;
 
     public TextMeshProUGUI digsLeftCountText;
@@ -101,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        sanddollarCount = 100;
+        sanddollarCount = 0;
         SetSanddollarCountText();
         SetBucketState();
         digsLeftUI.SetActive(false);
@@ -172,7 +173,7 @@ public class PlayerController : MonoBehaviour
                         Destroy(current_item);
                         if (has_upgraded_shovel)
                         {
-                            digs_left = 10;
+                            digs_left = 15;
                         }
                         else
                         {
@@ -299,21 +300,25 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("player_is_on_trench is true");
             player_is_on_trench = true;
-            if (Input.GetButtonDown("Dig") && has_shovel == true && !other.gameObject.CompareTag("doubleTrench") &&
-                !other.gameObject.CompareTag("wetTrench") )
-            {
-                digAudio.Play();
-                Destroy(other.gameObject);
-                digs_left--;
-                SetDigsLeftCountText();
-                Vector3Int currCell = tilemapColliders.WorldToCell(other.transform.position);
-                Debug.Log("DIGGING DOUBLE TRENCH");
-                tilemapColliders.SetTile(currCell, trenchRuleTileDouble);
-                GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
-                thisTrench.tag = "doubleTrench";
-                thisTrench.SetActive(true);
-                thisTrench.transform.SetParent(trenchParent.transform);
-            }
+
+
+            // if (Input.GetButtonDown("Dig") && has_shovel == true && !other.gameObject.CompareTag("doubleTrench") &&
+            //     !other.gameObject.CompareTag("wetTrench") )
+            // {
+            //     digAudio.Play();
+            //     Destroy(other.gameObject);
+            //     digs_left--;
+            //     SetDigsLeftCountText();
+            //     Vector3Int currCell = tilemapColliders.WorldToCell(other.transform.position);
+            //     Debug.Log("DIGGING DOUBLE TRENCH");
+            //     tilemapColliders.SetTile(currCell, trenchRuleTileDouble);
+            //     GameObject thisTrench = Instantiate(trench, currCell, transform.rotation);
+            //     thisTrench.tag = "doubleTrench";
+            //     thisTrench.SetActive(true);
+            //     thisTrench.transform.SetParent(trenchParent.transform);
+            // }
+
+            
             /*other.gameObject.GetComponent<Trench>().trench_dig_count++;
             Debug.Log("trench_dig_count is " + other.gameObject.GetComponent<Trench>().trench_dig_count);*/
             if (digs_left == 0)
@@ -322,7 +327,14 @@ public class PlayerController : MonoBehaviour
                 has_shovel = false;
                 has_item = false;
                 Destroy(current_item);
-                digs_left = 5;
+                if (has_upgraded_shovel)
+                {
+                    digs_left = 15;
+                }
+                else
+                {
+                    digs_left = 5;
+                }
                 BuyShop.shovelpurchased = false;
                 //shovel disappears off the kid
                 animator.SetBool("Shovel", has_shovel);
@@ -376,6 +388,7 @@ public class PlayerController : MonoBehaviour
                 digsLeftUI.SetActive(false);
                 pickUpToolAudio.Play();
                 SetBucketLeftCountText();
+                SetBucketState();
 
                 other.gameObject.SetActive(false);
                 has_bucket = true;

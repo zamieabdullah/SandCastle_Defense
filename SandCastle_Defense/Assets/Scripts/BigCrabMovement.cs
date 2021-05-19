@@ -68,7 +68,7 @@ public class BigCrabMovement : MonoBehaviour
                 other.transform.parent = transform;
                 if (towerstaken == 2)
                 {
-                    speed *= 5;
+                    speed = .7f;
                     target.y = -10;
                     target.x = Random.Range(-20f, 20f);
                     hasTower = true;
@@ -122,14 +122,24 @@ public class BigCrabMovement : MonoBehaviour
                         //}
                         DropTower();
 
+
+                        target.y = -10;
+                        target.x = Random.Range(-20f, 20f);
+
+                        GetComponent<SpriteRenderer>().color = Color.gray;
+                        gameObject.tag = "dead";
+                        deflectCrabAudio.Play();
+                        PlayerController.crabsHit++;
+                    } else
+                    {
+                        GetComponent<SpriteRenderer>().color = Color.gray;
+                        speed = -5;
+                        //target.y = -10;
+                        //target.x = Random.Range(-20f, 20f);
+                        gameObject.tag = "dead";
+                        deflectCrabAudio.Play();
+                        PlayerController.crabsHit++;
                     }
-                    GetComponent<SpriteRenderer>().color = Color.gray;
-                    speed *= -5;
-                    //target.y = -10;
-                    //target.x = Random.Range(-20f, 20f);
-                    gameObject.tag = "dead";
-                    deflectCrabAudio.Play();
-                    PlayerController.crabsHit++;
                 }
                 StartCoroutine("EnemyFlash");
                 deflectCrabAudio.Play();
@@ -210,14 +220,24 @@ public class BigCrabMovement : MonoBehaviour
                     //}
                     DropTower();
 
+
+                    target.y = -10;
+                    target.x = Random.Range(-20f, 20f);
+
+                    GetComponent<SpriteRenderer>().color = Color.gray;
+                    gameObject.tag = "dead";
+                    deflectCrabAudio.Play();
+                    PlayerController.crabsHit++;
+                } else
+                {
+                    GetComponent<SpriteRenderer>().color = Color.gray;
+                    speed = -5;
+                    //target.y = -10;
+                    //target.x = Random.Range(-20f, 20f);
+                    gameObject.tag = "dead";
+                    deflectCrabAudio.Play();
+                    PlayerController.crabsHit++;
                 }
-                GetComponent<SpriteRenderer>().color = Color.gray;
-                speed *= -5;
-                //target.y = -10;
-                //target.x = Random.Range(-20f, 20f);
-                gameObject.tag = "dead";
-                deflectCrabAudio.Play();
-                PlayerController.crabsHit++;
             }
             StartCoroutine("EnemyFlash");
             deflectCrabAudio.Play();

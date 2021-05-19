@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     CrabMovement crabMovement;
     public PlayerController pc;
 
-    public TextMeshProUGUI currentLevelText;
+    public Text currentLevelText;
     public static float currentLevel = 1;
 
         // PRIVATE DECLARATIONS
